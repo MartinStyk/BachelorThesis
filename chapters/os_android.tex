@@ -1,0 +1,69 @@
+\chapter{Operačný systém Android}
+Android je mobilný operačný systém navrhnutý primárne pre zariadenia s~dotykovou obrazovkou. Android je dominantným operačným systémom na mobilných zariadeniach ako sú chytré telefóny a tablety. V~druhom kvartáli roku 2015 dosahoval až 82,8 podiel na trhu operačných systémov pre mobilné zariadenia. Systém je založený na linuxovom jadre. 
+
+%http://www.idc.com/prodserv/smartphone-os-market-share.jsp
+%https://en.wikipedia.org/wiki/Android_(operating_system)
+
+\section{História}
+Začiatok vývoja operačného systému dnes známeho ako Android siaha do roku 2003, kedy vznikla spoločnosť Android, Inc.. Zakladatelia spoločnosti plánovali vývoj chytrého mobilného zariadenia, ktoré dokáže efektívne využívať prostredie a preferencie užívateľov. Prvotným zámerom bol vývoj systému pre digitálne fotoaparáty, avšak kvôli malému trhu nakoniec zvolili systém pre mobilné zariadenia. Spoločnosť Android, Inc., bola v~roku 2005 kúpená spoločnosťou Google za viac ako 50 miliónov dolárov. 5. novembra 2007 bolo predstavené konzorcium Open Handset Alliance, skladajúce sa z~výrobcov mobilných zariadení, mobilných operátorov a výrobcov komponentov pre mobilné zariadenia. Hlavným cieľom konzorcia je vývoj otvorených mobilných štandardov. Prvým predstaveným produktom tejto skupiny bol operačný systém založený na Linuxovom jadre – Android. Prvým komerčne dostupným chytrým telefónom s~operačným systémom Android sa 22.\,novembra 2008 stal HTC Dream. Od roku 2008 bolo sa systém inkrementálne vylepšuje a vyvíja. Bolo vydaných množstvo opráv, vylepšení a nových funkcií. Začínajúc od verzie Android 1.5 Cupcake, je každá verzia pomenovaná podľa cukroviniek.
+Android je aktuálne vyvíjaný spoločnosťou Google ako open source projekt. Existuje aktívna komunita vývojárov podieľajúca sa na vývoji open source projektu Android Open Source Project. Väčšina Android zariadení sa predáva s~kombináciou open source a proprietárneho softvéru. Medzi proprietárne časti zdrojového kódu patria nadstavby výrobcov telefónov a služby spoločnosti Google (Google services). Android nemá žiadny centralizovaný systém aktualizácií. To má za následok, že veľká časť zariadení často nedostáva aktualizácie. Výskum v~roku 2015 ukázal, že až 90\,\% zariadení obsahuje známe bezpečnostné zraniteľnosti, ktoré nie sú opravené kvôli slabej podpore.
+%http://androidvulnerabilities.org/
+\section{Architektúra systému}
+Operačný systém Android je možné dekomponovať do piatich sekcií a štyroch základných softvérových vrstiev organizovaných v~zásobníkovej štruktúre.
+\begin{figure} [htb]
+ \centering
+	\ovalbox{
+		\begin{minipage}[b]{10cm}	
+			\begin{center}
+			Aplikácie
+			\end{center}					
+		\end{minipage}
+		}
+	\ovalbox{
+		\begin{minipage}[b]{10cm}	
+			\begin{center}
+			Aplikačný rámec
+			\end{center}					
+		\end{minipage}
+		}
+	\ovalbox{
+		\begin{minipage}[b]{10cm}	
+			\begin{center}
+			Knižnice \hfill Android Runtime (DVM)
+			\end{center}
+		\end{minipage}
+		}	
+	\ovalbox{
+		\begin{minipage}[b]{10cm}	
+			\begin{center}
+			Linuxové jadro
+			\end{center}					
+		\end{minipage}
+		}	
+  \caption{Vrstevnatá architektúra systému Android}
+  \label{fig:mulogo1}
+\end{figure}
+\subsection{Linuxové jadro}
+Najnižšiu vrstvu predstavuje Linuxové jadro vo verzií 2.6. Jadro je upravené za účelom optimalizácie spotreby energie a operačnej pamäte, podporuje preemptívny multitasking . Táto vrstva poskytuje abstrakciu medzi hardvérom zariadenia a vyššími softvérovými vrstvami a obsahuje ovládače hardvérových komponent ako fotoaparát, dotyková obrazovka alebo sieťové rozhranie.
+\subsection{Android Runtime a Dalvik Virtual Machine}
+Dalvik Virtual Machine je virtuálny stroj slúžiaci na exekúciu Android aplikácií. Je obdobou Java virtuálneho stroja. Virtuálny stroj Dalvik využíva nízkoúrovňovú funkcionalitu linuxového jadra. Každá aplikácia je spustená vo vlastnom procese a na vlastnej inštancii virtuálneho stroja. Tento prístup zaručuje, že aplikácie sa navzájom neúmyselne neovplyvňujú, nepristupujú priamo k~hardvéru zariadenia a využívajú abstrakciu, ktorá zabezpečuje ich platformovú nezávislosť.  Od verzie Android 5.0 je virtuálny stroj Dalvik plne nahradený novým prostredím Android Runtime (ART).
+\subsection{Knižnice}
+Android obsahuje množstvo knižníc využívaných vývojármi alebo samotným systémom. Špecifickou skupinou sú natívne knižnice jadra, často označované ako Dalvik knižnice, ktoré obsahujú kód pre interakciu s~inštanciou virtuálneho stroja ale aj napríklad knižnice pre prístup k~systému súborov. Veľká časť knižníc obsiahnutá v~tejto vrstve využíva natívny kód v~jazyku C/C++ a slúži ako obal okolo natívneho C/C++ kódu využívajúci jazyk Java. Táto vrstva obsahuje niektoré štandardné knižnice známe z~jazyka Java upravené pre využitie na operačnom systéme Android, ale aj knižnice špecifické pre platformu Android, tzv. Android knižnice.
+\subsection{Aplikačný rámec}
+Vrstva aplikačného rámca poskytuje vysoko-úrovňové služby používané na manažment aplikácie. Využíva koncept Android aplikácií, ktoré sa skladajú z~viacerých komponent. Kľúčové služby poskytované aplikačným rámcom sú : 
+\begin{itemize}
+	\item Activity Manager  --  ovláda životný cyklus aktivít a spravuje zásobník naposledy spustených aktivít
+	\item Content Provider  --  umožňuje zdieľanie dát medzi aplikáciami
+	\item Resource Manager  --  poskytuje prístup k~zdrojovým súborom ako reťazce, obrázky, dizajny obrazoviek
+	\item Notification Manager  --  umožňuje aplikácií zobrazovať upozornenia
+	\item View system  --  poskytuje prvky, ktoré tvoria grafické používateľské rozhranie aplikácie
+	\item Package Manager  --  umožňuje aplikáciám zistiť informácie o~ostatných aplikáciách nainštalovaných na zariadení
+	\item Telephony Manager  --  umožňuje aplikáciám zistiť informácie informácie o~stave telefónnych služieb
+	\item Location Manager  --  poskytuje aplikácií informácie o~polohe zariadenia
+\end{itemize}
+\subsection{Aplikácie}
+Na vrchole vrstevnatej architektúry systému Android sú aplikácie, ktoré využívajú súčinnosť všetkých spomenutých vrstiev. 
+
+%http://www.tutorialspoint.com/android/android_architecture.htm
+%https://source.android.com/devices/
+%http://www.techotopia.com/index.php/An_Overview_of_the_Android_Architecture	

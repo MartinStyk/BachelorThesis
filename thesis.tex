@@ -23,9 +23,8 @@
 %% The following section sets up the locales used in the thesis.
 \usepackage[resetfonts]{cmap} %% We need to load the T2A font encoding
 \usepackage[T1,T2A]{fontenc}  %% to use the Cyrillic fonts with Russian texts.
-\usepackage[slovak]{babel}
-\usepackage{paratype}
-\def\textrussian#1{{\usefont{T2A}{PTSerif-TLF}{m}{rm}#1}}
+\usepackage[slovak]{babel}        %% foreign texts to be typeset as follows:
+
 %%
 %% The following section sets up the metadata of the thesis.
 \thesissetup{
@@ -67,11 +66,15 @@
 \usepackage{amsfonts}
 \usepackage{url}
 \usepackage{menukeys}
+\usepackage{fancybox}
+
 \begin{document}
-\chapter{Introduction}
-Theses are rumoured to be the capstones of education, so I decided
-to write one of my own. If all goes well, I will soon have a
-diploma under my belt. Wish me luck!
+\chapter{Úvod}
+TBD
+
+%% Operačný systém Android 
+\input{chapters/os_android}
+
 
 
 \chapter{These are}
@@ -128,46 +131,7 @@ offers commands
     \end{compactenum}
   \end{compactenum}
 \end{compactenum}
-The \textsf{amsthm} package provides the commands necessary for the
-typesetting of mathematical definitions, theorems, lemmas and
-proofs.
 
-%% We will define several mathematical sectioning commands.
-\newtheorem{theorem}{Theorem}[section] %% The numbering of theorems
-                               %% will be reset after each section.
-\newtheorem{lemma}[theorem]{Lemma}     %% The numbering of lemmas
-\newtheorem{corr}[theorem]{Corrolary}  %% and corrolaries will
-                                %% share the counter with theorems.
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-
-\begin{theorem}
-  This is a theorem that offers a profound insight into the
-  mathematical sectioning commands.
-\end{theorem}
-\begin{theorem}[Another theorem]
-  This is another theorem. Unlike the first one, this theorem has
-  been endowed with a name.
-\end{theorem}
-\begin{lemma}
-  Let us suppose that $x^2+y^2=z^2$. Then
-  \begin{equation}
-    \biggl\langle u\biggm|\sum_{i=1}^nF(e_i,v)e_i\biggr\rangle
-    =F\biggl(\sum_{i=1}^n\langle e_i|u\rangle e_i,v\biggr).
-  \end{equation}
-\end{lemma}
-\begin{proof}
-  $\nabla^2 f(x,y)=\frac{\partial^2f}{\partial x^2}+
-   \frac{\partial^2f}{\partial y^2}$.
-\end{proof}
-\begin{corr}
-  This is a corrolary.
-\end{corr}
-\begin{remark}
-  This is a remark.
-\end{remark}
 
 \chapter{Floats and references}
 \begin{figure}
@@ -438,7 +402,7 @@ sort entries that contain digits and letters of the English
 alphabet) may be used instead of \texttt{texindy}. In either case,
 the index will be ill-sorted.
 
-\makeatletter\thesis@blocks@clear\makeatother
+%\makeatletter\thesis@blocks@clear\makeatother
 \phantomsection %% Print the index and insert it into the
 \addcontentsline{toc}{chapter}{\indexname} %% table of contents.
 \printindex
