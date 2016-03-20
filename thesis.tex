@@ -45,6 +45,35 @@
 \thesislong{thanks}{
     Rád by som sa poďakoval vedúcemu práce Ing. Mgr. et Mgr. Zdeňkovi Říhovi, Ph.D. za venovaný čas, ochotu a cenné pripomienky, ktoré mi pomohli pri tvorbe tejto práce.
 }
+%%XML
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{light-gray}{rgb}{0,0,0}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  captionpos=b,
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+\renewcommand{\lstlistingname}{Kód}
+
 %% The following section sets up the bibliography.
 \usepackage{csquotes}
 \usepackage[              %% When typesetting the bibliography, the
@@ -55,7 +84,7 @@
   sortlocale=auto         %% For more unformation about the available
 ]{biblatex}               %% `style`s and `citestyles`, see:
 %% <http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf>.
-\addbibresource{example.bib} %% The bibliograpic database within
+%\addbibresource{bibliografie.bib} %% The bibliograpic database within
                           %% the file `example.bib` will be used.
 \usepackage{makeidx}      %% The `makeidx` package contains
 \makeindex                %% helper commands for index typesetting.
@@ -68,14 +97,21 @@
 \usepackage{menukeys}
 \usepackage{fancybox}
 
+\newcommand{\zv}{\textit}
+\newcommand{\cesta}{\zv}
+
 \begin{document}
 \chapter{Úvod}
-TBD
+\zv{TBD}
 
 %% Operačný systém Android 
 \input{chapters/os_android}
 
+%% Apk súbory
+\input{chapters/apk_subory}
 
+%% Apk databáza
+\input{chapters/apk_databaza}
 
 \chapter{These are}
 \section{the available}
@@ -335,7 +371,7 @@ output\nocite{booklet-full}, but it will insert its argument into
 the bibliography. The \verb"\nocite{*}" command will insert all the
 records in the bibliography database file into the bibliography.
 Try uncommenting the command
-%% \nocite{*}
+\nocite{*}
 and watch the bibliography section come apart at the seams.
 
 When typesetting the document for the first time, citing a
@@ -363,7 +399,11 @@ executed automatically.
 \makeatletter %% Use the correct localization of the quotations.
   \thesis@selectLocale{\thesis@locale}\makeatother
 \printbibliography[heading=bibintoc]} %% Print the bibliography.
+\begin{thebibliography}{9}
+\bibitem{Westenberg2015}
+WESTENBERG, Jimmy. Gartner: Android and iOS dominate smartphone market with 98 percent marketshare. \textit{Android Authority} [online]. 2015 [cit. 2016-03-20]. Dostupné z: http://www.androidauthority.com/android-ios-hold-98-percent-marketshare-656624/
 
+\end{thebibliography}
 \chapter{Inserting the index}
 After using the \verb"\makeindex" macro and loading the
 \texttt{makeidx} package that provides additional indexing
