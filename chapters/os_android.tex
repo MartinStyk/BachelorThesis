@@ -1,5 +1,5 @@
 \chapter{Operačný systém Android}
-Android je mobilný operačný systém navrhnutý primárne pre zariadenia s~dotykovou obrazovkou. Android je dominantným operačným systémom na mobilných zariadeniach ako sú chytré telefóny a tablety. V~druhom kvartáli roku 2015 dosahoval až 82,8 podiel na trhu operačných systémov pre mobilné zariadenia. Systém je založený na linuxovom jadre. 
+Android je mobilný operačný systém navrhnutý primárne pre zariadenia s~dotykovou obrazovkou. Android je dominantným operačným systémom na mobilných zariadeniach ako sú chytré telefóny a tablety. V~treťom kvartáli roku 2015 dosahoval až 84,7\% podiel na trhu operačných systémov pre mobilné zariadenia. Systém je založený na linuxovom jadre. 
 
 %http://www.idc.com/prodserv/smartphone-os-market-share.jsp
 %https://en.wikipedia.org/wiki/Android_(operating_system)
@@ -67,3 +67,25 @@ Na vrchole vrstevnatej architektúry systému Android sú aplikácie, ktoré vyu
 %http://www.tutorialspoint.com/android/android_architecture.htm
 %https://source.android.com/devices/
 %http://www.techotopia.com/index.php/An_Overview_of_the_Android_Architecture	
+
+\section{Aplikácie}
+\subsection{Distribúcia aplikácií}
+%http://www.digitaltrends.com/mobile/android-app-stores/2/
+
+Apk súbory predstavujúce inštalačné balíčky Android aplikácií sú najčastejšie distribuované pomocou obchodu s aplikáciami. Oficiálny obchod pre Android zariadenia je Google Play \footnote{https://play.google.com/store}. Aplikácie môžu byť distribuované pomocou alternatívnych obchodov ako napríklad Amazon Appstore\footnote{http://www.amazon.com/mobile-apps/b?node=2350149011} alebo SlideMe \footnote{http://slideme.org/}. Operačný systém Android v základom nastavení neumožňuje inštaláciu aplikácií z iných zdrojov ako Google Play. Inštalácia z neznámych zdrojov môže byť povolená v nastaveniach zariadenia. Inštalačné APK balíčky je možné získať aj zo stránok na zdieľanie ľubovoľného obsahu, na ktorých sa často distribuujú aplikácie ktoré sú v oficiálnych zdrojoch platené. Takéto súbory sú často modifikované a môžu obsahovať potenciálny škodlivý kód. Často ich označujeme ako prebalené\footnote{angl. repackaged} aplikácie. Viacej o takýchto aplikáciách sa dozviete v kapitole TODO.
+
+\subsection{Inštalácia aplikácií}
+Aplikácie môžeme rozdeliť na dve skupiny:\\
+\begin{itemize}
+\item Predinštalované aplikácie – často označované aj ako systémové aplikácie. Tieto aplikácie sú nainštalované spolu so systémom a často nemôžu byť bežným používateľom odinštalované. Príkladom je základná aplikácia pre fotoaparát, kontakty alebo telefón
+\item Aplikácie nainštalované používateľom – Aplikácie nainštalované jedným z nasledujúcich spôsobov
+\begin{itemize}
+\item prostredníctvom obchodu s aplikáciami, najčastejšie Google Play Store
+\item prostredníctvom nástroja Android Debug Bridge (ADB) ktorý je obsiahnutý v Android SDK a umožňuje inštaláciu a ladenie aplikácií na zariadení pripojenom k počítaču pomocou USB kábla
+\item otvorením apk balíčka umiestneného v zariadení
+\end{itemize}
+\end{itemize}
+
+\noindent Základnou aplikáciou starajúcou sa o inštaláciu apk balíčkov je \zv{PackageInstaller}, ktorý poskytuje užívateľské rozhranie na komunikáciu so službou \zv{PackageManager}. \zv{PackageManager}  poskytuje v rámci triedy \zv{PackageManagerService.java} API pre inštaláciu, aktualizáciu a odinštaláciu aplikácií. Natívny démon installd prijíma požiadavky od služby \zv{PackageManagerService.java} s ktorou komunikuje prostredníctvom lokálneho soketu \cesta{/dev/socket/installed}. Služba \zv{PackageManager} a démon \zv{installd} sú spustené pri štarte systému. \zv{PackageManager} čaká na pridanie požiadavky na inštaláciu do zoznamu inštalovaných aplikácií. Pri inštalácií analyzuje súbor \zv{AndroidManifest.xml} a relevantné informácie ukladá do súborov \cesta{/data/system/packages.xml} a \cesta{/data/system/packages.list}. Priečinok, do ktorého sa apk súbor rozbalí, vytvára démon \zv{installd}, o rozbalenie a kopírovanie obsahu sa stará \zv{PackageManager}. Predinštalované aplikácie sú inštalované do zložky \cesta{/system/app/}, aplikácie inštalované užívateľom do zložky \cesta{/data/app/}. Súbor classes.dex, ktorý je obsiahnutý v APK balíčku je kopírovaný do \cesta{/data/dalvik-cache/}. \zv{PackageManager} vytvorí priečinok \cesta{/data/data/nazov\_balíčku} v ktorom sa nachádzajú preferencie, databázy alebo natívne knižnice aplikácie.
+
+
