@@ -118,6 +118,7 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 \end{lstlisting}
 
 \subsection{Element manifest}
+\label{el_manifest}
 \lstset{language=XML}
 \begin{lstlisting}
 <manifest xmlns:android="URL"
@@ -143,6 +144,7 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 \end{itemize}
 
 \subsection{Element uses-permission}
+\label{el_uses-permission}
 \lstset{language=XML}
 \begin{lstlisting}
 <uses-permission android:name="string"
@@ -226,6 +228,7 @@ http://developer.android.com/guide/topics/manifest/uses-feature-element.html
 \end{itemize}
 
 \subsection{Element activity}
+\label{el_activity}
 Deklaruje aktivity. Aktivity sú základnými časťami aplikácie. Sú to triedy rozširujúce triedu \zv{android.app.Activity}. Sú zamerané na jednotlivé prípady použitia aplikácie, implementujú časť grafické užívateľského rozhrania a zabezpečujú komunikáciu s užívateľom. Tieto triedy sú časťou zdrojového kódu a v skompilovanej forme sa nachádzajú v súbore classes.dex. Pri viacerých spustených aktivitách zohráva dôležitú úlohu životný cyklus aktivity. Viac informácií o životnom cykle aktivít nájdete na (http://developer.android.com/reference/android/app/Activity.html). Všetky aktivity musia byť deklarované pomocou tagu activity. V prípade, že deklarované nie sú, systém ich bude ignorovať a nebudú spustené. Syntax a kompletný zoznam atribútov definovaných v tagu activity môžete nájsť na http://developer.android.com/guide/topics/manifest/activity-element.html. 
 
 \subsection{Element service}

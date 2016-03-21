@@ -1,0 +1,21 @@
+\chapter{Štatistiky}
+Analýzou jednotlivých APK súborov získame detailné informácie o jednotlivých aplikáciách. Pre ucelenejší pohľad na všeobecné vlastnosti a atribúty Android aplikácií je vhodné rozšíriť analýzu jednotlivých aplikácií na skúmanie väčšej množiny APK balíčkov. Keďže databáza APK súborov použitá v tejto práci obsahuje dostatočne veľkú vzorku približne 20000 APK súborov, ktoré pochádzajú z rôznych oficiálnych aj alternatívnych zdrojov, poskytuje dobrú vzorku na určenie štatistických údajov a Android aplikáciách. Štatistické informácie prezentované v tejto kapitole sa viažu k aplikáciám dostupným v rokoch 2014--2016 a teda sú aktuálne pre spomenuté obdobie.
+Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík nad množinou APK súborov. Funkcionalita výpočtu štatistických informácií sa aktivuje pomocou prepínača –statistics pri spustení programu z príkazového riadku. Ako vstup aplikácie slúžia JSON súbory vytvorené analýzou. Výstupom je súbor vo formáte JSON obsahujúci vypočítané štatistické dáta. Pri vlastnostiach, ktorých hodnota je vyjadrená číselne sú vypočítané základné matematické štatistiky ako je aritmetický priemer, modus, medián, rozptyl, smerodajná odchýlka, minimum a maximum. Pri najnižšej a najvyššej hodnote obsahuje výstup aj názov aplikácií, ktoré tieto hodnoty dosahujú. V prípade vlastností, ktoré nadobúdajú obmedzený počet predom definovaných hodnôt je určené percentuálne zastúpenie jednotlivých hodnôt.
+Analýzou databázy APK súborov sa zistilo, že stredná hodnota veľkosti APK súborov je 5,26\,MB, priemer dosahuje hodnotu 10.19\,MB.
+
+Strednou hodnotou celkového počtu súborov v APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
+
+Android poskytuje možnosť špecifikovať, či aplikácia môže byť presunutá na externé dátové úložisko(viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje svoju inštaláciu na externé pamäťové médium.
+
+Základnou funkčnou jednotkou Android aplikácií sú aktivity (viď \ref{el_activity}). Stredná hodnota počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity. Priemerný počet služieb definovaných v aplikácií je 3,99, stredná hodnota je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
+
+Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19.
+
+Android aplikácie najčastejšie deklarujú, že využívajú 4 prístupové oprávnenia(viď \ref{el_uses-permission}). Stredná hodnota počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením uvádzam v nasledujúcej tabuľke. TODO
+
+Aplikácie deklarujú nízky počet využívaných vlastností. Aritmetický priemer je 1,44, stredná hodnota a modus sú nulové. Najčastejšie deklarované je využívanie nasledujúcich vlastností TODO
+
+Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch.
+Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Najčastejšie lokalizácie aplikácií sú uvedené v nasledujúcej tabuľke. TODO Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z portálov určených pre strednú európu.
+
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Stredná hodnota celkového počtu obrázkových súborov je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5 . Stredná hodnota počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 342,8 takýchto súborov.
