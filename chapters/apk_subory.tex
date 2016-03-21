@@ -1,4 +1,5 @@
 \chapter{APK súbory}
+\label{APKsubory}
 APK súbory sú balíčky používané operačným systémom Android. Celý názov ukrytý za skratkou APK je Android application package file. Tieto súbory slúžia na distribúciu aplikácií v operačnom systéme Android. Ich použitie a význam je analogický ako pri MSI\footnote{\url{Windows Installer Package https://technet.microsoft.com/en-us/library/cc978328.aspx}} balíčkoch používaných v systéme Microsoft Windows, alebo DEB\footnote{\url{https://www.debian.org/doc/manuals/debian-faq/ch-pkg\_basics.en.html}} balíčkoch používaných v niektorých linuxových distribúciách. APK súbory sú asociované s príponou .apk a príslušný MIME typom \zv{application/vnd.android.package-archive}.
 
 Štruktúra APK balíčkov vychádza z JAR\footnote{Java archive} balíčkov -- súborov používaných na distribúciu aplikácií alebo knižníc na platforme Java. Formát APK rozširuje všeobecnejší JAR formát o súbory, ktoré sú špecifické pre cieľovú platformu, ktorou je operačný systém Android. Zároveň si však ponecháva vlastnosti JAR súborov. APK balíčky sú archívne súbory v ZIP\footnote{\url{https://en.wikipedia.org/wiki/Zip\_(file_format)}} formáte.  Keďže APK používajú ZIP formát, k ich obsahu môžeme jednoducho pristúpiť rozbalením archívu štandardným spôsobom.  APK súbory vznikajú ako výstup kompletnej kompilácie a zabalenia aplikácií pre Android. APK súbor každej aplikácie obsahuje všetky potrebné súbory na jej inštaláciu a spustenie. Medzi týmito súbormi sa typicky nachádza \zv{classes.dex} súbor obsahujúci skompilovaný zdrojový kód, \zv{resources.arsc} súbor ktorý obsahuje skompilované zdroje aplikácie, súbor \zv{AndroidManifest.xml} a neskompilované súbory ako sú napríklad obrázky.\\\\
@@ -10,12 +11,15 @@ APK súbory sú balíčky používané operačným systémom Android. Celý náz
 \end{figure}
 
 \section{Priečinok META-INF}
+\label{META-INF}
 Priečinok obsahujúci súbory, ktorých úlohou je zaručiť integritu ostatných súborov v APK balíčku a s ňou spojenú bezpečnosť celého systému. V prípade detekcie pozmenených súborov a narušenia integrity operačný systém Android nedovolí inštaláciu APK balíčku. Po každej zmene je nutné balíček digitálne podpísať.
 
 
-\subsection*{CERT.RSA} 
-Súbor obsahujúci verejný kľúč ktorý slúži na overenie digitálneho podpisu balíčka
+\subsection*{CERT.RSA}
+\label{CERT.RSA} 
+Súbor obsahujúci verejný kľúč ktorý slúži na overenie digitálneho podpisu balíčka.
 \subsection*{MANIFEST.MF}
+\label{MANIFEST.MF}
 Súbor obsahujúci relatívne cesty a SHA-1 hashe \footnote{reťazce v Base64 kódovaní} všetkých súborov v APK balíčku. Tento súbor neobsahujú len APK súbory, je typický pre každý JAR archív.\\\\
 Typický začiatok súboru \zv{MANIFEST.MF} vyzerá nasledovne: \\
 
@@ -32,6 +36,7 @@ SHA1-Digest: 1coP1lt9Lmccc7SMZGHxNv4bbKs=
 \end{verbatim}
 
 \subsection*{CERT.SF}
+\label{CERT.SF}
 Súbor podobný ako \zv{MANIFEST.MF}, avšak namiesto SHA-1 hashov samotných súborov obsahuje SHA-1 hashe záznamov o týchto súboroch z \zv{MANIFEST.MF}. Okrem toho obsahuje aj hash celého súboru \zv{MANIFEST.MF}. \newline Záznam o jednom súbore v APK balíčku v súbore \zv{CERT.SF} vyzerá nasledovne: \newline
 \begin{verbatim}
 Name: res/drawable-xhdpi-v4/libraries.png
@@ -44,6 +49,7 @@ SHA1-Digest: VvgaO1jpW3iS1nBBikD/urdbN58=
 ”\end{verbatim}
 
 \section{Priečinok res}
+\label{res}
 Priečinok obsahujúci zdrojové súbory ako napríklad obrázky, zvuky alebo ikony. Okrem multimediálnych súborov obsahuje taktiež zdrojové XML súbory určujúce vzhľad obrazoviek, použité grafické štýly, alebo texty použité v aplikácii. Niektoré z týchto XML súborov môžu byť skompilované do binárneho formátu. V zdrojovom kóde sú tieto zdroje odkazované pomocou unikátnych identifikátorov. Identifikátory sú generované počas kompilácie nástrojom aapt a nachádzajú sa v projektovej triede \zv{R}. Pre každý typ zdrojového súboru je generovaná podtrieda triedy \zv{R}. Všetky zdroje aplikácie by mali byť externalizované a uložené v špecifickom podpriečinku v tomto adresári. \\\\
 \textbf{Podporované podpriečinky}
 \begin{itemize}
@@ -70,19 +76,23 @@ Priečinok obsahujúci zdrojové súbory ako napríklad obrázky, zvuky alebo ik
 
 
 \section{Priečinok lib}
+\label{lib}
 Priečinok obsahujúci skompilovaný zdrojový kód natívnych knižníc. Tieto knižnice sú špecifické pre typ procesora. V závislosti na architektúre procesora obsahuje podpriečinky : \zv{armeabi, armeabi-v7a, arm64-v8a, x86, x86\_64, mips}.
 
 \section{Priečinok assets}
+\label{assets}
 Priečinok obsahujúci súbory uložené a používané v originálnej neskomprimovanej forme. V tomto priečinku sa často nachádzajú textové súbory, html súbory, licenčné informácie, obrázky alebo textúry. Na rozdiel od priečinku \cesta{res/raw/}, zdrojovým súborom v umiestneným v priečinku assets nie sú pridelené unikátne identifikátory uložené v triede \zv{R.java}. K súborom sa pristupuje ako k dátam uloženým v bežnom súborovom systéme. Trieda \zv{AssetManager} poskytuje funkcionalitu na čítanie súborov ako prúdu bytov a  navigovanie v tomto priečinku.
 
 \section{resources.arsc}
+\label{resources.arsc}
 Súbor obsahujúci mapovanie medzi zdrojovými súbormi  z priečinku \zv{res} a ich identifikátormi.  Vytvára sa počas kompilácie. Obsahuje XML súbory v binárnom formáte.
 
 \section{classes.dex}
+\label{classes.dex}
 \zv{Classes.dex} je súbor obsahujúci skompilovaný zdrojový kód aplikácie.  Zdrojové súbory Android aplikácií sú napísané v jazyku Java. Java súbory sú skompilované do Java bytekódu pomocou bežného kompilátoru pre platformu Java. Výsledkom tejto kompilácie sú súbory s príponou \zv{class}, ktoré sú následne preložené do Dalvik bytekódu pomocou nástroja \zv{dx} ktorý je súčasťou Android Software Developement Kit. Výstupom nástroju \zv{dx} je jediný súbor obsahujúci skompilovaný celý výkonný zdrojový kód aplikácie -- \zv{classes.dex}. Tento súbor je skomprimovanou a optimalizovanou verziou všetkých \zv{class} súborov. Takto skompilovaný program môže byť vykonaný len vo virtuálnom stroji Dalvik, alebo v novšom prostredí ART (Android Runtime) používanom primárne od verzie Android 5.0 „Lollipop“.
 
 \section{AndroidManifest.xml} 
-
+\label{AndroidManifest.xml}
 http://developer.android.com/guide/topics/manifest/manifest-intro.html
 Súbor ktorý musí obsahovať každá Android aplikácia. Tento súbor poskytuje informácie o aplikácii operačnému systému Android. Neobsahuje žiadny výkonný kód. Definuje meno a verziu, ktoré slúžia ako unikátny identifikátor danej aplikácie. Popisuje všetky komponenty z ktorých sa aplikácia skladá, cesty k použitým knižniciam, minimálny vyžadovaný level Android API, oprávnenie vyžadované aplikáciu na prístup k chráneným častiam Android API a taktiež oprávnenia, ktoré sú vyžadované od iných komponent pri pokuse komunikovať s danou aplikáciou. Súbor \zv{AndroidManifest.xml}, ktorý nájdeme v APK balíčku je vo formáte binárneho XML súboru. Je ho však možné previesť do klasického čitateľného XML formátu.
 

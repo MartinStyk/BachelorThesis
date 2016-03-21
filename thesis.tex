@@ -84,7 +84,7 @@
   sortlocale=auto         %% For more unformation about the available
 ]{biblatex}               %% `style`s and `citestyles`, see:
 %% <http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf>.
-%\addbibresource{bibliografie.bib} %% The bibliograpic database within
+\addbibresource{bibliografie.bib} %% The bibliograpic database within
                           %% the file `example.bib` will be used.
 \usepackage{makeidx}      %% The `makeidx` package contains
 \makeindex                %% helper commands for index typesetting.
@@ -112,6 +112,10 @@
 
 %% Apk databáza
 \input{chapters/apk_databaza}
+
+%% Analyza APK súborov
+\input{chapters/analyza}	
+
 
 \chapter{These are}
 \section{the available}
@@ -399,11 +403,7 @@ executed automatically.
 \makeatletter %% Use the correct localization of the quotations.
   \thesis@selectLocale{\thesis@locale}\makeatother
 \printbibliography[heading=bibintoc]} %% Print the bibliography.
-\begin{thebibliography}{9}
-\bibitem{Westenberg2015}
-WESTENBERG, Jimmy. Gartner: Android and iOS dominate smartphone market with 98 percent marketshare. \textit{Android Authority} [online]. 2015 [cit. 2016-03-20]. Dostupné z: http://www.androidauthority.com/android-ios-hold-98-percent-marketshare-656624/
 
-\end{thebibliography}
 \chapter{Inserting the index}
 After using the \verb"\makeindex" macro and loading the
 \texttt{makeidx} package that provides additional indexing
