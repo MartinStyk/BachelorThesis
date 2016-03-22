@@ -96,6 +96,8 @@
 \usepackage{url}
 \usepackage{menukeys}
 \usepackage{fancybox}
+\usepackage{pgf-pie}
+\usepackage{tikz}
 
 \newcommand{\zv}{\textit}
 \newcommand{\cesta}{\zv}
@@ -455,6 +457,108 @@ the index will be ill-sorted.
 
 \appendix %% Start the appendices.
 \chapter{An appendix}
-Here you can insert the appendices of your thesis.
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l l r|}
+    \hline
+    Kód & Jazyk &  \% \\\hline\hline
+    es & španielsky & 61,7 \\
+    de & nemecký & 59,6 \\
+    fr & francúzsky & 59,4 \\
+    ru & ruský & 58,1 \\
+    ja & japonský & 57,6 \\
+    it & taliansky & 57,4 \\
+	ko & korejský & 56,9 \\
+	zh-rcn & čínsky (zjednodušený) & 55,6\\
+	zh-rtw & čínsky (tradičný)& 54,0\\
+	pt & portugalský & 52,6\\
+    \hline
+  \end{tabular}
+  \caption{Lokalizácia aplikácií}
+  \label{tab:language}
+\end{table}
 
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l r|}
+    \hline
+    Názov & \% \\\hline\hline
+    android.hardware.camera & 18,1 \\
+    android.hardware.touchscreen & 16,1 \\
+    android.hardware.telephony & 14,8 \\
+    android.hardware.camera.autofocus & 10,6 \\
+    android.hardware.location.gps & 10,2 \\
+    android.hardware.location & 8,8 \\
+    android.hardware.wifi & 8,4 \\
+    android.hardware.location.network & 7,0\\
+    android.hardware.bluetooth & 6,6\\
+    android.hardware.touchscreen.multitouch & 6,0\\
+    \hline
+  \end{tabular}
+  \caption{Najpoužívanejšie vlastnosti}
+  \label{tab:features}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+  \begin{tabular}{|l r|}
+    \hline
+    Názov & \% \\\hline\hline
+    android.permission.internet & 92,9 \\
+    android.permission.access\_network\_state & 87,9 \\
+    android.permission.write\_external\_storage & 75,2 \\
+    android.permission.wake\_lock & 49,5 \\
+    android.permission.read\_phone\_state & 49,4 \\
+    android.permission.access\_wifi\_state & 44,7 \\
+    android.permission.vibrate & 43,6 \\
+    android.permission.get\_accounts & 31,3 \\
+    android.permission.receive\_boot\_completed & 30,5 \\
+    android.permission.vending.billing & 27,1 \\
+    \hline
+  \end{tabular}
+  \caption{Najpoužívanejšie prístupové oprávnenia}
+  \label{tab:permissions}
+\end{table}
+
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|c c|}
+    \hline
+    Verzia Android SDK & \% \\\hline\hline
+    9 & 21,3 \\
+    8 & 18,4 \\
+    7 & 14,2 \\
+    14 & 10,5 \\
+    10 & 8,1 \\
+    4 & 7,0 \\
+    3 & 5,6 \\
+    15 & 3,7 \\
+    5 & 3,7 \\
+    11 & 2,1\\
+    \hline
+  \end{tabular}
+  \caption{Hodnoty najnižsej vyžadovanej verzie Android SDK}
+  \label{tab:minSdk}
+\end{table}
+
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|c c|}
+    \hline
+    Verzia Android SDK & \% \\\hline\hline
+    19 & 25,6 \\
+    17 & 11,8 \\
+    21 & 11,7 \\
+    15 & 6,8 \\
+    14 & 6,3 \\
+    22 & 6,0\\
+    16 & 5,7 \\
+    18 & 5,6 \\
+    20 & 3,8 \\
+    8 & 2,9\\
+    \hline
+  \end{tabular}
+  \caption{Hodnoty cieľovej verzie Android SDK}
+  \label{tab:targetSdk}
+\end{table}
 \end{document}
