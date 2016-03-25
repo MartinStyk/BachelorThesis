@@ -1,44 +1,39 @@
 \chapter{Analýza APK súborov}
 \label{analyza}
-https://www.rsaconference.com/writable/presentations/file\_upload/stu-w02b-beginners-guide-to-reverse-engineering-android-apps.pdf
-http://www.sans.org/reading-room/whitepapers/pda/reverse-engineering-malware-android-33769
-Hlavnou úlohou práce je získať informácie o APK súboroch ich detailnou analýzou. APK súbory majú pevnú štruktúru a jednoduchý formát, vďaka čomu je možná ich analýza a reverzné inžinierstvo. Reverzné inžinierstvo je proces analýzy funkcionality a obsahu aplikácie. Keďže APK súbory využívajú ZIP formát, mnohé informácie je možné získať jednoduchým rozbalením. Základnou úlohou analýzy je získanie metadát o APK súbore.
+Hlavnou úlohou práce je získať informácie o APK súboroch ich detailnou analýzou. APK súbory majú pevnú štruktúru a jednoduchý formát, vďaka čomu je možná ich analýza a reverzné inžinierstvo. Reverzné inžinierstvo je proces analýzy funkcionality a obsahu aplikácie. Keďže APK súbory využívajú ZIP formát, mnohé informácie je možné získať jednoduchým rozbalením. Základnou úlohou analýzy a reverzného inžinierstva APK súborov v tejto práci je získanie metadát o APK súbore, ktoré sú využívané v kapitole \ref{statistiky} a \ref{Repackaged}.
 
 \section{Nástroje reverzného inžinierstva}
 \label{nastroje_revezneho_inzinierstva}
 
-Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinierstvo Android aplikácií. Okrem aplikácií tretích strán je možné vo veľkej miere použiť aj štandardné nástroje obsiahnuté v Android Software Development Kit.
+Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinierstvo Android aplikácií. Okrem aplikácií tretích strán je možné vo veľkej miere použiť aj nástroje obsiahnuté v \zv{Android Software Development Kit (SDK)}.\zv{Android SDK} je kolekcia štandardných nástrojov používaných pri vývoji a zostavení Android aplikácií. 
 
 \subsection{ApkTool}
 \label{ApkTool}
- (http://ibotpeaches.github.io/Apktool/)
-Nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory resources.arsc, classes.dex aj binárne XML súbory. Z dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor classes.dex je dekompilovaný do súborov vo formáte SMALI. Smali súbory obsahujú nízko úrovňový kód na úrovni asembleru. ApkTool podporuje debugovanie smali kódu.
+Nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory \zv{resources.arsc}, \zv{classes.dex} aj binárne XML súbory. Z dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor \zv{classes.dex} je dekompilovaný do súborov vo formáte SMALI. Smali súbory obsahujú nízkoúrovňový kód na úrovni asembleru. ApkTool podporuje debugovanie smali kódu~\cite{apkTool}.
 
 \subsection{Dex2Jar}
 \label{Dex2Jar}
-(https://github.com/pxb1988/dex2jar) http://pof.eslack.org/2011/02/18/from-apk-to-readable-java-source-code-in-3-easy-steps/
-Nástroj podporujúci dekódovanie DEX súborov do formátu skompilovaných CLASS súborov http://fileinfo.com/extension/class .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v jazyku Java pomocou dekompilátoru JD-GUI(http://jd.benow.ca/ ) Pracuje výhradne so súborom classes.dex a nepodporuje prevod binárnych XML do čitateľnej podoby.
+Nástroj podporujúci dekódovanie DEX súborov do formátu skompilovaných CLASS súborov .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
 
 \subsection{AXML}
 \label{AXML}
-https://github.com/xgouchet/AXML
-AXML je knižnica navrhnutá na prácu s binárnymi XML súbormi, ktoré vznikajú počas zostavenia Android aplikácie pomocou nástroja AAPT. Knižnica umožňuje prevod takýchto XML súborov do čitateľného XML formátu, je implementovaná v jazyku Java.
+\zv{AXML} je knižnica navrhnutá na prácu s binárnymi XML súbormi, ktoré vznikajú počas zostavenia Android aplikácie pomocou nástroja \zv{AAPT}. Knižnica umožňuje prevod takýchto XML súborov do čitateľného XML formátu, je implementovaná v jazyku Java.
 
 
 \subsection{AAPT}
 \label{AAPT}
-http://elinux.org/Android\_aapt
-Android Asset Packaging Tool (AAPT) je štandardný nástroj obsiahnutý v Android Software Development Kit (SDK). Android SDK je kolekcia nástrojov používaných pri vývoji a zostavení Android aplikácií. Nástroj AAPT umožňuje vytvorenie, aktualizovanie a prezeranie súborov vo formáte APK. Dokáže skompilovať zdrojové súbory do binárnej formy a umožňuje aj ich dekompiláciu.
+
+\zv{Android Asset Packaging Tool} (\zv{AAPT}) je štandardný nástroj obsiahnutý v \zv{Android SDK}. Nástroj \zv{AAPT} umožňuje vytvorenie, aktualizovanie a prezeranie súborov vo formáte APK. Dokáže skompilovať zdrojové súbory do binárnej formy a umožňuje aj ich dekompiláciu\cite{aapt}.
 
 \section{Implementácia analýzy}
-Analýza APK súborov je implementovaná v rámci programu ApkAnalyzer a môže byť spustená pomocou argumentu –analyze. Zároveň je potrebné špecifikovať analyzovaný APK súbor alebo priečinok obsahujúci takéto súbory pomocou argumentu –in a priečinok do ktorého bude zapísaný výstup analýzy pomocou argumentu –out. ApkAnalyzer je aplikácia prispôsobená na prácu s veľkým počtom APK súborov, proces analýzy je preto paralelizovaný a každé dostupné procesorové jadro analyzuje inú aplikáciu. Pre každú analyzovanú aplikáciu je vygenerovaný výstupný súbor vo formáte JSON obsahujúci získané metadáta o danej aplikácií. \\\\
+Analýza APK súborov je implementovaná v rámci programu \zv{ApkAnalyzer} a môže byť spustená pomocou argumentu \zv{–analyze}. Zároveň je potrebné špecifikovať analyzovaný APK súbor alebo priečinok obsahujúci takéto súbory pomocou argumentu \zv{–in} a priečinok do ktorého bude zapísaný výstup analýzy pomocou argumentu \zv{–out}. \zv{ApkAnalyzer} je aplikácia prispôsobená na prácu s veľkým počtom APK súborov, proces analýzy je preto paralelizovaný a každé dostupné procesorové jadro analyzuje inú aplikáciu. Pre každú analyzovanú aplikáciu je vygenerovaný výstupný súbor vo formáte JSON obsahujúci získané metadáta o danej aplikácií. \\\\
 Zbierané metadáta je možné rozdeliť do piatich kategórií:
 \begin{itemize}
-\item Základné informácie o APK súbore -- v tejto kategórií sa nachádzajú informácie ako je veľkosť APK súboru alebo súborov \zv{classes.dex} a \zv{resources.arsc}. Pre získanie veľkosti súborov obsiahnutých v APK balíčku je balíček rozbalený do dočasného adresára
-\item Informácie zo súboru \zv{AndroidManifest.xml} -- \zv{AndroidManifest.xml} predstavuje hlavný zdroj meta informácií o aplikácii pre systém Android(viď \ref{AndroidManifest.xml}). Dáta nachádzajúce sa v tomto súbore tvoria významnú časť dát získaných našou analýzou. Na prevod z binárneho XML formátu je primárne použitá knižnica AXML (viď \ref{AXML}), v prípade, že prevod zlyhá, použije sa nástroj ApkTool (viď \ref{ApkTool}). Dáta analýzou tohto súboru zahŕňajú napríklad verziu aplikácie, použité prístupové oprávnenia alebo komponenty z ktorých sa aplikácia skladá
-\item Informácie o certifikáte -- dáta získané analýzou súboru \zv{CERT.RSA} v priečinku \zv{META-INF}(viď \ref{CERT.RSA}), napríklad použitý algoritmus podpisovania, názov vydavateľa alebo MD5 hash celého certifikátu. Pred prístupom k súboru je \zv{CERT.RSA} je nutné APK balíček rozbaliť
-\item Informácie o zdrojových súboroch\footnote{angl. resources} -- informácie o zdrojoch aplikácie, ako napríklad formát alebo veľkosť obrázkových súborov, počet lokalizácií aplikácie alebo počet surových neskomprimovaných zdrojových súborov
+\item Základné informácie o APK súbore -- v tejto kategórií sa nachádzajú informácie ako je veľkosť APK súboru alebo veľkosti súborov \zv{classes.dex} a \zv{resources.arsc}. Pre získanie veľkosti súborov obsiahnutých v APK balíčku je balíček rozbalený do dočasného adresára
+\item Informácie zo súboru \zv{AndroidManifest.xml} -- \zv{AndroidManifest.xml} predstavuje hlavný zdroj meta informácií o aplikácii pre systém Android(viď \ref{AndroidManifest.xml}). Dáta nachádzajúce sa v tomto súbore tvoria významnú časť dát získaných našou analýzou. Na prevod z binárneho XML formátu je primárne použitá knižnica \zv{AXML} (viď \ref{AXML}), v prípade zlyhanie konverzie sa použije  nástroj \zv{ApkTool} (viď \ref{ApkTool}). Dáta získané analýzou tohto súboru zahŕňajú napríklad verziu aplikácie, použité prístupové oprávnenia alebo komponenty z ktorých sa aplikácia skladá
+\item Informácie o certifikáte -- dáta získané analýzou súboru \zv{CERT.RSA} v priečinku \zv{META-INF}(viď \ref{CERT.RSA}). Obsahujú napríklad použitý algoritmus podpisovania, názov vydavateľa alebo MD5 hash celého certifikátu. Pred prístupom k súboru \zv{CERT.RSA} je nutné APK balíček rozbaliť
+\item Informácie o zdrojových súboroch\footnote{angl. resources} -- informácie o zdrojoch aplikácie, napríklad formát alebo veľkosť obrázkových súborov, počet lokalizácií aplikácie alebo počet surových neskomprimovaných zdrojových súborov
 \item Súbory obsiahnuté v APK balíčku -- zoznam všetkých súborov rozdelený do kategórií: obrázky(súbory z priečinku \cesta{res/drawable}), návrhy obrazoviek(súbory z priečinku \cesta{res/layout}), \zv{classes.dex}, \zv{resources.arsc} a ostatné. O každom súbore si uchovávame jeho relatívnu cestu v APK balíčku a SHA1 hash. Ako zdroj informácií slúži súbor \zv{MANIFEST.MF} (viď \ref{MANIFEST.MF})
 \end{itemize}
 
-\noindent Kompletný zoznam zbieraných metadát sa nachádza v prílohe TODO.  
+\noindent Kompletný zoznam zbieraných metadát sa nachádza v prílohe \ref{tab:zbieraneData}.
