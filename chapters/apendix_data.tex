@@ -1,0 +1,72 @@
+\begin{longtable}{|l|l|l|}
+    \hline
+    Názov atribútu & Dátový typ & popis \\\hline
+fileName      & String   & Názov analyzovaného APK súboru\\
+sourceOfFile  & String   & Zdroj súboru\\
+fileSize      & Long     & Veľkosť APK súboru v bajtoch\\
+dexSize       & Long     & Veľkosť súboru \zv{classes.dex} v bajtoch \\
+arscSize      & Long     & Veľkosť súboru \zv{arscSize.dex} v bajtoch \\\hline
+packageName      & String   & Hodnota atribútu \zv{package} v elemente \zv{manifest}\\
+versionCode  & String   & Hodnota atribútu \zv{android:versionCode} v elemente \zv{manifest}\\
+installLocation      & String     & Hodnota atribútu \zv{android:installLocation} v elemente \zv{manifest}\\
+numberOfActivities       & Integer     & Počet aktivít definovaných aplikáciou\\
+numberOfServices      & Integer     & Počet služieb definovaných aplikáciou\\
+numberOfContentProviders      & Integer   & Počet poskytovateľov obsahu definovaných aplikáciou  \\
+numberOfBroadcastReceivers  & Integer   & Počet komponent typu \zv{BroadcastReceiver} definovaných aplikáciou\\
+namesOfActivities & List<String> & Názvy aktivít definovaných aplikáciou\\
+namesOfServices & List<String> & Názvy služieb definovaných aplikáciou\\
+namesOfContentProviders & List<String> & Názvy poskytovateľov obsahu definovaných aplikáciou\\
+namesOfBroadcastReceivers & List<String> & Názvy komponent typu \zv{BroadcastReceiver} definovaných aplikáciou\\
+usesPermissions      & List<String>     & Názvy povolení využívaných aplikáciou\\
+usesLibrary       & List<String>     & Názvy knižníc využívaných aplikáciou\\
+permissions       & List<String>     & Názvy povolení definovaných aplikáciou\\
+permissionsProtectionLevel       & List<String>     & Level ochrany povolení definovaných aplikáciou\\
+usesFeature      & List<String>     & Názvy vlastností využívaných aplikáciou\\
+usesMinSdkVersion      & String   & Hodnota atibútu \zv{android:minSdkVersion} elementu \zv{uses-sdk}\\
+usesTargetSdkVersion  & String   & Hodnota atribútu \zv{android:targetSdkVersion} elementu \zv{uses-sdk}\\
+usesMaxSdkVersion      & String     & Hodnota atribútu \zv{android:maxSdkVersion} elementu \zv{uses-sdk}\\
+supportsScreensResizeable       & Boolean     &  Hodnota atribútu \zv{android:resizeable} elementu \zv{supports-screens}\\
+supportsScreensSmall      & Boolean     & Hodnota atribútu \zv{android:smallScreens} elementu \zv{supports-screens}\\
+supportsScreensNormal      & Boolean   & Hodnota atribútu \zv{android:normalScreens} elementu \zv{supports-screens}\\
+supportsScreensLarge  & Boolean   & Hodnota atribútu \zv{android:largeScreens} elementu \zv{supports-screens}\\
+supportsScreensXlarge      & Boolean     & Hodnota atribútu \zv{android:xlargeScreens} elementu \zv{supports-screens}\\
+supportsScreensAnyDensity       & Boolean     & Hodnota atribútu \zv{android:anyDensity} elementu \zv{supports-screens}\\\hline
+fileName      & String   & Názov súboru s certifikátom\\
+signAlgorithm  & String   & Algoritmus použitý na podpis\\
+signAlgorithmOID      & String     & OID algoritmu použitého na podpis\\
+startDate       & Date     & začiatok platnosti certifikátu\\
+endDate      & Date     & koniec platnosti certifikátu\\
+publicKeyMd5  & String   & MD5 hash verejného klúča\\
+certBase64Md5      & String & Base64 MD5 hash certifikátu\\
+certMd5       & String & MD5 hash certifikátu\\
+version      & Integer & Verzia cetifikátu\\
+issuerName   & String & Názov vydávateľa vo formáte definovanom RFC 2253\\
+subjectName   & String & Názov subjektu vo formáte definovanom RFC 2253\\\hline
+locale      & List<String>   & Lokalizácie súboru \zv{string.xml}\\
+numberOfStringResource  & Integer   & Počet záznamov v súbore \zv{string.xml}\\
+pngDrawables      & Integer     & Počet PNG obrázkov\\
+ninePatchDrawables      & Integer     & Počet 9.PNG obrázkov\\
+jpgDrawables       & Integer     &Počet JPG obrázkov\\
+gifDrawables      & Integer     & Počet GIF obrázkov\\
+xmlDrawables  & Integer   & Počet XML obrázkov\\
+ldpiDrawables      & Integer & Počet obrázkov v ldpi priečinku\\
+mdpiDrawables       & Integer & Počet obrázkov v mdpi priečinku\\
+hdpiDrawables      & Integer & Počet obrázkov v hdpi priečinku\\
+xhdpiDrawables   & Integer &Počet obrázkov v xhdpi priečinku\\
+xxhdpiDrawables      & Integer & Počet obrázkov v xxhdpi priečinku\\
+xxxhdpiDrawables       & Integer & Počet obrázkov v xxxhdpi priečinku\\
+tvdpiDrawables       & Integer & Počet obrázkov v tvdpi priečinku\\
+nodpiDrawables       & Integer & Počet obrázkov v nodpi priečinku\\
+unspecifiedDpiDrawables      & Integer & Počet obrázkov nezaradených v *dpi priečinku\\
+rawResources   & Integer & Počet súborov v \cesta{raw/} priečinku\\
+layouts   & Integer & Počet súborov v \cesta{res/layout*} priečinkoch\\
+differentLayouts   & Integer & Počet rôznych súborov v \cesta{res/layout*} priečinkoch\\
+menu   & Integer & Počet súborov v \cesta{res/menu} priečinku\\
+dexHash      & String & Hash súboru \zv{classes.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
+arscHash      & String & Hash súboru \zv{arscHash.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
+drawableHash      & Map<String,String> & Hashe a cesty k súborov z prečinku \cesta{res/drawable} prevzaté zo súboru \zv{MANIFEST.MF}\\
+layoutHash      & Map<String,String> & Hashe a cesty k súborov z prečinku \cesta{res/layout} prevzaté zo súboru \zv{MANIFEST.MF}\\
+otherHash      & Map<String,String>   &  Hashe a cesty k všetkým ostatným súborov v APK balíčku prevzaté zo súboru \zv{MANIFEST.MF}\\\hline
+  \caption{Zbierané metadata o APK súbore}
+  \label{tab:zbieraneData}
+  \end{longtable}
