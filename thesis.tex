@@ -1,136 +1,22 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% I, the copyright holder of this work, release this work into the
-%% public domain. This applies worldwide. In some countries this may
-%% not be legally possible; if so: I grant anyone the right to use
-%% this work for any purpose, without any conditions, unless such
-%% conditions are required by law.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[
-  digital, %% This option enables the default options for the
-           %% digital version of a document. Replace with `printed`
-           %% to enable the default options for the printed version
-           %% of a document.
-  table,   %% Causes the coloring of tables. Replace with `notable`
-           %% to restore plain tables.
-  lof,     %% Prints the List of Figures. Replace with `nolof` to
-           %% hide the List of Figures.
-  lot,     %% Prints the List of Tables. Replace with `nolot` to
-           %% hide the List of Tables.
-  %% More options are listed in the user guide at
-  %% <http://mirrors.ctan.org/macros/latex/contrib/fithesis/guide/mu/fi.pdf>.
-]{fithesis3}
-%% The following section sets up the locales used in the thesis.
-\usepackage[resetfonts]{cmap} %% We need to load the T2A font encoding
-\usepackage[T1,T2A]{fontenc}  %% to use the Cyrillic fonts with Russian texts.
-\usepackage[slovak]{babel}        %% foreign texts to be typeset as follows:
-
-%%
-%% The following section sets up the metadata of the thesis.
-\thesissetup{
-    date          = \the\year/\the\month/\the\day,
-    university    = mu,
-    faculty       = fi,
-    type          = bc,
-    author        = Martin Styk,
-    gender        = m,
-    advisor       = {Ing. Mgr. et Mgr. Zdeněk Říha, Ph.D.},
-    title         = {Analýza inštalačných APK súborov pre OS Android},
-    keywords      = {APK súbor, Android, Apktool, malvér, analýza aplikácií, AndroidManifest.xml},
-}
-\thesislong{abstract}{
-    Práca sa zaoberá získavaním metadát o inštalačných APK súboroch pre mobilný operačný systém Android. V rámci práce je vytvorená rozsiahla databáza APK balíčkov. Na základe analýzy týchto súborov sú určené štatistické vlastnosti APK súborov a príslušných aplikácií. Ako súčasť tejto práce je implementovaný nástroj na hromadné sťahovanie APK súborov, ich analýzu a výpočet štatistických dát nad množinou APK súborov. Práca sa zaoberá aj bezpečnosťou aplikácií a detekciou modifikovaných APK súborov. V práci je navrhnutá metóda detekcie upravených a prebalených APK balíčkov, ktorá je aj prakticky implementovaná. 
-    V teoretickej časti je popísaná štruktúra APK balíčkov a súborov v nich obsiahnutych. 
-}
-\thesislong{thanks}{
-    Rád by som sa poďakoval vedúcemu práce Ing. Mgr. et Mgr. Zdeňkovi Říhovi, Ph.D. za venovaný čas, ochotu a cenné pripomienky, ktoré mi pomohli pri tvorbe tejto práce.
-}
-%%XML
-\usepackage{listings}
-
-\usepackage{color}
-\definecolor{gray}{rgb}{0.4,0.4,0.4}
-\definecolor{light-gray}{rgb}{0,0,0}
-\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
-\definecolor{cyan}{rgb}{0.0,0.6,0.6}
-
-
-\lstset{
-  basicstyle=\ttfamily,
-  columns=fullflexible,
-  showstringspaces=false,
-  captionpos=b,
-}
-
-\lstdefinelanguage{XML}
-{
-  morestring=[b]",
-  morestring=[s]{>}{<},
-  morecomment=[s]{<?}{?>},
-  stringstyle=\color{black},
-  identifierstyle=\color{darkblue},
-  keywordstyle=\color{cyan},
-  morekeywords={xmlns,version,type}% list your attributes here
-}
-\renewcommand{\lstlistingname}{Kód}
-
-%% The following section sets up the bibliography.
-\usepackage{csquotes}
-\usepackage[              %% When typesetting the bibliography, the
-  backend=biber,          %% `numeric` style will be used for the
-  style=iso-numeric,          %% entries and the `numeric-comp` style
-  citestyle=numeric-comp, %% for the references to the entries. The
-  sorting=none,           %% entries will be sorted in cite order.
-  sortlocale=auto,        %% For more unformation about the available
-]{biblatex}               %% `style`s and `citestyles`, see:
-%% <http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf>.
-\addbibresource{bibliografie.bib} %% The bibliograpic database within
-                          %% the file `example.bib` will be used.
-\usepackage{makeidx}      %% The `makeidx` package contains
-\makeindex                %% helper commands for index typesetting.
-%% These additional packages are used within the document:
-\usepackage{paralist}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{url}
-\usepackage{menukeys}
-\usepackage{fancybox}
-\usepackage{pgf-pie}
-\usepackage{tikz}
-\usepackage{longtable}
-\usepackage{tabularx}
-
-\newcommand{\zv}{\textit}
-\newcommand{\cesta}{\zv}
+\input{setup}
 
 \begin{document}
-\chapter{Úvod}
-\zv{TBD}
-
-
-%% Operačný systém Android 
-%\input{chapters/os_android}
-
-%% Apk súbory
-%\input{chapters/apk_subory}
-
-%% Apk databáza
-%\input{chapters/apk_databaza}
-
-%% Analyza APK súborov
-%\input{chapters/analyza}
-
-%% Statistiky
-%\input{chapters/statistiky}
-	
-%% Prebalene APK súbory
-%\input{chapters/repackaged_apk}
-  
-
-
-
-
+% Uvod
+\input{chapters/uvod}
+% Operačný systém Android 
+\input{chapters/os_android}
+% Apk súbory
+\input{chapters/apk_subory}
+% Apk databáza
+\input{chapters/apk_databaza}
+% Analyza APK súborov
+\input{chapters/analyza}
+% Statistiky
+\input{chapters/statistiky}	
+% Prebalene APK súbory
+\input{chapters/repackaged_apk}
+% Zaver
+\input{chapters/zaver}
 {\csname captions\languagename\endcsname %% Temporarily override
 %% the BibLaTeX localization with the original babel definitions.
 \makeatletter %% Use the correct localization of the quotations.
@@ -145,12 +31,7 @@
 
 \appendix %% Start the appendices.
 \chapter{An appendix}
-
 \input{chapters/apendix_statistiky}
-
 \input{chapters/apendix_data}
-
-
-
 
 \end{document}
