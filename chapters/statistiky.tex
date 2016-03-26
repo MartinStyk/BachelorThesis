@@ -1,6 +1,7 @@
 \chapter{Štatistiky}
 \label{statistiky}
-Analýzou jednotlivých APK súborov získame detailné informácie o jednotlivých aplikáciách. Pre ucelenejší pohľad na všeobecné vlastnosti a atribúty Android aplikácií je vhodné rozšíriť analýzu jednotlivých aplikácií na skúmanie väčšej množiny APK balíčkov. Keďže databáza APK súborov použitá v tejto práci obsahuje dostatočne veľkú vzorku približne 20000 APK súborov, ktoré pochádzajú z rôznych oficiálnych aj alternatívnych zdrojov, poskytuje dobrú vzorku na určenie štatistických údajov o Android aplikáciách. Štatistické informácie prezentované v tejto kapitole sa viažu k aplikáciám dostupným v rokoch 2014--2016 a teda sú aktuálne pre spomenuté obdobie.
+Analýzou jednotlivých APK súborov získame detailné informácie o jednotlivých aplikáciách. Pre ucelenejší pohľad na všeobecné vlastnosti a atribúty Android aplikácií je vhodné rozšíriť analýzu jednotlivých aplikácií na skúmanie väčšej množiny APK balíčkov. Keďže databáza APK súborov vytvorená v tejto práci obsahuje dostatočne veľkú vzorku približne 20000 APK súborov, ktoré pochádzajú z rôznych oficiálnych aj alternatívnych zdrojov, poskytuje dobrú vzorku na určenie štatistických údajov o Android aplikáciách. Štatistické informácie prezentované v tejto kapitole sa viažu k aplikáciám dostupným v rokoch 2014--2016 a teda sú aktuálne pre spomenuté obdobie.
+
 Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík nad množinou APK súborov. Funkcionalita výpočtu štatistických informácií sa aktivuje pomocou prepínača \zv{–statistics} pri spustení programu z príkazového riadku. Ako vstup aplikácie slúžia JSON súbory vytvorené analýzou popísanou v kapitole \ref{analyza}. Výstupom je súbor vo formáte JSON obsahujúci vypočítané štatistické dáta. Pri vlastnostiach, ktorých hodnota je vyjadrená číselne sú vypočítané základné matematické štatistiky ako je aritmetický priemer, modus, medián, rozptyl, smerodajná odchýlka, minimum a maximum. Pri najnižšej a najvyššej hodnote obsahuje výstup aj názov aplikácií, ktoré tieto hodnoty dosahujú. V prípade vlastností, ktoré nadobúdajú obmedzený počet predom definovaných hodnôt je určené percentuálne zastúpenie jednotlivých hodnôt.
 
 \section{Získané dáta}
@@ -30,11 +31,12 @@ Základnou funkčnou jednotkou Android aplikácií sú aktivity (viď \ref{el_ac
 
 \subsection*{Verzie Android SDK}
 
-Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Nanižšie vyžadované verzie Android SDK v našej databáze APK súborov sú zobrazené v grafe \ref{tab:minSdk}. Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19.
+Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Nanižšie vyžadované verzie Android SDK v našej databáze APK súborov sú zobrazené v grafe \ref{tab:minSdk}.
+\\Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19.
 
 \subsection*{Prístupové oprávnenia}
 
-Android aplikácie najčastejšie deklarujú, že využívajú 4 prístupové oprávnenia (viď \ref{el_uses-permission}). Stredná hodnota počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením v analyzovanej vzorke aplikácií je uvádených v tabuľke \ref{tab:permissions}. 
+Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Stredná hodnota počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením v analyzovanej vzorke aplikácií je uvedených v tabuľke \ref{tab:permissions}. 
 \begin{table}[!htbp]
 \centering
   \begin{tabular}{|l r|}
@@ -60,7 +62,7 @@ Android aplikácie najčastejšie deklarujú, že využívajú 4 prístupové op
 Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, stredná hodnota a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v tabľke \ref{tab:features}.
 
 \subsection{Podpis APK balíčka}
-Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch.
+Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na grafe \ref{fig:signAlg}.
 
 
 \begin{figure}[!htbp]
@@ -75,8 +77,8 @@ Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1
 \end{figure}
 
 \subsection*{Lokalizácia}
-Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z portálov určených pre strednú európu. V českom jazyku je lokalizovaných 49\,\% aplikácií, v slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v tabuľke \ref{tab:language}.
+Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z portálov určených pre strednú Európu. V českom jazyku je lokalizovaných 49\,\% aplikácií, v slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v tabuľke \ref{tab:language}.
 
 
 \subsection*{Obrázkové súbory}
-Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Stredná hodnota celkového počtu obrázkových súborov je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5 . Stredná hodnota počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 342,8 takýchto súborov.
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Stredná hodnota celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5 . Stredná hodnota počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.

@@ -1,11 +1,11 @@
 \chapter{Operačný systém Android}
-Android je mobilný operačný systém navrhnutý primárne pre zariadenia s~dotykovou obrazovkou. Android je dominantným operačným systémom na mobilných zariadeniach ako sú chytré telefóny a tablety. V~treťom kvartáli roku 2015 dosahoval až 84,7\% podiel na trhu operačných systémov pre mobilné zariadenia~\cite{Westenberg2015}. Systém je založený na linuxovom jadre.
+Android je mobilný operačný systém navrhnutý primárne pre zariadenia s~dotykovou obrazovkou. Android je dominantným operačným systémom na trhu s~mobilnými zariadeniami ako sú chytré telefóny a tablety. V~treťom kvartáli roku 2015 dosahoval až 84,7\% podiel na trhu operačných systémov pre mobilné zariadenia~\cite{Westenberg2015}. Systém je založený na linuxovom jadre.
 
-Android je aktuálne vyvíjaný spoločnosťou Google ako open source projekt. Existuje aktívna komunita vývojárov podieľajúca sa na vývoji projektu Android Open Source Project. Väčšina Android zariadení sa predáva s~kombináciou open source a proprietárneho softvéru. Medzi proprietárne časti zdrojového kódu patria nadstavby výrobcov telefónov a služby spoločnosti Google\footnote{Google services}. Android nemá žiadny centralizovaný systém aktualizácií. To má za následok, že veľká časť zariadení často nedostáva aktualizácie. Až 87,7\,\% zariadení obsahuje kritické bezpečnostné zraniteľnosti, ktoré sú známe, ale nie sú opravené kvôli slabej podpore~\cite{Thomas2015}.
+Android je aktuálne vyvíjaný spoločnosťou Google ako open source projekt. Existuje aktívna komunita vývojárov podieľajúca sa na vývoji projektu Android Open Source Project. Väčšina Android zariadení sa predáva s~kombináciou open source a proprietárneho softvéru. Medzi proprietárne časti zdrojového kódu patria nadstavby výrobcov telefónov a služby spoločnosti Google\footnote{Google services}. Android nemá žiadny centralizovaný systém aktualizácií. To má za následok, že veľká časť zariadení nedostáva aktualizácie dostatočne často. Až 87,7\,\% zariadení obsahuje kritické bezpečnostné zraniteľnosti, ktoré sú známe, ale nie sú opravené kvôli slabej podpore~\cite{Thomas2015}.
 
 
 \section{História}
-Začiatok vývoja operačného systému, ktorý je dnes známy ako Android siaha do roku 2003, kedy vznikla spoločnosť Android, Inc.. Prvotným zámerom spoločnosti bola tvorba systému pre digitálne fotoaparáty, avšak kvôli malému trhu bol vývoj preorientovaný na operačný systém pre mobilné zariadenia. Zakladatelia spoločnosti Andy Rubin, Rich Miner, Nick Sears  a Chris White plánovali vývoj chytrého mobilného zariadenia, ktoré dokáže efektívne využívať prostredie a preferencie užívateľov~\cite{Beavis2008}. Spoločnosť Android bola v~roku 2005 kúpená spoločnosťou Google za približne 50 miliónov dolárov~\cite{Rosoff2011}. 5.\,novembra 2007 bolo predstavené konzorcium Open Handset Alliance, skladajúce sa z~výrobcov mobilných zariadení, mobilných operátorov a výrobcov komponentov pre mobilné zariadenia. Hlavným cieľom konzorcia je vývoj otvorených mobilných štandardov~\cite{OHA}. Prvým predstaveným produktom tejto skupiny bol operačný systém založený na linuxovom jadre -- Android. Prvým komerčne dostupným chytrým telefónom s~operačným systémom Android sa 22.\,novembra 2008 stal \zv{HTC Dream}. Od roku 2008 sa systém inkrementálne vylepšuje a vyvíja. Bolo vydaných množstvo opráv, vylepšení a nových funkcií. Začínajúc od verzie \zv{Android 1.5 Cupcake}, je každá verzia pomenovaná podľa cukroviniek.
+Začiatok vývoja operačného systému, ktorý je dnes známy ako Android siaha do roku 2003, kedy vznikla spoločnosť Android, Inc.. Prvotným zámerom spoločnosti bola tvorba systému pre digitálne fotoaparáty, avšak kvôli malému trhu bol vývoj preorientovaný na operačný systém pre mobilné zariadenia. Zakladatelia spoločnosti Andy Rubin, Rich Miner, Nick Sears  a Chris White plánovali vývoj operačného systému pre chytré mobilné zariadenia, ktoré dokážu efektívne využívať prostredie a preferencie užívateľov~\cite{Beavis2008}. Spoločnosť Android bola v~roku 2005 kúpená spoločnosťou Google za približne 50 miliónov dolárov~\cite{Rosoff2011}. 5.\,novembra 2007 bolo predstavené konzorcium \zv{Open Handset Alliance}, skladajúce sa z~výrobcov mobilných zariadení, mobilných operátorov a výrobcov komponentov pre mobilné zariadenia. Hlavným cieľom konzorcia je vývoj otvorených mobilných štandardov~\cite{OHA}. Prvým predstaveným produktom tejto skupiny bol operačný systém založený na linuxovom jadre -- Android. Prvým komerčne dostupným chytrým telefónom s~operačným systémom Android sa 22.\,novembra 2008 stal \zv{HTC Dream}. Od roku 2008 sa systém inkrementálne vylepšuje a vyvíja. Bolo vydaných množstvo opráv, vylepšení a nových funkcií. Začínajúc od verzie \zv{Android 1.5 Cupcake}, je každá verzia pomenovaná podľa cukroviniek.
 
 \section{Architektúra systému}
 Operačný systém Android je možné dekomponovať do piatich sekcií a štyroch základných architektonických vrstiev organizovaných v~zásobníkovej štruktúre.
@@ -17,21 +17,21 @@ Operačný systém Android je možné dekomponovať do piatich sekcií a štyroc
 			Aplikácie
 			\end{center}					
 		\end{minipage}
-		}
+		}\\
 	\ovalbox{
 		\begin{minipage}[b]{10cm}	
 			\begin{center}
 			Aplikačný rámec
 			\end{center}					
 		\end{minipage}
-		}
+		}\\
 	\ovalbox{
 		\begin{minipage}[b]{10cm}	
 			\begin{center}
 			Knižnice \hfill Android Runtime (DVM)
 			\end{center}
 		\end{minipage}
-		}	
+		}\\
 	\ovalbox{
 		\begin{minipage}[b]{10cm}	
 			\begin{center}
@@ -45,44 +45,39 @@ Operačný systém Android je možné dekomponovať do piatich sekcií a štyroc
 \subsection{Linuxové jadro}
 Najnižšiu vrstvu predstavuje Linux jadro vo verzií 2.6. Jadro je upravené za účelom optimalizácie spotreby energie a operačnej pamäte, podporuje preemptívny multitasking. Táto vrstva poskytuje abstrakciu medzi hardvérom zariadenia a vyššími softvérovými vrstvami. Na tejto vrstve sa nachádzajú ovládače hardvérových komponent ako fotoaparát, dotyková obrazovka alebo sieťové rozhranie~\cite{architecture}.
 \subsection{Android Runtime a Dalvik Virtual Machine}
-Dalvik Virtual Machine je virtuálny stroj slúžiaci na exekúciu Android aplikácií~\cite{dalvik}. Je obdobou virtuálneho stroja JVM\footnote{Java Virtual Machine} používaného pri jazyku Java. Virtuálny stroj Dalvik využíva nízkoúrovňovú funkcionalitu linuxového jadra. Každá aplikácia je spustená vo vlastnom procese a na vlastnej inštancii virtuálneho stroja. Tento prístup zaručuje, že aplikácie sa navzájom neúmyselne neovplyvňujú, nepristupujú priamo k~hardvéru zariadenia a využívajú abstrakciu, ktorá zabezpečuje ich platformovú nezávislosť~\cite{architecture}.  Od verzie Android 5.0 je virtuálny stroj Dalvik plne nahradený novým behovým prostredím Android Runtime (ART).
+\zv{Dalvik Virtual Machine} je virtuálny stroj slúžiaci na exekúciu Android aplikácií~\cite{dalvik}. Je obdobou virtuálneho stroja \zv{JVM}\footnote{Java Virtual Machine} používaného pri jazyku Java. Virtuálny stroj \zv{Dalvik} využíva nízkoúrovňovú funkcionalitu linuxového jadra. Každá aplikácia je spustená vo vlastnom procese a na vlastnej inštancii virtuálneho stroja. Tento prístup zaručuje, že aplikácie sa navzájom neúmyselne neovplyvňujú, nepristupujú priamo k~hardvéru zariadenia a využívajú abstrakciu, ktorá zabezpečuje ich platformovú nezávislosť~\cite{architecture}.  Od verzie Android 5.0 je virtuálny stroj \zv{Dalvik} plne nahradený novým behovým prostredím \zv{Android Runtime} (\zv{ART}).
 \subsection{Knižnice}
-Android obsahuje množstvo knižníc využívaných vývojármi alebo samotným systémom. Špecifickou skupinou sú natívne knižnice jadra, často označované ako Dalvik knižnice, ktoré obsahujú kód pre interakciu s~inštanciou virtuálneho stroja ale aj napríklad knižnice pre prístup k~systému súborov. Veľká časť knižníc obsiahnutá v~tejto vrstve využíva natívny kód v~jazyku C/C++ a slúži ako obal okolo natívneho C/C++ kódu využívajúci jazyk Java. Táto vrstva obsahuje niektoré štandardné knižnice známe z~jazyka Java upravené pre využitie na operačnom systéme Android, ale aj knižnice špecifické pre platformu Android, tzv. Android knižnice~\cite{architecture}.
+Android obsahuje množstvo knižníc využívaných vývojármi alebo samotným systémom. Špecifickou skupinou sú natívne knižnice jadra, často označované ako \zv{Dalvik knižnice}, ktoré obsahujú kód pre interakciu s~inštanciou virtuálneho stroja ale aj napríklad knižnice pre prístup k~systému súborov. Veľká časť knižníc obsiahnutá v~tejto vrstve využíva natívny kód v~jazyku C/C++. Takéto knižnice slúžia ako obal okolo C/C++ kódu, ku ktorému  sprostredkúvajú prístup pomocu jazyka Java. Táto vrstva obsahuje niektoré štandardné knižnice známe z~jazyka Java upravené pre využitie na operačnom systéme Android, ale aj knižnice špecifické pre platformu Android, tzv. \zv{Android knižnice}~\cite{architecture}.
 \subsection{Aplikačný rámec}
-Vrstva aplikačného rámca poskytuje vysoko-úrovňové služby používané na manažment aplikácie. Využíva koncept Android aplikácií, ktoré sa skladajú z~viacerých komponent. Kľúčové služby poskytované aplikačným rámcom sú~\cite{architecture}: 
+Vrstva aplikačného rámca poskytuje vysokoúrovňové služby používané na manažment aplikácie. Využíva koncept Android aplikácií, ktoré sa skladajú z~viacerých komponent. Kľúčové služby poskytované aplikačným rámcom sú~\cite{architecture}: 
 \begin{itemize}
-	\item Activity Manager  --  ovláda životný cyklus aktivít a spravuje zásobník naposledy spustených aktivít
-	\item Content Provider  --  umožňuje zdieľanie dát medzi aplikáciami
-	\item Resource Manager  --  poskytuje prístup k~zdrojovým súborom ako reťazce, obrázky, dizajny obrazoviek
-	\item Notification Manager  --  umožňuje aplikácií zobrazovať upozornenia
-	\item View system  --  poskytuje prvky, ktoré tvoria grafické používateľské rozhranie aplikácie
-	\item Package Manager  --  umožňuje aplikáciám zistiť informácie o~ostatných aplikáciách nainštalovaných na zariadení
-	\item Telephony Manager  --  umožňuje aplikáciám zistiť informácie informácie o~stave telefónnych služieb
-	\item Location Manager  --  poskytuje aplikácií informácie o~polohe zariadenia
+	\item \bod{Activity Manager}  --  ovláda životný cyklus aktivít a spravuje zásobník naposledy spustených aktivít
+	\item \bod{Content Provider}  --  umožňuje zdieľanie dát medzi aplikáciami
+	\item \bod{Resource Manager}  --  poskytuje prístup k~zdrojovým súborom ako reťazce, obrázky, dizajny obrazoviek
+	\item \bod{Notification Manager}  --  umožňuje aplikácií zobrazovať upozornenia
+	\item \bod{View system}  --  poskytuje prvky grafického používateľského rozhrania aplikácie
+	\item \bod{Package Manager}  --  umožňuje aplikáciám získať informácie o~ostatných aplikáciách nainštalovaných na zariadení
+	\item \bod{Telephony Manager}  --  umožňuje aplikáciám získať informácie o~stave telefónnych služieb
+	\item \bod{Location Manager}  --  poskytuje aplikáciám informácie o~polohe zariadenia
 \end{itemize}
-\subsection{Aplikácie}
+\subsection{Vrstva aplikácií}
 Na vrchole vrstevnatej architektúry systému Android sú aplikácie, ktoré využívajú súčinnosť všetkých spomenutých vrstiev. 
-
-%http://www.tutorialspoint.com/android/android_architecture.htm
-%https://source.android.com/devices/
-%http://www.techotopia.com/index.php/An_Overview_of_the_Android_Architecture	
 
 \section{Aplikácie}
 \subsection{Distribúcia aplikácií}
-%http://www.digitaltrends.com/mobile/android-app-stores/2/
 
-APK súbory predstavujúce inštalačné balíčky Android aplikácií sú najčastejšie distribuované pomocou obchodu s aplikáciami. Oficiálny obchod pre Android zariadenia je \zv{Google Play}\footnote{https://play.google.com/store}. Aplikácie môžu byť distribuované pomocou alternatívnych obchodov ako napríklad \zv{Amazon Appstore}\footnote{http://www.amazon.com/mobile-apps} alebo \zv{SlideMe}\footnote{http://slideme.org/}. Operačný systém Android v základom nastavení neumožňuje inštaláciu aplikácií z iných zdrojov ako \zv{Google Play}. Inštalácia z neznámych zdrojov môže byť povolená v nastaveniach zariadenia. Inštalačné APK balíčky je možné získať aj zo stránok na zdieľanie ľubovoľného obsahu, na ktorých sa často distribuujú aplikácie ktoré sú v oficiálnych zdrojoch platené. Takéto súbory sú často modifikované a môžu obsahovať potenciálny škodlivý kód. Často ich označujeme ako prebalené aplikácie. Viacej o prebalených aplikáciách sa dozviete v kapitole \ref{Repackaged}.
+APK súbory predstavujúce inštalačné balíčky Android aplikácií sú najčastejšie distribuované pomocou obchodu s~aplikáciami. Oficiálny obchod pre Android zariadenia je \zv{Google Play}\footnote{https://play.google.com/store}. Aplikácie môžu byť distribuované pomocou alternatívnych obchodov ako napríklad \zv{Amazon Appstore}\footnote{http://www.amazon.com/mobile-apps} alebo \zv{SlideMe}\footnote{http://slideme.org/}. Operačný systém Android v~základom nastavení neumožňuje inštaláciu aplikácií z~iných zdrojov ako \zv{Google Play}. Inštalácia z~neznámych zdrojov môže byť povolená v~nastaveniach zariadenia. Inštalačné APK balíčky je možné získať aj zo stránok na zdieľanie ľubovoľného obsahu, na ktorých sa často distribuujú aplikácie ktoré sú v~oficiálnych zdrojoch platené. Takéto súbory sú často modifikované a môžu obsahovať potenciálny škodlivý kód. Často ich označujeme ako prebalené aplikácie. Viacej informácií o~prebalených aplikáciách sa nachádza v~kapitole \ref{Repackaged}.
 
 \subsection{Inštalácia aplikácií}
-Aplikácie môžeme rozdeliť na dve skupiny:\\
+Aplikácie môžeme rozdeliť na dve skupiny:
 \begin{itemize}
 \item Predinštalované aplikácie – často označované aj ako systémové aplikácie. Tieto aplikácie sú nainštalované spolu so systémom a často nemôžu byť bežným používateľom odinštalované. Príkladom je základná aplikácia pre fotoaparát, kontakty alebo telefón
-\item Aplikácie nainštalované používateľom – Aplikácie nainštalované jedným z nasledujúcich spôsobov~\cite{Elenkov2015}:
+\item Aplikácie nainštalované používateľom – Aplikácie nainštalované jedným z~nasledujúcich spôsobov~\cite{Elenkov2015}:
 \begin{itemize}
-\item prostredníctvom obchodu s aplikáciami, najčastejšie \zv{Google Play Store}
-\item prostredníctvom nástroja \zv{Android Debug Bridge} (\zv{ADB}) ktorý je obsiahnutý v \zv{Android SDK} a umožňuje inštaláciu a ladenie aplikácií na zariadení pripojenom k počítaču pomocou USB kábla
-\item otvorením APK balíčka umiestneného v zariadení
+\item prostredníctvom obchodu s~aplikáciami, najčastejšie \zv{Google Play Store}
+\item prostredníctvom nástroja \zv{Android Debug Bridge} (\zv{ADB}) ktorý je obsiahnutý v~\zv{Android SDK} a umožňuje inštaláciu a ladenie aplikácií na zariadení pripojenom k~počítaču pomocou USB kábla
+\item otvorením APK balíčka umiestneného v~zariadení
 \end{itemize}
 \end{itemize}
 
-\noindent Základnou aplikáciou starajúcou sa o inštaláciu APK balíčkov je \zv{PackageInstaller}, ktorý poskytuje užívateľské rozhranie na komunikáciu so službou \zv{PackageManager}. \zv{PackageManager}  poskytuje v rámci triedy \zv{PackageManagerService.java} API pre inštaláciu, aktualizáciu a odinštaláciu aplikácií. Natívny démon \zv{installd} prijíma požiadavky od služby \zv{PackageManagerService.java} s ktorou komunikuje prostredníctvom lokálneho soketu \cesta{/dev/socket/installed}. Služba \zv{PackageManager} a démon \zv{installd} sú spustené pri štarte systému. \zv{PackageManager} čaká na pridanie požiadavky na inštaláciu do zoznamu inštalovaných aplikácií. Pri inštalácií analyzuje súbor \zv{AndroidManifest.xml} a relevantné informácie ukladá do súborov \cesta{/data/system/packages.xml} a \cesta{/data/system/packages.list}. Priečinok, do ktorého sa APK súbor rozbalí, vytvára démon \zv{installd}, o rozbalenie a kopírovanie obsahu sa stará \zv{PackageManager}. Predinštalované(systémové) aplikácie sú inštalované do zložky \cesta{/system/app/}, aplikácie inštalované užívateľom do zložky \cesta{/data/app/}. Súbor \zv{classes.dex}, ktorý je obsiahnutý v APK balíčku je kopírovaný do \cesta{/data/dalvik-cache/}. \zv{PackageManager} vytvorí priečinok \cesta{/data/data/nazov\_balíčku} v ktorom sa nachádzajú preferencie, databázy alebo natívne knižnice aplikácie~\cite{Parmar2013}.
+\noindent Základnou aplikáciou starajúcou sa o~inštaláciu APK balíčkov je \zv{PackageInstaller}, ktorý poskytuje užívateľské rozhranie na komunikáciu so službou \zv{PackageManager}. \zv{PackageManager}  poskytuje v~rámci triedy \zv{PackageManagerService.java} API pre inštaláciu, aktualizáciu a odinštaláciu aplikácií. Natívny démon \zv{installd} prijíma požiadavky od služby \zv{PackageManagerService.java} s~ktorou komunikuje prostredníctvom lokálneho soketu \cesta{/dev/socket/installed}. Služba \zv{PackageManager} a démon \zv{installd} sú spustené pri štarte systému. \zv{PackageManager} čaká na pridanie požiadavky na inštaláciu do zoznamu inštalovaných aplikácií. Pri inštalácií analyzuje súbor \zv{AndroidManifest.xml} a relevantné informácie ukladá do súborov \cesta{/data/system/packages.xml} a \cesta{/data/system/packages.list}. Priečinok, do ktorého sa APK súbor rozbalí, vytvára démon \zv{installd}, o~rozbalenie a kopírovanie obsahu sa stará \zv{PackageManager}. Predinštalované (systémové) aplikácie sú inštalované do zložky \cesta{/system/app/}, aplikácie inštalované užívateľom do zložky \cesta{/data/app/}. Súbor \zv{classes.dex}, ktorý je obsiahnutý v~APK balíčku je kopírovaný do \cesta{/data/dalvik-cache/}. \zv{PackageManager} vytvorí priečinok \cesta{/data/data/nazov\_balíčku} v~ktorom sa nachádzajú preferencie, databázy alebo natívne knižnice aplikácie~\cite{Parmar2013}.
