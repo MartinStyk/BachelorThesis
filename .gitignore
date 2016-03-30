@@ -8,3 +8,10 @@
 *.xml
 *.gz
 *.toc
+*.te~
+*.ilg
+*.ind
+*.csv
+*.dvi
+*.bbl
+*.blg

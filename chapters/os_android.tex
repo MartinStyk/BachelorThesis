@@ -8,7 +8,7 @@ Android je aktuálne vyvíjaný spoločnosťou Google ako open source projekt. E
 Začiatok vývoja operačného systému, ktorý je dnes známy ako Android siaha do roku 2003, kedy vznikla spoločnosť Android, Inc.. Prvotným zámerom spoločnosti bola tvorba systému pre digitálne fotoaparáty, avšak kvôli malému trhu bol vývoj preorientovaný na operačný systém pre mobilné zariadenia. Zakladatelia spoločnosti Andy Rubin, Rich Miner, Nick Sears  a Chris White plánovali vývoj operačného systému pre chytré mobilné zariadenia, ktoré dokážu efektívne využívať prostredie a preferencie užívateľov~\cite{Beavis2008}. Spoločnosť Android bola v~roku 2005 kúpená spoločnosťou Google za približne 50 miliónov dolárov~\cite{Rosoff2011}. 5.\,novembra 2007 bolo predstavené konzorcium \zv{Open Handset Alliance}, skladajúce sa z~výrobcov mobilných zariadení, mobilných operátorov a výrobcov komponentov pre mobilné zariadenia. Hlavným cieľom konzorcia je vývoj otvorených mobilných štandardov~\cite{OHA}. Prvým predstaveným produktom tejto skupiny bol operačný systém založený na linuxovom jadre -- Android. Prvým komerčne dostupným chytrým telefónom s~operačným systémom Android sa 22.\,novembra 2008 stal \zv{HTC Dream}. Od roku 2008 sa systém inkrementálne vylepšuje a vyvíja. Bolo vydaných množstvo opráv, vylepšení a nových funkcií. Začínajúc od verzie \zv{Android 1.5 Cupcake}, je každá verzia pomenovaná podľa cukroviniek.
 
 \section{Architektúra systému}
-Operačný systém Android je možné dekomponovať do piatich sekcií a štyroch základných architektonických vrstiev organizovaných v~zásobníkovej štruktúre.
+Operačný systém Android je možné dekomponovať do piatich sekcií a štyroch základných architektonických vrstiev organizovaných v~zásobníkovej štruktúre zobrazenej na obrázku \ref{fig:struktura}.
 \begin{figure} [htb]
  \centering
 	\ovalbox{
@@ -40,7 +40,7 @@ Operačný systém Android je možné dekomponovať do piatich sekcií a štyroc
 		\end{minipage}
 		}	
   \caption{Vrstevnatá architektúra systému Android}
-  \label{fig:mulogo1}
+  \label{fig:struktura}
 \end{figure}
 \subsection{Linuxové jadro}
 Najnižšiu vrstvu predstavuje Linux jadro vo verzií 2.6. Jadro je upravené za účelom optimalizácie spotreby energie a operačnej pamäte, podporuje preemptívny multitasking. Táto vrstva poskytuje abstrakciu medzi hardvérom zariadenia a vyššími softvérovými vrstvami. Na tejto vrstve sa nachádzajú ovládače hardvérových komponent ako fotoaparát, dotyková obrazovka alebo sieťové rozhranie~\cite{architecture}.
