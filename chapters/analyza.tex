@@ -9,24 +9,23 @@ Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinier
 
 \subsection{ApkTool}
 \label{ApkTool}
-Nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory \zv{resources.arsc}, \zv{classes.dex} aj binárne XML súbory. Z~dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor \zv{classes.dex} je dekompilovaný do súborov vo formáte SMALI. Smali súbory obsahujú nízkoúrovňový kód na úrovni asembleru. ApkTool podporuje debugovanie smali kódu~\cite{apkTool}.
+Nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory \zv{resources.arsc}, \zv{classes.dex} aj binárne XML súbory. Z~dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor \zv{classes.dex} je dekompilovaný do súborov vo formáte SMALI. Takéto súbory obsahujú nízkoúrovňový zdrojový kód. \zv{ApkTool} podporuje debugovanie smali kódu~\cite{apkTool}.
 
 \subsection{Dex2Jar}
 \label{Dex2Jar}
 Nástroj podporujúci dekódovanie DEX súborov do formátu skompilovaných CLASS súborov .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v~jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
 
+\subsection{AAPT}
+\label{AAPT}
+
+\zv{Android Asset Packaging Tool} (\zv{AAPT}) je štandardný nástroj obsiahnutý v~\zv{Android SDK}. Nástroj \zv{AAPT} umožňuje vytvorenie, aktualizovanie a prezeranie súborov vo formáte APK. Dokáže skompilovať zdrojové súbory do binárnej formy a umožňuje aj ich čiastočnú dekompiláciu\cite{aapt}.
+
 \subsection{AXML}
 \label{AXML}
 \zv{AXML} je knižnica navrhnutá na prácu s~binárnymi XML súbormi, ktoré vznikajú počas zostavenia Android aplikácie pomocou nástroja \zv{AAPT}. Knižnica umožňuje prevod takýchto XML súborov do čitateľného XML formátu, je implementovaná v~jazyku Java.
 
-
-\subsection{AAPT}
-\label{AAPT}
-
-\zv{Android Asset Packaging Tool} (\zv{AAPT}) je štandardný nástroj obsiahnutý v~\zv{Android SDK}. Nástroj \zv{AAPT} umožňuje vytvorenie, aktualizovanie a prezeranie súborov vo formáte APK. Dokáže skompilovať zdrojové súbory do binárnej formy a umožňuje aj ich dekompiláciu\cite{aapt}.
-
 \section{Implementácia analýzy}
-Analýza APK súborov je implementovaná v~rámci programu \zv{ApkAnalyzer} a môže byť spustená pomocou argumentu \zv{–analyze}. Zároveň je potrebné špecifikovať analyzovaný APK súbor alebo priečinok obsahujúci takéto súbory pomocou argumentu \zv{–in} a priečinok do ktorého bude zapísaný výstup analýzy pomocou argumentu \zv{–out}. \zv{ApkAnalyzer} je aplikácia prispôsobená na prácu s~veľkým počtom APK súborov. Proces analýzy je preto paralelizovaný a každé dostupné procesorové jadro analyzuje inú aplikáciu. Pre každú analyzovanú aplikáciu je vygenerovaný výstupný súbor vo formáte JSON obsahujúci získané metadáta o~danej aplikácií. \\\\
+Analýza APK súborov je implementovaná v~rámci programu \zv{ApkAnalyzer} a môže byť spustená pomocou argumentu \zv{–analyze}. Zároveň je potrebné špecifikovať analyzovaný APK súbor alebo priečinok obsahujúci takéto súbory pomocou argumentu \zv{–in} a priečinok do ktorého bude zapísaný výstup analýzy pomocou argumentu \zv{–out}. \zv{ApkAnalyzer} je aplikácia prispôsobená na prácu s~veľkým počtom APK súborov. Proces analýzy je preto paralelizovaný a každé dostupné procesorové jadro analyzuje inú aplikáciu. Pre každú analyzovanú aplikáciu je vygenerovaný výstupný súbor vo formáte JSON, obsahujúci získané metadáta o~danej aplikácií. \\\\
 Zbierané metadáta je možné rozdeliť do piatich kategórií:
 \begin{itemize}
 \item Základné informácie o~APK súbore -- v~tejto kategórií sa nachádzajú informácie ako je veľkosť APK súboru alebo veľkosti súborov \zv{classes.dex} a \zv{resources.arsc}. Pre získanie veľkosti súborov obsiahnutých v~APK balíčku je balíček rozbalený do dočasného adresára

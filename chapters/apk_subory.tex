@@ -1,6 +1,6 @@
 \chapter{APK súbory}
 \label{APKsubory}
-APK súbory sú balíčky používané operačným systémom Android. Celý názov ukrytý za skratkou APK je \zv{Android application package file}. Tieto súbory slúžia na distribúciu aplikácií v~operačnom systéme Android. Ich použitie a význam je analogický ako pri MSI balíčkoch používaných v~systéme Microsoft Windows, alebo DEB balíčkoch používaných v~niektorých linuxových distribúciách. APK súbory sú asociované s~príponou \zv{.apk} a príslušný MIME typom \zv{application/vnd.android.package-archive}~\cite{Freed2016}.
+APK súbory sú balíčky používané operačným systémom Android. Celý názov ukrytý za skratkou APK je \zv{Android application package file}. Tieto súbory slúžia na distribúciu aplikácií v~operačnom systéme Android. Ich použitie a význam je analogický ako pri MSI balíčkoch používaných v~systéme Microsoft Windows, alebo DEB balíčkoch používaných v~niektorých linuxových distribúciách. APK súbory sú asociované s~príponou \zv{.apk} a s príslušným MIME typom \zv{application/vnd.android.package-archive}~\cite{Freed2016}.
 
 Štruktúra APK balíčkov vychádza z~JAR\footnote{Java archive} balíčkov -- súborov používaných na distribúciu aplikácií alebo knižníc na platforme Java. Formát APK rozširuje všeobecnejší JAR formát o~súbory, ktoré sú špecifické pre cieľovú platformu, ktorou je operačný systém Android. Zároveň si však ponecháva vlastnosti JAR súborov. APK balíčky sú archívne súbory v~ZIP\footnote{\url{https://en.wikipedia.org/wiki/Zip\_(file_format)}} formáte.  Keďže APK používajú ZIP formát, k~ich obsahu môžeme jednoducho pristúpiť rozbalením archívu štandardným spôsobom.  APK súbory vznikajú ako výstup kompletnej kompilácie a zabalenia aplikácií pre Android. APK súbor každej aplikácie obsahuje všetky potrebné súbory na jej inštaláciu a spustenie. Medzi týmito súbormi sa typicky nachádza súbor \zv{classes.dex} obsahujúci skompilovaný zdrojový kód, súbor \zv{resources.arsc} ktorý obsahuje skompilované zdroje aplikácie, súbor \zv{AndroidManifest.xml} a neskompilované súbory ako sú napríklad obrázky~\cite{buildingAndRunning}. Typická štruktúra APK balíčku je zobrazená na obrázku \ref{fig:strukturaApk}.
 \begin{figure}[htb]
@@ -12,11 +12,11 @@ APK súbory sú balíčky používané operačným systémom Android. Celý náz
 \end{figure}
 \section{Priečinok META-INF}
 \label{META-INF}
-Priečinok obsahujúci súbory, ktorých úlohou je zaručiť integritu ostatných súborov v~APK balíčku a s~ňou spojenú bezpečnosť celého systému. V~prípade detekcie pozmenených súborov a narušenia integrity operačný systém Android nedovolí inštaláciu APK balíčku. Po každej zmene je nutné balíček digitálne podpísať.
+Priečinok \zv{META-INF} obsahuje súbory, ktorých úlohou je zaručiť integritu ostatných súborov v~APK balíčku a s~ňou spojenú bezpečnosť celého systému. V~prípade detekcie pozmenených súborov a narušenia integrity operačný systém Android nedovolí inštaláciu APK balíčku. Po každej zmene je nutné balíček digitálne podpísať.
 
 \subsection*{CERT.RSA}
 \label{CERT.RSA} 
-Súbor obsahujúci verejný kľúč ktorý slúži na overenie digitálneho podpisu balíčka.
+Súbor obsahujúci verejný kľúč, ktorý slúži na overenie digitálneho podpisu balíčka.
 \subsection*{MANIFEST.MF}
 \label{MANIFEST.MF}
 Súbor obsahujúci relatívne cesty a SHA-1 hashe \footnote{reťazce v~Base64 kódovaní} všetkých súborov v~APK balíčku. Tento súbor nie je špecifický len pre APK súbory, ale obsahuje ho každý JAR archív.\\\\
@@ -54,7 +54,7 @@ Priečinok obsahujúci zdrojové súbory ako napríklad obrázky, zvuky alebo ik
 \item color - obsahuje XML súbory definujúce farby a ich zmeny na základe stavu objektov na ktoré sú aplikované
 \item drawable - obsahuje obrázky vo formáte PNG, 9.PNG, JPG, GIF alebo XML súbory skompilované do formy vykresliteľných obrázkov
 \item mipmap - obsahuje ikony aplikácie s~rôznou hustotou pixelov
-\item layout - obsahuje súbory vo formáte XML definujúce vzhľad rozmiestnenie prvkov na obrazovke
+\item layout - obsahuje súbory vo formáte XML definujúce vzhľad a rozmiestnenie prvkov na obrazovke
 \item menu - obsahuje XML súbory definujúce menu aplikácie
 \item raw - obsahuje súbory, ktoré musia byť uložené a použité v~neskomprimovanej forme a kvalite
 \item values - obsahuje súbory vo formáte XML definujúce hodnoty textových reťazcov, farieb, štýlov alebo základných rozmerov
@@ -89,7 +89,7 @@ Súbor obsahujúci mapovanie medzi zdrojovými súbormi  z~priečinku \zv{res} a
 
 \section{AndroidManifest.xml} 
 \label{AndroidManifest.xml}
-Súbor ktorý musí obsahovať každá aplikácia. Tento súbor poskytuje informácie o~aplikácii operačnému systému Android. Neobsahuje žiadny výkonný kód. Definuje meno a verziu, ktoré slúžia ako unikátny identifikátor danej aplikácie. Popisuje všetky komponenty z~ktorých sa aplikácia skladá, cesty k~použitým knižniciam, minimálny vyžadovaný level Android API, oprávnenie vyžadované aplikáciu na prístup k~chráneným častiam Android API a taktiež oprávnenia, ktoré sú vyžadované od iných komponent pri pokuse komunikovať s~danou aplikáciou~\cite{appManifest}. Súbor \zv{AndroidManifest.xml}, ktorý nájdeme v~APK balíčku je vo formáte binárneho XML súboru. Je ho však možné previesť do klasického čitateľného XML formátu.
+Súbor ktorý musí obsahovať každá aplikácia. Tento súbor poskytuje informácie o~aplikácii operačnému systému Android. Neobsahuje žiadny výkonný kód. Definuje meno a verziu, ktoré slúžia ako unikátny identifikátor danej aplikácie. Popisuje všetky komponenty z~ktorých sa aplikácia skladá, cesty k~použitým knižniciam, minimálny vyžadovaný level Android API, oprávnenie vyžadované aplikáciou na prístup k~chráneným častiam Android API a taktiež oprávnenia, ktoré sú vyžadované od iných komponent pri pokuse komunikovať s~danou aplikáciou~\cite{appManifest}. Súbor \zv{AndroidManifest.xml}, ktorý nájdeme v~APK balíčku je vo formáte binárneho XML súboru. Je ho však možné previesť do klasického čitateľného XML formátu.
 
 Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta o~Android aplikácii a APK súbore, informácie získané z~tohto súboru tvoria veľkú časť štatistických dát zbieraných a vyhodnocovaných v~kapitole \ref{statistiky}. Preto sa detailnejšie pozrieme na jeho štruktúru a niektoré dôležité elementy, ktoré obsahuje.
 \begin{lstlisting} [language=XML, caption= {Základná štruktúra súboru AndroidManifest.xml}]
@@ -134,7 +134,7 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 \item \bod{android:sharedUserId} -- identifikátor aplikácie zdieľaný s~ostatnými aplikáciami za účelom vzájomnej komunikácie
 \item \bod{android:sharedUserLabel} -- čitateľná podoba \zv{android:sharedUserId} identifikátoru
 \item \bod{android:versionCode} -- interná informácia o~verzii aplikácie. Tento atribút je využívaný len na rozoznanie novších verzií od starších. Novšie aplikácie obsahujú vyššiu hodnotu
-\item \bod{android:versionName} – informácia o~verzii aplikácie prezentovaná užívateľovo. Pre systém Android neposkytuje informáciu o~verzií aplikácie, tú obsahuje atribút \zv{android:versionCode}.
+\item \bod{android:versionName} – informácia o~verzii aplikácie prezentovaná užívateľovo. Pre systém Android neposkytuje informáciu o~verzii, tú obsahuje atribút \zv{android:versionCode}.
 \item \bod{android:installLocation} – určuje predvolené umiestnenie inštalácie aplikácie. Pokiaľ je aplikáciu možné nainštalovať len do vnútornej pamäti zariadenia, obsahuje hodnotu \zv{internalOnly}. Takáto aplikácia nemôže byť presunutá na externé pamäťové médium (typicky SD karta). Táto hodnota sa použije v~prípade, že tento atribút nie je definovaný. V~prípade hodnoty \zv{auto} sú aplikácie inštalované do vnútornej pamäti, ale môžu byť presunuté do pamäti externej. Hodnota \zv{preferExternal} zabezpečí, že systém sa pokúsi o~inštaláciu na externé pamäťové médium. V~prípade neúspechu sa použije interná pamäť
 \end{itemize}
 
@@ -169,7 +169,7 @@ Definuje bezpečnostné povolenie, ktoré môže byť použité na obmedzenie pr
 \item \bod{android:name} -- názov povolenia, aplikácie vyžadujúce dané povolenie uvádzajú túto hodnotu v~atribúte \zv{android:name} v~tagu \zv{uses-permission}. Názov musí byť unikátny a mal by dodržiavať konvencie pomenovávania jazyka Java.
 \item \bod{android:permissionGroup} -- priradí toto povolenie do skupiny povolení. Táto skupina povolení musí byť deklarovaná v~rámci elementu \zv{permission-group} v~niektorej z~nainštalovaných aplikácií. Slúži na logické zoskupenie významovo podobných oprávnení.
 \item \bod{android:protectionLevel} -- charakterizuje potenciálne riziko spojené s~použitím daného povolenia. Táto hodnota určuje postup operačného systému pri rozhodovaní o~udelení povolenia. 
-Základnou hodnotou je \zv{normal}, ktorý reprezentuje povolenia s~nízkou mierou rizika. Tieto povolenia sú aplikácii automaticky schválené systémom Android počas inštalácie. Pre povolenia z~zvýšenou mierou rizika je určená hodnota \zv{dangerous}. Tieto povolenia typicky udeľujú aplikácií prístup k~citlivým dátam alebo k~prvkom zariadenia, ktoré môžu negatívne ovplyvniť jeho používanie. Pretože tento typ povolení prináša potenciálne riziko, systém ho nemôže udeliť automaticky, ale až po explicitnom súhlase používateľa.
+Základnou hodnotou je \zv{normal}, ktorý reprezentuje povolenia s~nízkou mierou rizika. Tieto povolenia sú aplikácii automaticky schválené systémom Android počas inštalácie. Pre povolenia z~zvýšenou mierou rizika je určená hodnota \zv{dangerous}. Tieto povolenia typicky udeľujú aplikácii prístup k~citlivým dátam alebo k~prvkom zariadenia, ktoré môžu negatívne ovplyvniť jeho používanie. Pretože tento typ povolení prináša potenciálne riziko, systém ho nemôže udeliť automaticky, ale až po explicitnom súhlase používateľa.
 V~prípade, že tento atribút obsahuje hodnotu \zv{signature}, povolenie je udelené automaticky a to len aplikáciám, ktorých certifikát je rovnaký ako certifikát aplikácie definujúcej dané povolenie.   
 Hodnota \zv{signatureOrSystem} rozširuje hodnotu \zv{signature} a povolenia sú udelené aj aplikáciám typu \zv{Android system image}.
 \end{itemize}
@@ -184,7 +184,7 @@ Hodnota \zv{signatureOrSystem} rozširuje hodnotu \zv{signature} a povolenia sú
 Element vyjadrujúci kompatibilitu aplikácie s~verziou Androidu pomocou čísla verzie Android API.\\\\
 Atribúty definované elementom \zv{uses-sdk}~\cite{elUsesSdk}:\\
 \begin{itemize}
-\item \bod{android:minSdkVersion} -- vyjadruje najnižší level API vyžadovaný aplikáciou. Pokiaľ je táto hodnota vyššia ako API úroveň zariadenia, systém zabráni inštalácií. Tento atribút by mala obsahovať každá aplikácia
+\item \bod{android:minSdkVersion} -- vyjadruje najnižší level API vyžadovaný aplikáciou. Pokiaľ je táto hodnota vyššia ako API úroveň zariadenia, systém zabráni inštalácii. Tento atribút by mala obsahovať každá aplikácia
 \item \bod{android:targetSdkVersion} -- informuje o~úrovni API na ktorej bola aplikácia testovaná a pre ktorú je primárne určená. V~prípade, že zariadenie podporuje vyššiu verziu Android API ako definuje spomínaný atribút, aplikácia môže byť spustená v~móde kompatibility s~touto verziou API 
 \item \bod{android:maxSdkVersion} -- najvyššia úroveň API kompatibilná s~aplikáciou. Z~dôvodu spätnej kompatibility nie je používanie tohto atribútu doporučené. Tento atribút bol využívaný len do verzie Android 2.0.1
 \end{itemize}
@@ -230,7 +230,7 @@ Deklaruje aktivity. Aktivity sú základnými časťami aplikácie. Sú to tried
 Deklaruje komponenty aplikácie typu služba\footnote{angl. service}. Na rozdiel od aktivít, služby nemajú grafické používateľské rozhranie. Slúžia na implementáciu dlhodobých úloh na pozadí, ktoré môžu bežať aj v~čase keď aplikácia nie je aktívna na popredí, alebo poskytujú funkcionalitu využívanú aplikáciou. Rozlišujeme dva typy služieb~\cite{elService}. Služby typu \zv{started} po spustení bežia pokým nedokončia svoju úlohu a ostatným komponentom nevracajú výsledok. Služby typu \zv{bound} komunikujú s~ostatnými komponentami pomocou modelu klient-server a sú ukončené keď pre nich neexistuje klient~\cite{boundService}. Každá služba rozširuje základnú triedu \zv{android.app.Service} a musí byť deklarovaná pomocou elementu \zv{service}, inak bude ignorovaná.
 
 \subsection{Element provider}
-Deklaruje komponenty aplikácie, ktorých úlohou je poskytovanie štrukturovaného prístupu k~dátam spravovaným aplikáciou. Poskytovatelia obsahu \footnote{angl. content providers} sú implementovaný ako podtriedy triedy \zv{ android.content.ContentProvider}. Využitie tejto komponenty je nutné len v~prípade potreby zdieľania dát medzi viacerými aplikáciami. Operačný systém Android si ukladá referencie na jednotlivých poskytovateľov obsahu pomocou \zv{authority} textového reťazca, ktorý je definovaný ako jeden z~atribútov elementu \zv{provider}~\cite{elContentProvider}. Systém Android nerozpoznáva poskytovateľov obsahu nedefinovaných v~\zv{AndroidManifest.xml}.
+Deklaruje komponenty aplikácie, ktorých úlohou je poskytovanie štrukturovaného prístupu k~dátam spravovaným aplikáciou. Poskytovatelia obsahu \footnote{angl. content providers} sú implementovaní ako podtriedy triedy \zv{ android.content.ContentProvider}. Využitie tejto komponenty je nutné len v~prípade potreby zdieľania dát medzi viacerými aplikáciami. Operačný systém Android si ukladá referencie na jednotlivých poskytovateľov obsahu pomocou \zv{authority} textového reťazca, ktorý je definovaný ako jeden z~atribútov elementu \zv{provider}~\cite{elContentProvider}. Systém Android nerozpoznáva poskytovateľov obsahu nedefinovaných v~\zv{AndroidManifest.xml}.
 
 \subsection{Element receiver}
 Deklaruje komponentu aplikácie implementovanú ako podtriedu triedy \zv{android.content.BroadcastReceiver}. Tieto komponenty umožňujú aplikácii prijímať a reagovať na informácie o~zámere spustenia aktivity\footnote{Intent} aj v~čase, keď ostatné komponenty aplikácie nie sú spustené. Systém Android môžeme oboznámiť s~existenciou komponent tohto typu pomocou elementu \zv{receiver} v~súbore \zv{AndroidManifest.xml} alebo aj dynamicky pomocou volania \zv{Context.registerReceiver()} v~zdrojovom kóde aplikácie~\cite{elReceiver}.
@@ -244,6 +244,6 @@ Deklaruje komponentu aplikácie implementovanú ako podtriedu triedy \zv{android
 \end{lstlisting}
 Špecifikuje zdieľanú knižnicu vyžadovanú aplikáciou. Tento element informuje systém o~potrebe zahrnúť cestu k~zdrojovému kódu knižnice medzi cesty v~ktorých \zv{Dalvik Virtual Machine} hľadá zdrojové súbory. V~angličtine sú tieto cesty označované ako \zv{class path}. Balíky, ktoré sú v~Android aplikáciách najpoužívanejšie, napríklad \zv{android.app}, \zv{android.content} alebo \zv{android.view} sú obsiahnuté v~základnej knižnici, ktorá je automaticky pripojená ku každej aplikácií a nemusí byť deklarovaná týmto elementom. Balíčky, ktoré nie sú medzi základnými knižnicami, musia byť deklarované.  Tento element ovplyvňuje inštaláciu aplikácie na konkrétnom zariadení a taktiež dostupnosť aplikácie v~obchode \zv{Google Play}.\\\\ Definuje atribúty~\cite{elUsesLib}:\\
 \begin{itemize}
-\item \bod{android:name} -- názov knižnice, ktorý sa nachádza v~dokumentácií príslušného použitého balíčku
+\item \bod{android:name} -- názov knižnice, ktorý sa nachádza v~dokumentácii príslušného použitého balíčku
 \item \bod{android:required} -- indikuje či aplikácia nevyhnutne vyžaduje knižnicu špecifikovanú atribútom \zv{android:name}. V~prípade hodnoty \zv{true} aplikácia nie je schopná fungovať bez danej knižnice. Systém zamietne inštaláciu takejto aplikácie, pokiaľ zariadenie neobsahuje danú knižnicu. Ak je tento atribút nastavený na hodnotu \zv{false}, aplikácia je schopná korektne fungovať aj bez danej knižnice
 \end{itemize}

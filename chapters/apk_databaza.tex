@@ -1,7 +1,7 @@
 \chapter{Databáza inštalačných APK súborov}
 Základnou úlohou tejto práce je vytvoriť dostatočne veľkú databázu inštalačných APK balíčkov. Pre ďalšie potreby práce je požadované, aby veľká časť aplikácií pochádzala z~neoficiálnych zdrojov, čím sa zvyšuje pravdepodobnosť, že aplikácia obsahuje malvér.
 
-Naša databáza pozostáva približne z~20000 Android aplikácií. Tie boli zaobstarané v~časovom rozmedzí medzi novembrom 2015 a februárom 2016. Žiadna z~aplikácií nebola stiahnutá priamo z~obchodu \zv{Google Play}, ale veľká časť bola získaná s~využitím projektu \zv{Playdrone}. V~rámci tohto projektu bolo v~novembri 2014 z~\zv{Google Play} stiahnutých viac ako milión aplikácií dostupný pre zariadenie \zv{Galaxy Nexus} s~operátorom \zv{T-Mobile}~\cite{Viennot2014}. Naša databáza obsahuje 8200 najsťahovanejších aplikácií z~\zv{Google Play} v~období november 2014, ktoré boli stiahnuté z~archívu projektu \zv{Playdrone}.
+Naša databáza pozostáva približne z~20000 Android aplikácií. Tie boli zaobstarané v~časovom rozmedzí medzi novembrom 2015 a februárom 2016. Žiadna z~aplikácií nebola stiahnutá priamo z~obchodu \zv{Google Play}, ale veľká časť bola získaná s~využitím projektu \zv{Playdrone}. V~rámci tohto projektu bolo v~novembri 2014 z~\zv{Google Play} stiahnutých viac ako milión aplikácií dostupných pre zariadenie \zv{Galaxy Nexus} s~operátorom \zv{T-Mobile}~\cite{Viennot2014}. Naša databáza obsahuje 8200 najsťahovanejších aplikácií z~\zv{Google Play} v~období november 2014, ktoré boli stiahnuté z~archívu projektu \zv{Playdrone}.
 
 Celková veľkosť všetkých stiahnutých APK súborov je 192\,GB. Prehľad všetkých zdrojov APK súborov a ich počet zobrazuje tabuľka \ref{tab:stahovanie}. 
 
@@ -10,7 +10,7 @@ Celková veľkosť všetkých stiahnutých APK súborov je 192\,GB. Prehľad vš
   \begin{tabular}{|l r r|}
     \hline
     \textbf{Zdroj} & \textbf{Počet aplikácií} & \textbf{\%} \\\hline\hline
-    Playdrone\footnote{https://archive.org/details/playdrone-apks} & 8200 & 40,9\\
+    Playdrone & 8200 & 40,9\\
     www.appsapk.com & 6470 & 32,3\\
     www.apkmaniafull.com & 2870 & 14,3\\
     www.androidapksfree.com & 1030 & 5,1\\
@@ -27,5 +27,5 @@ Celková veľkosť všetkých stiahnutých APK súborov je 192\,GB. Prehľad vš
 
 
 \section{Implementácia}
-Viac ako 90\,\% aplikácií bolo stiahnutých automatizovane prostredníctvom aplikácie \zv{ApkDownloader} implementovanej v~rámci tejto práce. Aplikácia neposkytuje grafické užívateľské rozhranie, ale užívateľ môže zadávať parametre prostredníctvom príkazového riadku. Podporuje sťahovanie aplikácií získaných pomocou projektu \zv{Playdrone} alebo z~neoficiálnych lokalít zameraným na distribúciu Android aplikácií \zv{www.appsapk.com}, \zv{www.apkmaniafull.com} alebo \zv{www.androidapksfree.com}. Aplikácia funguje na jednoduchom princípe, keď najskôr získa zoznam URL odkazov na APK súbory, ktoré následne stiahne. Užívateľ pomocou parametrov špecifikuje z~ktorej podporovanej lokality chce APK súbory stiahnuť, ich želaný počet, umiestnenie prebraných súborov a maximálny počet súbežných preberaní. Pri vyhľadávaní URL odkazov je na prácu s~HTML súbormi použitá open source knižnica \zv{jsoup}. Pri sťahovaní sa využíva knižnica \zv{HtmlUnit}, ktorá poskytuje funkcionalitu internetového prehliadača. Na preberanie súborov z~URL odkazov je použitá knižnica \zv{Apache Commons IO}. Keďže je \zv{ApkDownloader} open source, môže byť jednoducho rozšírený o~podporu sťahovania APK súborov z~nových lokalít.\\
+Viac ako 90\,\% aplikácií bolo stiahnutých automatizovane prostredníctvom aplikácie \zv{ApkDownloader} implementovanej v~rámci tejto práce. Aplikácia neposkytuje grafické užívateľské rozhranie, ale užívateľ môže zadávať parametre prostredníctvom príkazového riadku. Podporuje sťahovanie aplikácií získaných pomocou projektu \zv{Playdrone} alebo z~nasledujúcich neoficiálnych lokalít zameraným na distribúciu Android aplikácií: \zv{www.appsapk.com}, \zv{www.apkmaniafull.com} a \zv{www.androidapksfree.com}. Aplikácia funguje na jednoduchom princípe, keď najskôr získa zoznam URL odkazov na APK súbory, ktoré následne stiahne. Užívateľ pomocou parametrov špecifikuje z~ktorej podporovanej lokality chce APK súbory stiahnuť, ich želaný počet, umiestnenie prebraných súborov a maximálny počet súbežných preberaní. Pri vyhľadávaní URL odkazov je na prácu s~HTML súbormi použitá open source knižnica \zv{jsoup}. Pri sťahovaní sa využíva knižnica \zv{HtmlUnit}, ktorá poskytuje funkcionalitu internetového prehliadača. Na preberanie súborov z~URL odkazov je použitá knižnica \zv{Apache Commons IO}. Keďže je \zv{ApkDownloader} open source, môže byť jednoducho rozšírený o~podporu sťahovania APK súborov z~nových lokalít.\\
 Torrent súbory boli získane automatizovane s~využitím knižnice \zv{flux}\footnote{https://github.com/ProjectMoon/flux}.
