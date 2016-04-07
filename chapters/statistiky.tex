@@ -6,10 +6,10 @@ Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík 
 
 \section{Získané dáta}
 \subsection*{Veľkosť APK súborov}
-Analýzou databázy APK súborov sa zistilo, že stredná hodnota veľkosti APK súborov je 5,26\,MB, priemer dosahuje hodnotu 10.19\,MB.
+Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, priemer dosahuje hodnotu 10.19\,MB. To znamená, že existuje menšinová časť APK súborov, ktorých veľkosť je výrazne väčšia, ako veľkosť ostatných APK súborov.
 
 \subsection*{Počet súborov v APK balíku}
-Strednou hodnotou celkového počtu súborov v APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
+Medián celkového počtu súborov v APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
 
 \subsection*{Inštalačná politika}
 Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v grafe \ref{fig:installLoc}.
@@ -27,7 +27,7 @@ Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťov
 
 \subsection*{Komponenty aplikácií}
 
-Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}). Stredná hodnota počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v aplikácii je 3,99, stredná hodnota je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
+Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
 
 \subsection*{Verzie Android SDK}
 
@@ -36,7 +36,7 @@ Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\%
 
 \subsection*{Prístupové oprávnenia}
 
-Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Stredná hodnota počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením v analyzovanej vzorke aplikácií je uvedených v tabuľke \ref{tab:permissions}. 
+Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Medián počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením v analyzovanej vzorke aplikácií je uvedených v tabuľke \ref{tab:permissions}. 
 \begin{table}[!htbp]
 \centering
   \begin{tabular}{|l r|}
@@ -59,7 +59,7 @@ Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (
 \end{table}
 
 \subsection*{Využité vlastnosti}
-Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, stredná hodnota a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v tabľke \ref{tab:features}.
+Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, medián a a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v tabuľke \ref{tab:features}.
 
 \subsection*{Podpis APK balíčka}
 Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na grafe \ref{fig:signAlg}.
@@ -81,4 +81,4 @@ Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 inýc
 
 
 \subsection*{Obrázkové súbory}
-Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Stredná hodnota celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Stredná hodnota počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
