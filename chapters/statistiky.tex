@@ -6,33 +6,24 @@ Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík 
 
 \section{Získané dáta}
 \subsection*{Veľkosť APK súborov}
-Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, priemer dosahuje hodnotu 10.19\,MB. To znamená, že existuje menšinová časť APK súborov, ktorých veľkosť je výrazne väčšia, ako veľkosť ostatných APK súborov.
+Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10.19\,MB. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v porovnaní s mediánom takmer dvojnásobná, v našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie veľkosti APK súborov.
 
 \subsection*{Počet súborov v APK balíku}
 Medián celkového počtu súborov v APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
 
 \subsection*{Inštalačná politika}
-Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v grafe \ref{fig:installLoc}.
+Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v grafe na obrázku \ref{installLocFig}.
 
-\begin{figure}[!htbp]
+\begin{figure}[htb]
 \centering
 \begin{tikzpicture}[scale=0.8,align=center]
         \pie[text=label,rotate=240,
              explode=0,
              color={blue!70,cyan!70,red!70,orange!50}]{49.03/internalOnly, 40.47/auto, 10.5/preferExternal}
     \end{tikzpicture}
-\label{fig:installLoc}
+\label{installLocFig}
 \caption{Hodnoty atribútu \zv{android:installLocation}}
 \end{figure}
-
-\subsection*{Komponenty aplikácií}
-
-Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
-
-\subsection*{Verzie Android SDK}
-
-Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v novembri 2010. Nanižšie vyžadované verzie Android SDK v našej databáze APK súborov sú zobrazené v grafe \ref{tab:minSdk}.
-\\Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk}.
 
 \subsection*{Prístupové oprávnenia}
 
@@ -58,14 +49,42 @@ Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (
   \label{tab:permissions}
 \end{table}
 
+\subsection*{Komponenty aplikácií}
+
+Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
+
+\subsection*{Obrázkové súbory}
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
+
+
 \subsection*{Využité vlastnosti}
 Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, medián a a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v tabuľke \ref{tab:features}.
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l r|}
+    \hline
+    \textbf{Názov} & \textbf{\%} \\\hline\hline
+    android.hardware.camera & 18,1 \\
+    android.hardware.touchscreen & 16,1 \\
+    android.hardware.telephony & 14,8 \\
+    android.hardware.camera.autofocus & 10,6 \\
+    android.hardware.location.gps & 10,2 \\
+    android.hardware.location & 8,8 \\
+    android.hardware.wifi & 8,4 \\
+    android.hardware.location.network & 7,0\\
+    android.hardware.bluetooth & 6,6\\
+    android.hardware.touchscreen.multitouch & 6,0\\
+    \hline
+  \end{tabular}
+  \caption{Najpoužívanejšie vlastnosti}
+  \label{tab:features}
+\end{table}
 
 \subsection*{Podpis APK balíčka}
-Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na grafe \ref{fig:signAlg}.
+Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na obrázku \ref{fig:signAlg}.
 
 
-\begin{figure}[!htbp]
+\begin{figure}[htb]
 \centering
 \begin{tikzpicture}[scale=0.7,align=center]
         \pie[text=label,rotate=240,
@@ -78,7 +97,126 @@ Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1
 
 \subsection*{Lokalizácia}
 Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z portálov určených pre strednú Európu. V českom jazyku je lokalizovaných 49\,\% aplikácií, v slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v tabuľke \ref{tab:language}.
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l l r|}
+    \hline
+    \textbf{Kód} & \textbf{Jazyk} &  \textbf{\%} \\\hline\hline
+    es & španielsky & 61,7 \\
+    de & nemecký & 59,6 \\
+    fr & francúzsky & 59,4 \\
+    ru & ruský & 58,1 \\
+    ja & japonský & 57,6 \\
+    it & taliansky & 57,4 \\
+	ko & korejský & 56,9 \\
+	zh-rcn & čínsky (zjednodušený) & 55,6\\
+	zh-rtw & čínsky (tradičný)& 54,0\\
+	pt & portugalský & 52,6\\
+    \hline
+  \end{tabular}
+  \caption{Lokalizácia aplikácií}
+  \label{tab:language}
+\end{table}
+
+\subsection*{Verzie Android SDK}
+
+Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v novembri 2010. Nanižšie vyžadované verzie Android SDK v našej databáze APK súborov sú zobrazené v grafe \ref{tab:minSdk}  a graf na obrázku \ref{minSdkGraf}.
+\begin{figure}[htb]
+\centering
+\begin{bchart}[min=0,max=25,step=5,unit=\%]
+\bcbar[label=SDK 11]{2.09}
+\bcskip{3pt}
+\bcbar[label=SDK 5]{3.65}
+\bcskip{3pt}
+\bcbar[label=SDK 15]{3.72}
+\bcskip{3pt}
+\bcbar[label=SDK 3]{5.57}
+\bcskip{3pt}
+\bcbar[label=SDK 4]{7.03}
+\bcskip{3pt}
+\bcbar[label=SDK 10]{8.07}
+\bcskip{3pt}
+\bcbar[label=SDK 14]{10.53}
+\bcskip{3pt}
+\bcbar[label=SDK 7]{14.20}
+\bcskip{3pt}
+\bcbar[label=SDK 8]{18.39}
+\bcskip{3pt}
+\bcbar[label=SDK 9]{21.31}
+\end{bchart}
+
+\label{minSdkGraf}
+\caption{Hodnoty atribútu \zv{android:minSdk}}
+\end{figure}
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l l l r|}
+    \hline
+    \textbf{SDK} & \textbf{Android} & \textbf{Vydanie}& \textbf{\%} \\\hline\hline
+    9 & Android 2.3 Gingerbread & November 2010 & 21,3 \\
+    8 & Android 2.2.x Froyo & Jún 2010& 18,4 \\
+    7 & Android 2.1.x Eclair & Január 2010 & 14,2 \\
+    14 & Android 4.0 Ice Cream Sandwich & Október 2011 & 10,5 \\
+    10 & Android 2.3.3 Gingerbread & Február 2011 & 8,1 \\
+    4 & Android 1.6	Donut & September 2009 & 7,0 \\
+    3 & Android 1.5	Cupcake & Máj 2009 & 5,6 \\
+    15 & Android 4.0.3 Ice Cream Sandwich & December 2011 & 3,7 \\
+    5 & Android 2.0 Eclair & November 2009 & 3,7 \\
+    11 & Android 3.0.x Honeycomb & Február 2011 & 2,1\\
+    \hline
+  \end{tabular}
+  \caption{Hodnoty najnižsej vyžadovanej verzie Android SDK}
+  \label{tab:minSdk}
+\end{table}
+
+Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
 
 
-\subsection*{Obrázkové súbory}
-Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
+\begin{figure}[htb]
+\centering
+\begin{bchart}[min=0,max=30,step=5,unit=\%]
+\bcbar[label=SDK 8]{2.93}
+\bcskip{3pt}
+\bcbar[label=SDK 20]{3.78}
+\bcskip{3pt}
+\bcbar[label=SDK 18]{5.60}
+\bcskip{3pt}
+\bcbar[label=SDK 16]{5.68}
+\bcskip{3pt}
+\bcbar[label=SDK 22]{5.96}
+\bcskip{3pt}
+\bcbar[label=SDK 14]{6.28}
+\bcskip{3pt}
+\bcbar[label=SDK 15]{8.81}
+\bcskip{3pt}
+\bcbar[label=SDK 21]{11.70}
+\bcskip{3pt}
+\bcbar[label=SDK 17]{11.77}
+\bcskip{3pt}
+\bcbar[label=SDK 19]{25.64}
+\end{bchart}
+
+\label{targetSdkGraf}
+\caption{Hodnoty atribútu \zv{android:targetSdk}}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+  \begin{tabular}{|l l l r|}
+    \hline
+    \textbf{SDK} & \textbf{Android} & \textbf{Vydanie}& \textbf{\%} \\\hline\hline
+    19 & Android 4.4 KitKat & Október 2013 & 25,6 \\
+    17 & Android 4.2\,--\,4.2.2 Jelly Bean & November 2012 & 11,8 \\
+    21 & Android 5.0 Lollipop & November 2014 & 11,7 \\
+    15 & Android 4.0.3 Ice Cream Sandwich & December 2011 & 6,8 \\
+    14 & Android 4.0 Ice Cream Sandwich & Október 2011 & 6,3 \\
+    22 & Android 5.1 Lollipop & Marec 2015 & 6,0\\
+    16 & Android 4.1\,--\,4.1.1 Jelly Bean & Jún 2012 & 5,7 \\
+    18 & Android 4.3 Jelly Bean & Júl 2013 & 5,6 \\
+    20 & Android 4.4W Kitkat Watch & Jún 2014 & 3,8 \\
+    8 & Android 2.2.x Froyo & Jún 2010& 2,9\\
+    \hline
+  \end{tabular}
+  \caption{Hodnoty cieľovej verzie Android SDK}
+  \label{tab:targetSdk}
+\end{table}
