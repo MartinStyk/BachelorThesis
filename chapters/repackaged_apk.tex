@@ -15,8 +15,8 @@ Android obsahuje ochranu pred narušením integrity APK balíčka, ktorá je zab
 
 Jednoduchá modifikácia inštalačných balíčkov predstavuje problém pre celkový ekosystém aplikácií pre Android. Riešenie problému pozmeňovania a redistribúcie APK súborov je v~súčasnosti dôležitou témou. Bolo navrhnutých viacero spôsobov detekcie prebalených aplikácií. 
 
-\subsection{Detekcia pomocou analýzy zdrojového kódu}
-Väčšina navrhnutých spôsobov detekcie modifikovaných APK balíčkov využíva metódy analyzujúce zdrojový kód aplikácie spolu so súborom \zv{AndroidManifest.xml}. Úprava zdrojového kódu je nevyhnutná v~prípade editácie za účelom pridania novej neželanej funkcionality, pridania nových knižníc s~reklamou alebo editácie pôvodnej reklamy použitej v~aplikácii. Motiváciou pre editáciu metasúboru \zv{AndroidManifest.xml} je možnosť pridávať aplikáciám prístupové povolenia (viď \ref{el_uses-permission}).
+\subsection{Detekcia pomocou analýzy výkonných častí aplikácie}
+Väčšina navrhnutých spôsobov detekcie modifikovaných APK balíčkov využíva metódy analyzujúce vlastnosti vyplývajúce z vykonávaného zdrojového kódu aplikácie spolu so súborom \zv{AndroidManifest.xml}. Úprava zdrojového kódu je nevyhnutná v~prípade editácie za účelom pridania novej neželanej funkcionality, pridania nových knižníc s~reklamou alebo editácie pôvodnej reklamy použitej v~aplikácii. Originálny zdrojový kód v jazyku Java však nie je možné zo súboru \zv{classes.dex} extrahovať. Využíva sa zdrojový kód aplikácie vo formáte SMALI, ktorý je možné získať pomocou nástrojov reverzného inžinierstva (viď \ref{nastroje_revezneho_inzinierstva}). Motiváciou pre editáciu metasúboru \zv{AndroidManifest.xml} je možnosť pridávať aplikáciám prístupové povolenia (viď \ref{el_uses-permission}).
 Riešenia sú založené na použití statickej analýzy kódu, dynamickej analýzy alebo na detekcií známych vzoriek škodlivého kódu\footnote{angl. signature based}~\cite{Huang2013,Chen2015,Milanova2005,Levchenko2011,Hanna2013,Zhou2012,Potharaju2012}.
 	
 \subsection{Detekcia pomocou podobnosti súborov}
