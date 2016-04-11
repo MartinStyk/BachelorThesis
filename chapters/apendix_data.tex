@@ -1,5 +1,4 @@
-\begin{table}[htb]
-\begin{tabular}{|l|p{6.3cm}|}
+\begin{longtable}{|l|p{6.3cm}|}
  \hline
     \textbf{Atribút}& \textbf{Popis} \\\hline\hline
 fileName & Názov analyzovaného APK súboru\\
@@ -19,13 +18,6 @@ namesOfServices & Názvy služieb definovaných aplikáciou\\
 namesOfContentProviders & Názvy poskytovateľov obsahu definovaných aplikáciou\\
 namesOfBroadcastReceivers & Názvy komponent typu \zv{BroadcastReceiver} definovaných aplikáciou\\
 usesPermissions & Názvy povolení využívaných aplikáciou\\
-\hline
-\end{tabular}
-\end{table}
-\begin{table}[htb]
-\begin{tabular}{|l|p{6.5cm}|}
- \hline
-    \textbf{Atribút}& \textbf{Popis} \\\hline\hline
 usesLibrary & Názvy knižníc využívaných aplikáciou\\
 permissions & Názvy povolení definovaných aplikáciou\\
 permissionsProtectionLevel & Level ochrany povolení definovaných aplikáciou\\
@@ -38,13 +30,7 @@ supportsScreensSmall & Hodnota atribútu \zv{android:smallScreens} elementu \zv{
 supportsScreensNormal & Hodnota atribútu \zv{android:normalScreens} elementu \zv{supports-screens}\\
 supportsScreensLarge & Hodnota atribútu \zv{android:largeScreens} elementu \zv{supports-screens}\\
 supportsScreensXlarge & Hodnota atribútu \zv{android:xlargeScreens} elementu \zv{supports-screens}\\
-supportsScreensAnyDensity & Hodnota atribútu \zv{android:anyDensity} elementu \zv{supports-screens}\\\hline
-\end{tabular}
-\end{table}
-\begin{table}[htb]
-\begin{tabular}{|l|p{7.2cm}|}
- \hline
-    \textbf{Atribút}& \textbf{Popis} \\\hline\hline
+supportsScreensAnyDensity & Hodnota atribútu \zv{android:anyDensity} elementu \zv{supports-screens}\\
 fileName & Názov súboru s certifikátom\\
 signAlgorithm & Algoritmus použitý na podpis\\
 signAlgorithmOID & OID algoritmu použitého na podpis\\
@@ -70,13 +56,7 @@ xhdpiDrawables & Počet obrázkov v xhdpi priečinku\\
 xxhdpiDrawables & Počet obrázkov v xxhdpi priečinku\\
 xxxhdpiDrawablesr & Počet obrázkov v xxxhdpi priečinku\\
 tvdpiDrawables & Počet obrázkov v tvdpi priečinku\\
-nodpiDrawables & Počet obrázkov v nodpi priečinku\\\hline
-\end{tabular}
-\end{table}
-\begin{table}[htb]
-\begin{tabular}{|l|p{6.9cm}|}
- \hline
-    \textbf{Atribút}& \textbf{Popis} \\\hline\hline
+nodpiDrawables & Počet obrázkov v nodpi priečinku\\
 unspecifiedDpiDrawables & Počet obrázkov nezaradených v *dpi priečinku\\
 rawResources & Počet súborov v \cesta{raw/} priečinku\\
 layouts & Počet súborov v \cesta{res/layout*} priečinkoch\\
@@ -86,9 +66,7 @@ dexHash & Hash súboru \zv{classes.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
 arscHash & Hash súboru \zv{arscHash.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
 drawableHash & Hashe a cesty k súborov z prečinku \cesta{res/drawable} prevzaté zo súboru \zv{MANIFEST.MF}\\
 layoutHash & Hashe a cesty k súborov z prečinku \cesta{res/layout} prevzaté zo súboru \zv{MANIFEST.MF}\\
-otherHash & Hashe a cesty k všetkým ostatným súborov v APK balíčku prevzaté zo súboru \zv{MANIFEST.MF}\\\hline
-\end{tabular}
-   
-  \caption{Zbierané metadata o APK súbore}
+otherHash & Hashe a cesty k všetkým ostatným súborov v APK balíčku prevzaté zo súboru \zv{MANIFEST.MF}\\\hline   
+  \caption{Zbierané metadáta o APK súbore}
   \label{tab:zbieraneData}
-\end{table}
+\end{longtable}
