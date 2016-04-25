@@ -1,18 +1,18 @@
 \chapter{Štatistiky}
 \label{statistiky}
-Analýzou jednotlivých APK súborov získame detailné informácie o jednotlivých aplikáciách. Pre ucelenejší pohľad na všeobecné vlastnosti a atribúty Android aplikácií je vhodné rozšíriť analýzu jednotlivých aplikácií na skúmanie väčšej množiny APK balíčkov. Keďže databáza APK súborov vytvorená v tejto práci obsahuje dostatočne veľkú vzorku približne 20000 APK súborov, ktoré pochádzajú z rôznych oficiálnych aj alternatívnych zdrojov, poskytuje dobrú vzorku na určenie štatistických údajov o Android aplikáciách. Štatistické informácie prezentované v tejto kapitole sa viažu k aplikáciám dostupným v rokoch 2014--2016, a teda sú aktuálne pre spomenuté obdobie.
+Analýzou jednotlivých APK súborov získame detailné informácie o~jednotlivých aplikáciách. Pre ucelenejší pohľad na všeobecné vlastnosti a atribúty Android aplikácií je vhodné rozšíriť analýzu jednotlivých aplikácií na skúmanie väčšej množiny APK balíčkov. Keďže databáza APK súborov vytvorená v~tejto práci obsahuje dostatočne veľkú vzorku približne 20000 APK súborov, ktoré pochádzajú z~rôznych oficiálnych aj alternatívnych zdrojov, poskytuje dobrú vzorku na určenie štatistických údajov o~Android aplikáciách. Štatistické informácie prezentované v~tejto kapitole sa viažu k~aplikáciám dostupným v~rokoch 2014--2016, a teda sú aktuálne pre spomenuté obdobie.
 
-Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík nad množinou APK súborov. Funkcionalita výpočtu štatistických informácií sa aktivuje pomocou prepínača \zv{–statistics} pri spustení programu z príkazového riadku. Ako vstup aplikácie slúžia JSON súbory vytvorené analýzou popísanou v kapitole \ref{analyza}. Výstupom je súbor vo formáte JSON obsahujúci vypočítané štatistické dáta. Pri vlastnostiach, ktorých hodnota je vyjadrená číselne sú vypočítané základné matematické štatistiky ako je aritmetický priemer, modus, medián, rozptyl, smerodajná odchýlka, minimum a maximum. Pri najnižšej a najvyššej hodnote obsahuje výstup aj názov aplikácií, ktoré tieto hodnoty dosahujú. V prípade vlastností, ktoré nadobúdajú obmedzený počet vopred definovaných hodnôt je určené percentuálne zastúpenie jednotlivých hodnôt.
+Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík nad množinou APK súborov. Funkcionalita výpočtu štatistických informácií sa aktivuje pomocou prepínača \zv{–statistics} pri spustení programu z~príkazového riadku. Ako vstup aplikácie slúžia JSON súbory vytvorené analýzou popísanou v~kapitole \ref{analyza}. Výstupom je súbor vo formáte JSON obsahujúci vypočítané štatistické dáta. Pri vlastnostiach, ktorých hodnota je vyjadrená číselne sú vypočítané základné matematické štatistiky ako je aritmetický priemer, modus, medián, rozptyl, smerodajná odchýlka, minimum a maximum. Pri najnižšej a najvyššej hodnote obsahuje výstup aj názov aplikácií, ktoré tieto hodnoty dosahujú. V~prípade vlastností, ktoré nadobúdajú obmedzený počet vopred definovaných hodnôt je určené percentuálne zastúpenie jednotlivých hodnôt.
 
 \section{Získané dáta}
 \subsection*{Veľkosť APK súborov}
-Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10.19\,MB. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v porovnaní s mediánom takmer dvojnásobná, v našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie veľkosti APK súborov.
+Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10.19\,MB. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v~porovnaní s~mediánom takmer dvojnásobná, v~našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie veľkosti APK súborov.
 
-\subsection*{Počet súborov v APK balíku}
-Medián celkového počtu súborov v APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
+\subsection*{Počet súborov v~APK balíku}
+Medián celkového počtu súborov v~APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
 
 \subsection*{Inštalačná politika}
-Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v grafe na obrázku \ref{installLocFig}.
+Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s~možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v~grafe na obrázku \ref{installLocFig}.
 
 \begin{figure}[htb]
 \centering
@@ -27,7 +27,7 @@ Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťov
 
 \subsection*{Prístupové oprávnenia}
 
-Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Medián počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s ich percentuálnym zastúpením v analyzovanej vzorke aplikácií je uvedených v tabuľke \ref{tab:permissions}. 
+Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Medián počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s~ich percentuálnym zastúpením v~analyzovanej vzorke aplikácií je uvedených v~tabuľke \ref{tab:permissions}. 
 \begin{table}[!htbp]
 \centering
   \begin{tabular}{|l r|}
@@ -51,14 +51,14 @@ Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (
 
 \subsection*{Komponenty aplikácií}
 
-Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
+Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v~aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
 
 \subsection*{Obrázkové súbory}
-Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v~APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
 
 
 \subsection*{Využité vlastnosti}
-Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, medián a a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v tabuľke \ref{tab:features}.
+Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, medián a a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v~tabuľke \ref{tab:features}.
 \begin{table}[htb]
 \centering
   \begin{tabular}{|l r|}
@@ -81,7 +81,7 @@ Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_use
 \end{table}
 
 \subsection*{Podpis APK balíčka}
-Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v 5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na obrázku \ref{fig:signAlg}.
+Na podpisovanie APK balíčkov je v~najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v~5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na obrázku \ref{fig:signAlg}.
 
 
 \begin{figure}[htb]
@@ -96,7 +96,7 @@ Na podpisovanie APK balíčkov je v najčastejšie využitý algoritmus \zv{SHA1
 \end{figure}
 
 \subsection*{Lokalizácia}
-Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z portálov určených pre strednú Európu. V českom jazyku je lokalizovaných 49\,\% aplikácií, v slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v tabuľke \ref{tab:language}.
+Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z~portálov určených pre strednú Európu. V~českom jazyku je lokalizovaných 49\,\% aplikácií, v~slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v~tabuľke \ref{tab:language}.
 \begin{table}[htb]
 \centering
   \begin{tabular}{|l l r|}
@@ -120,7 +120,7 @@ Aplikácie sú okrem základného jazyka lokalizované najčastejšie v 17 inýc
 
 \subsection*{Verzie Android SDK}
 
-Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v novembri 2010. Nanižšie vyžadované verzie Android SDK v našej databáze APK súborov sú zobrazené v grafe \ref{tab:minSdk}  a graf na obrázku \ref{minSdkGraf}.
+Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v~novembri 2010. Nanižšie vyžadované verzie Android SDK v~našej databáze APK súborov sú zobrazené v~grafe \ref{tab:minSdk}  a graf na obrázku \ref{minSdkGraf}.
 \begin{figure}[htb]
 \centering
 \begin{bchart}[min=0,max=25,step=5,unit=\%]
@@ -170,7 +170,7 @@ Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s 21,3\%
   \label{tab:minSdk}
 \end{table}
 
-Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
+Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s~verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
 
 
 \begin{figure}[htb]
