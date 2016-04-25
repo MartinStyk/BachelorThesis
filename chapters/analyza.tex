@@ -5,15 +5,15 @@ Hlavnou úlohou práce je získať informácie o~APK súboroch ich detailnou ana
 \section{Nástroje reverzného inžinierstva}
 \label{nastroje_revezneho_inzinierstva}
 
-Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinierstvo Android aplikácií. Okrem aplikácií tretích strán je možné vo veľkej miere použiť aj nástroje obsiahnuté v~\zv{Android Software Development Kit (SDK)}.\zv{Android SDK} je kolekcia štandardných nástrojov používaných pri vývoji a zostavení Android aplikácií. 
+Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinierstvo Android aplikácií. Okrem aplikácií tretích strán je možné vo veľkej miere použiť aj nástroje obsiahnuté v~\zv{Android Software Development Kit (SDK)}. \zv{Android SDK} je kolekcia štandardných nástrojov používaných pri vývoji a zostavení Android aplikácií. 
 
 \subsection{ApkTool}
 \label{ApkTool}
-Nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory \zv{resources.arsc}, \zv{classes.dex} aj binárne XML súbory. Z~dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor \zv{classes.dex} je dekompilovaný do súborov vo formáte SMALI~\cite{Nolan2012a}. Takéto súbory obsahujú nízkoúrovňový zdrojový kód. \zv{ApkTool} podporuje debugovanie smali kódu~\cite{apkTool}.
+\zv{ApkTool} je nástroj na reverzné inžinierstvo Android aplikácií. Dokáže dekódovať zdroje aplikácie do takmer originálnej podoby. Do čitateľnej podoby prevádza súbory \zv{resources.arsc}, \zv{classes.dex} aj binárne XML súbory. Z~dekódovaných súborov umožňuje opätovné zostavenie APK súboru. Súbor \zv{classes.dex} je dekompilovaný do súborov vo formáte SMALI~\cite{Nolan2012a}. Takéto súbory obsahujú nízkoúrovňový zdrojový kód. \zv{ApkTool} podporuje debugovanie smali kódu~\cite{apkTool}.
 
 \subsection{Dex2Jar}
 \label{Dex2Jar}
-Nástroj podporujúci dekódovanie DEX súborov do formátu skompilovaných CLASS súborov .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v~jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
+Nástroj \zv{Dex2Jar} podporuje dekódovanie DEX súborov do formátu skompilovaných CLASS súborov .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v~jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
 
 \subsection{AAPT}
 \label{AAPT}
@@ -32,7 +32,7 @@ Zbierané metadáta je možné rozdeliť do piatich kategórií:
 \item Informácie zo súboru \zv{AndroidManifest.xml} -- \zv{AndroidManifest.xml} predstavuje hlavný zdroj meta informácií o~aplikácii pre systém Android (viď \ref{AndroidManifest.xml}). Dáta nachádzajúce sa v~tomto súbore tvoria významnú časť dát získaných našou analýzou. Na prevod z~binárneho XML formátu je primárne použitá knižnica \zv{AXML} (viď \ref{AXML}), v~prípade zlyhania konverzie sa použije  nástroj \zv{ApkTool} (viď \ref{ApkTool}). Dáta získané analýzou tohto súboru zahŕňajú napríklad verziu aplikácie, použité prístupové oprávnenia alebo komponenty z~ktorých sa aplikácia skladá
 \item Informácie o~certifikáte -- dáta získané zo súboru \zv{CERT.RSA} v~priečinku \zv{META-INF} (viď \ref{CERT.RSA}). Obsahujú napríklad použitý algoritmus podpisovania, názov vydavateľa alebo MD5 hash celého certifikátu. Pred prístupom k~súboru \zv{CERT.RSA} je nutné APK balíček rozbaliť
 \item Informácie o~zdrojových súboroch\footnote{angl. resources} -- informácie o~zdrojoch aplikácie, napríklad formát alebo veľkosť obrázkových súborov, počet lokalizácií aplikácie alebo počet surových neskomprimovaných zdrojových súborov
-\item Súbory obsiahnuté v~APK balíčku -- zoznam všetkých súborov rozdelený do kategórií: obrázky(súbory z~priečinku \cesta{res/drawable}), návrhy obrazoviek(súbory z~priečinku \cesta{res/layout}), \zv{classes.dex}, \zv{resources.arsc} a ostatné. O~každom súbore si uchovávame jeho relatívnu cestu v~APK balíčku a SHA1 hash. Ako zdroj informácií slúži súbor \zv{MANIFEST.MF} (viď \ref{MANIFEST.MF})
+\item Súbory obsiahnuté v~APK balíčku -- zoznam všetkých súborov rozdelený do kategórií: obrázky (súbory z~priečinku \cesta{res/drawable}), návrhy obrazoviek (súbory z~priečinku \cesta{res/layout}), \zv{classes.dex}, \zv{resources.arsc} a ostatné. O~každom súbore si uchovávame jeho relatívnu cestu v~APK balíčku a SHA1 hash. Ako zdroj informácií slúži súbor \zv{MANIFEST.MF} (viď \ref{MANIFEST.MF})
 \end{itemize}
 
 \noindent Kompletný zoznam zbieraných metadát sa nachádza v~prílohe \ref{tab:zbieraneData}.
