@@ -6,10 +6,10 @@ Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík 
 
 \section{Získané dáta}
 \subsection*{Veľkosť APK súborov}
-Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10.19\,MB. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v~porovnaní s~mediánom takmer dvojnásobná, v~našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie veľkosti APK súborov.
+Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10,19\,MB. Keďže APK súbory využívajú ZIP formát, uvedené hodnoty reprezentujú veľkosť APK súboru ako skomprimovaného súboru. Po dekomprimácií je súčet veľkostí jednotlivých súborov spravidla väčší ako veľkosť APK súboru. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v~porovnaní s~mediánom takmer dvojnásobná, v~našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie a najbežnejšie veľkosti APK súborov.\\ Medián veľkosti súboru \zv{classes.dex} (viď. \ref{classes.dex}) je 2,16\,MB, aritmetický priemer je o~málo vyšší -- 2,86\,MB. Pri súbore \zv{resources.arsc} (viď \ref{resources.arsc}) bol zistený priemer veľkosti 690\,KB a medián 192\,KB. Uvedené hodnoty sú určené z~veľkosti súborov z~APK balíčku po ich dekompresii.
 
 \subsection*{Počet súborov v~APK balíku}
-Medián celkového počtu súborov v~APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov. 
+Medián celkového počtu súborov v~APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov.
 
 \subsection*{Inštalačná politika}
 Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťového priestoru (interná alebo externá pamäť) a prípadnú možnosť presunutia nainštalovanej aplikácie (viď \ref{el_manifest}). Až 49\,\% aplikácií neumožňuje inštaláciu alebo presun na externé pamäťové médiá.  40\,\% aplikácií preferuje inštaláciu na interné úložisko s~možnosťou presunu do externej pamäte. 10,5\,\% aplikácií uprednostňuje inštaláciu na externé pamäťové médium. Rozdelenie hodnôt je zobrazené v~grafe na obrázku \ref{installLocFig}.
@@ -27,7 +27,7 @@ Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťov
 
 \subsection*{Prístupové oprávnenia}
 
-Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Medián počtu vyžadovaných oprávnení je 8. 10 najčastejšie využívaných oprávnení spolu s~ich percentuálnym zastúpením v~analyzovanej vzorke aplikácií je uvedených v~tabuľke \ref{tab:permissions}. 
+Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (viď \ref{el_uses-permission}). Medián počtu vyžadovaných oprávnení je 8. Najčastejšie využívané oprávnenia spolu s~ich percentuálnym zastúpením v~analyzovanej vzorke aplikácií sú uvedené v~tabuľke \ref{tab:permissions}. 
 \begin{table}[!htbp]
 \centering
   \begin{tabular}{|l r|}
@@ -43,6 +43,17 @@ Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (
     android.permission.get\_accounts & 31,3 \\
     android.permission.receive\_boot\_completed & 30,5 \\
     android.permission.vending.billing & 27,1 \\
+    android.permission.access\_coarse\_location & 25,4 \\
+    android.permission.access\_fine\_location & 25,4 \\
+    com.google.android.c2dm.permission.receive & 22,0 \\
+    android.permission.get\_tasks & 18,8 \\
+    android.permission.read\_contacts & 18,5 \\
+    android.permission.camera & 17,8 \\
+    android.permission.write\_settings & 16,3 \\
+    android.permission.read\_external\_storage & 16,2 \\
+    android.permission.change\_wifi\_state & 12,9 \\
+    android.permission.record\_audio & 12,8 \\
+     android.permission.system\_alert\_window & 12,6 \\
     \hline
   \end{tabular}
   \caption{Najpoužívanejšie prístupové oprávnenia}
@@ -52,10 +63,6 @@ Aplikácie najčastejšie deklarujú využívanie 4 prístupových oprávnení (
 \subsection*{Komponenty aplikácií}
 
 Základnou funkčnou jednotkou aplikácie je aktivita (viď \ref{el_activity}).Medián počtu aktivít medzi analyzovanými aplikáciami je  10, priemer dosahuje hodnotu 20,23. Aplikácie obsahujú najčastejšie 2 aktivity.\\Priemerný počet služieb definovaných v~aplikácii je 3,99, medián je 1, no najčastejším prípadom je, že aplikácia nedefinuje žiadnu službu.
-
-\subsection*{Obrázkové súbory}
-Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v~APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
-
 
 \subsection*{Využité vlastnosti}
 Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_uses-permission}). Aritmetický priemer je 1,44, medián a a modus sú nulové. Najčastejšie deklarované je využívanie vlastností uvedených v~tabuľke \ref{tab:features}.
@@ -74,6 +81,11 @@ Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_use
     android.hardware.location.network & 7,0\\
     android.hardware.bluetooth & 6,6\\
     android.hardware.touchscreen.multitouch & 6,0\\
+    android.hardware.microphone & 5,2\\
+    android.hardware.touchscreen.multitouch.distinct & 6,0\\
+    android.hardware.touchscreen.screen.portrait & 4,4\\
+    android.hardware.sensor.accelerometer & 3,9\\
+    android.hardware.camera.flash & 3,7\\
     \hline
   \end{tabular}
   \caption{Najpoužívanejšie vlastnosti}
@@ -95,6 +107,11 @@ Na podpisovanie APK balíčkov je v~najčastejšie využitý algoritmus \zv{SHA1
 \label{fig:signAlg}
 \end{figure}
 
+\subsection*{Obrázkové súbory}
+Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v~APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
+
+
+
 \subsection*{Lokalizácia}
 Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z~portálov určených pre strednú Európu. V~českom jazyku je lokalizovaných 49\,\% aplikácií, v~slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v~tabuľke \ref{tab:language}.
 \begin{table}[htb]
@@ -112,6 +129,11 @@ Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 inýc
 	zh-rcn & čínsky (zjednodušený) & 55,6\\
 	zh-rtw & čínsky (tradičný)& 54,0\\
 	pt & portugalský & 52,6\\
+	pl & polský & 51,7\\
+	nl & holandský & 50,9\\
+	tr & turecký & 50,6\\
+	cs & český & 49,4\\
+	sv & švédsky & 48,4\\
     \hline
   \end{tabular}
   \caption{Lokalizácia aplikácií}
