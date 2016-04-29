@@ -50,7 +50,50 @@ Zhoda certifikátov a zhoda verzií aplikácií je vypočítaná za účelom ur�
 Kombinácia týchto hodnôt určuje 9 kategórií podobnosti APK súborov. Každá z~týchto kategórií napovedá a vzájomnom vzťahu danej dvojice Android aplikácií. Najväčšia pravdepodobnosť, že aplikácia je prebalená, je v~prípade rovnakých verzií a zároveň rozdielnych certifikátov. 
 
 \paragraph{Výstup porovnania}\mbox{}\\
-V~prípade, že porovnávaná dvojica APK súborov je vyhodnotená ako podobná, \zv{ApkAnalyzer} vytvorí výstupný súbor vo formáte JSON obsahujúci rozdiely medzi danými aplikáciami. Tento súbor obsahuje rozdiely určené na základe metadát a porovnania aplikácií. Slúži ako jednoduchá obdoba linuxového príkazu \zv{diff} implementovaná nad APK súbormi. Obsahuje informácie o~modifikovaných parametroch a komponentoch aplikácií a taktiež zoznam upravených, nových alebo odstránených súborov.
+V~prípade, že porovnávaná dvojica APK súborov je vyhodnotená ako podobná, \zv{ApkAnalyzer} vytvorí výstupný súbor vo formáte JSON obsahujúci rozdiely medzi danými aplikáciami. Tento súbor obsahuje rozdiely určené na základe metadát a porovnania aplikácií. Slúži ako jednoduchá obdoba linuxového príkazu \zv{diff} implementovaná nad APK súbormi. Obsahuje informácie o~modifikovaných parametroch a komponentoch aplikácií a taktiež zoznam upravených, nových alebo odstránených súborov. Zjednodušený príklad vzorového výstupného súboru obsahuje ukážka 7.1.
+\begin{lstlisting} [language=json, caption= {Zjednodušená ukážka výstupu párového porovnanie APK súborov} \label{json:compare}]
+{
+  "nameA": "SoundHound  v6.7.5 apakrchive.com.apk",
+  "nameB": "SoundHound 8 v6.3.3.apk",
+  "hashCompareResult": {
+    ...
+    "modifiedDrawableFiles": [
+      "res/drawable-nodpi-v4/ic_action_help.xml",
+      ...
+    ],
+    "additionalDrawableFilesA": [
+      "res/drawable-hdpi-v4/com_facebook_button_like_icon_selected.png",
+      ...
+    ],
+    "additionalDrawableFilesB": [
+      "res/drawable-hdpi-v4/ic_timestamp_clock_10dp.png",
+      ...
+    ],
+    ...
+  },
+  "metadataCompareResult": {
+    "fileSizeDifference": {
+      "count": -2899397,
+      "percentage": 16.98035514829626890787039883434772491455078125
+    },
+    "packageName": {
+      "isSame": true
+    },
+    "versionCode": {
+      "isSame": false,
+      "difference": {
+        "valueA": "10675",
+        "valueB": "10633"
+      }
+    },
+    "additionalActivitiesInA": [
+      "com.soundhound.android.appcommon.activity.SplashScreenActivity",
+      ...
+    ],
+    ...
+  }
+}
+\end{lstlisting}
 
 \subsection{Výsledky}
 Vyhľadávanie možných prebalených APK súborov pomocou navrhnutej metódy určilo v~našej databáze viacero podozrivých aplikácií. Porovnávanie všetkých aplikácií v~našej databáze znamenalo viac ako dva milióny vykonaných párových porovnaní. Celkový čas potrebný na výpočet dosiahol približne 40 hodín. Porovnanie bolo vykonané na výkonnom ale bežnom komoditnom harvéri\footnote{Procesor Intel Core i7-4900MQ @ 2.80GHz , 16GB RAM, SSD disk}. V~čase potrebnom na porovnanie nie je započítaný čas na analýzu APK súborov a vytvorenie JSON súborov obsahujúcich metadáta. Vzhľadom na objem zbieraných dát a dekompiláciu APK balíčku pomocou nástroja \zv{ApkTool} počas analýzy (viď kapitola \ref{analyza}), je celkový čas potrebný na určenie prebalených súborov vyšší ako v~prípade metódy \zv{FSquaDRA}, avšak výstup nášho porovnania obsahuje informácie o~rozdieloch medzi jednotlivými APK súbormi. Dvojica APK súborov je považovaná za nadmieru podobnú v~prípade splnenia konfigurovateľných ktirétií podobnosti. Tie boli počas porovnávania nastavené na minimálnu zhodu 50\,\%, respektíve hodnotu \zv{Jaccard indexu} 0,5. Veľké množstvo aplikácií bolo vyhodnotených ako podobné, lebo sa jednalo o~rovnaké aplikácie v~rozdielnych verziách. Takéto aplikácie je možné vyfiltrovať s~využitím kategórie podobnosti, ktorá je každej porovnávanej dvojici priradená. \zv{ApkAnalyzer} automaticky rozdelí výstupné súbory do podpriečinkov podľa typu podobnosti APK súborov. Bolo identifikovaných 161 dvojíc aplikácií, ktoré splňovali kritériá zhody, boli v~rovnakej verzii, ale boli podpísané rôznymi certifikátmi.
