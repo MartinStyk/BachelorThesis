@@ -10,12 +10,13 @@
   printed, %% This option enables the default options for the
            %% digital version of a document. Replace with `printed`
            %% to enable the default options for the printed version
-           %% of a document. printed/digitax
+           %% of a document. printed/digital
   table,   %% Causes the coloring of tables. Replace with `notable`
            %% to restore plain tables.
   nolof,     %% Prints the List of Figures. Replace with `nolof` to
            %% hide the List of Figures.
-  nolot,     %% Prints the List of Tables. Replace with `nolot` to
+  nolot, twoside
+       %% Prints the List of Tables. Replace with `nolot` to
            %% hide the List of Tables.
   %% More options are listed in the user guide at
   %% <http://mirrors.ctan.org/macros/latex/contrib/fithesis/guide/mu/fi.pdf>.
@@ -137,6 +138,7 @@
 \usepackage{tabularx}
 \usepackage{bchart}
 \usepackage{longtable}
+\usepackage{float}
 
 \newcommand{\zv}{\textit}
 \newcommand{\cesta}{\zv}

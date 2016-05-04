@@ -110,8 +110,6 @@ Na podpisovanie APK balíčkov je najčastejšie využitý algoritmus \zv{SHA1wi
 \subsection*{Obrázkové súbory}
 Analýza ukázala, že aplikácie využívajú množstvo obrázkových súborov. Medián celkového počtu obrázkových súborov v~APK balíčku je 210, aritmetický priemer dosahuje hodnotu 462 a najčastejším počtom obrázkových súborov je 5. Medián počtu rozdielnych obrázkov (veľkosť a rozlíšenie sa neberie do úvahy) je 134. Najčastejším formátom je PNG, aplikácia obsahuje priemerne 343 takýchto súborov.
 
-
-
 \subsection*{Lokalizácia}
 Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 iných jazykoch. Aritmetický priemer počtu lokalizácií je 31,42. Lokalizácie sú ovplyvnené tým, že časť aplikácií bola stiahnutá z~portálov určených pre strednú Európu. V~českom jazyku je lokalizovaných 49\,\% aplikácií, v~slovenčine 46\,\%. Najčastejšie lokalizácie aplikácií sú uvedené v~tabuľke \ref{tab:language}.
 \begin{table}[htb]
@@ -143,7 +141,10 @@ Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 inýc
 \subsection*{Verzie Android SDK}
 
 Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v~novembri 2010. Nanižšie vyžadované verzie Android SDK v~našej databáze APK súborov sú zobrazené v~grafe \ref{tab:minSdk}  a graf na obrázku \ref{minSdkGraf}.
-\begin{figure}[htb]
+
+Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s~verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
+
+\begin{figure}[H]
 \centering
 \begin{bchart}[min=0,max=25,step=5,unit=\%]
 \bcbar[label=SDK 11]{2.09}
@@ -171,7 +172,7 @@ Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\%
 \label{minSdkGraf}
 \end{figure}
 
-\begin{table}[htb]
+\begin{table}[H]
 \centering
   \begin{tabular}{|l l l r|}
     \hline
@@ -192,10 +193,7 @@ Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\%
   \label{tab:minSdk}
 \end{table}
 
-Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s~verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
-
-
-\begin{figure}[htb]
+\begin{figure}[H]
 \centering
 \begin{bchart}[min=0,max=30,step=5,unit=\%]
 \bcbar[label=SDK 8]{2.93}
@@ -223,7 +221,7 @@ Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol v
 \label{targetSdkGraf}
 \end{figure}
 
-\begin{table}[htb]
+\begin{table}[H]
 \centering
   \begin{tabular}{|l l l r|}
     \hline
