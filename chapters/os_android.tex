@@ -51,14 +51,14 @@ Android obsahuje množstvo knižníc využívaných vývojármi alebo samotným 
 \subsection{Aplikačný rámec}
 Vrstva aplikačného rámca poskytuje vysokoúrovňové služby používané na manažment aplikácie. Využíva koncept Android aplikácií, ktoré sa skladajú z~viacerých komponent. Kľúčové služby poskytované aplikačným rámcom sú~\cite{architecture}: 
 \begin{itemize}
-	\item \bod{Activity Manager}  --  ovláda životný cyklus aktivít a spravuje zásobník naposledy spustených aktivít
-	\item \bod{Content Provider}  --  umožňuje zdieľanie dát medzi aplikáciami
-	\item \bod{Resource Manager}  --  poskytuje prístup k~zdrojovým súborom ako reťazce, obrázky, dizajny obrazoviek
-	\item \bod{Notification Manager}  --  umožňuje aplikácii zobrazovať upozornenia
-	\item \bod{View system}  --  poskytuje prvky grafického používateľského rozhrania aplikácie
-	\item \bod{Package Manager}  --  umožňuje aplikáciám získať informácie o~ostatných aplikáciách nainštalovaných na zariadení
-	\item \bod{Telephony Manager}  --  umožňuje aplikáciám získať informácie o~stave telefónnych služieb
-	\item \bod{Location Manager}  --  poskytuje aplikáciám informácie o~polohe zariadenia
+	\item \bod{Activity Manager}  --  ovláda životný cyklus aktivít a spravuje zásobník naposledy spustených aktivít,
+	\item \bod{Content Provider}  --  umožňuje zdieľanie dát medzi aplikáciami,
+	\item \bod{Resource Manager}  --  poskytuje prístup k~zdrojovým súborom ako reťazce, obrázky, dizajny obrazoviek,
+	\item \bod{Notification Manager}  --  umožňuje aplikácii zobrazovať upozornenia,
+	\item \bod{View system}  --  poskytuje prvky grafického používateľského rozhrania aplikácie,
+	\item \bod{Package Manager}  --  umožňuje aplikáciám získať informácie o~ostatných aplikáciách nainštalovaných na zariadení,
+	\item \bod{Telephony Manager}  --  umožňuje aplikáciám získať informácie o~stave telefónnych služieb,
+	\item \bod{Location Manager}  --  poskytuje aplikáciám informácie o~polohe zariadenia.
 \end{itemize}
 \subsection{Vrstva aplikácií}
 Na vrchole vrstevnatej architektúry systému Android sú aplikácie, ktoré využívajú súčinnosť všetkých spomenutých vrstiev. 
@@ -71,12 +71,12 @@ APK súbory predstavujúce inštalačné balíčky Android aplikácií sú najč
 \subsection{Inštalácia aplikácií}
 Aplikácie môžeme rozdeliť na dve skupiny:
 \begin{itemize}
-\item Predinštalované aplikácie – často označované aj ako systémové aplikácie. Tieto aplikácie sú nainštalované spolu so systémom a často nemôžu byť bežným používateľom odinštalované. Príkladom je základná aplikácia pre fotoaparát, kontakty alebo telefón
+\item Predinštalované aplikácie – často označované aj ako systémové aplikácie. Tieto aplikácie sú nainštalované spolu so systémom a často nemôžu byť bežným používateľom odinštalované. Príkladom je základná aplikácia pre fotoaparát, kontakty alebo telefón.
 \item Aplikácie nainštalované používateľom – Aplikácie nainštalované jedným z~nasledujúcich spôsobov~\cite{Elenkov2015}:
 \begin{itemize}
-\item prostredníctvom obchodu s~aplikáciami, najčastejšie \zv{Google Play Store}
-\item prostredníctvom nástroja \zv{Android Debug Bridge} (\zv{ADB}) ktorý je obsiahnutý v~\zv{Android SDK} a umožňuje inštaláciu a ladenie aplikácií na zariadení pripojenom k~počítaču pomocou USB kábla
-\item otvorením APK balíčka umiestneného v~zariadení
+\item prostredníctvom obchodu s~aplikáciami, najčastejšie \zv{Google Play Store},
+\item prostredníctvom nástroja \zv{Android Debug Bridge} (\zv{ADB}) ktorý je obsiahnutý, v~\zv{Android SDK} a umožňuje inštaláciu a ladenie aplikácií na zariadení pripojenom k~počítaču pomocou USB kábla
+\item otvorením APK balíčka umiestneného v~zariadení.
 \end{itemize}
 \end{itemize}
 

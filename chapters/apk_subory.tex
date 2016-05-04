@@ -49,25 +49,25 @@ SHA1-Digest: VvgaO1jpW3iS1nBBikD/urdbN58=
 Priečinok \zv{res} obsahuje zdrojové súbory ako napríklad obrázky, zvuky alebo ikony. Okrem multimediálnych súborov obsahuje taktiež zdrojové XML súbory určujúce vzhľad obrazoviek, použité grafické štýly, alebo textové reťazce použité v~aplikácii. Niektoré z~týchto XML súborov môžu byť skompilované do binárneho formátu. V~zdrojovom kóde sú tieto zdroje odkazované pomocou unikátnych identifikátorov. Identifikátory sú generované počas kompilácie nástrojom \zv{aapt} a nachádzajú sa v~projektovej triede \zv{R}. Pre každý typ zdrojového súboru je generovaná podtrieda triedy \zv{R}~\cite{accessingRes}. Všetky zdroje aplikácie by mali byť externalizované a uložené v~špecifickom podpriečinku v~tomto adresári. \newpage
 \textbf{Podporované podpriečinky}~\cite{providingRes}
 \begin{itemize}
-\item animator - obsahuje XML súbory definujúce property animácie\footnote{Animácie definované pomocou zmeny atribútov vykreslovaných objektov}
-\item anim - obsahuje XML súbory definujúce tween animácie\footnote{Animácie definované pomocou štartového bodu, koncového bodu, rotáciou a inými transformáciami vykreslovaného objektu}, môže obsahovať aj property animácie
-\item color - obsahuje XML súbory definujúce farby a ich zmeny na základe stavu objektov na ktoré sú aplikované
-\item drawable - obsahuje obrázky vo formáte PNG, 9.PNG, JPG, GIF alebo XML súbory skompilované do formy vykresliteľných obrázkov
-\item mipmap - obsahuje ikony aplikácie s~rôznou hustotou pixelov
-\item layout - obsahuje súbory vo formáte XML definujúce vzhľad a rozmiestnenie prvkov na obrazovke
-\item menu - obsahuje XML súbory definujúce menu aplikácie
-\item raw - obsahuje súbory, ktoré musia byť uložené a použité v~neskomprimovanej forme a kvalite
-\item values - obsahuje súbory vo formáte XML definujúce hodnoty textových reťazcov, farieb, štýlov alebo základných rozmerov
-\item xml - obsahuje XML súbory, ktoré môžu byť načítané počas behu aplikácie
+\item animator - obsahuje XML súbory definujúce property animácie\footnote{Animácie definované pomocou zmeny atribútov vykreslovaných objektov},
+\item anim - obsahuje XML súbory definujúce tween animácie\footnote{Animácie definované pomocou štartového bodu, koncového bodu, rotáciou a inými transformáciami vykreslovaného objektu}, môže obsahovať aj property animácie,
+\item color - obsahuje XML súbory definujúce farby a ich zmeny na základe stavu objektov na ktoré sú aplikované,
+\item drawable - obsahuje obrázky vo formáte PNG, 9.PNG, JPG, GIF alebo XML súbory skompilované do formy vykresliteľných obrázkov,
+\item mipmap - obsahuje ikony aplikácie s~rôznou hustotou pixelov,
+\item layout - obsahuje súbory vo formáte XML definujúce vzhľad a rozmiestnenie prvkov na obrazovke,
+\item menu - obsahuje XML súbory definujúce menu aplikácie,
+\item raw - obsahuje súbory, ktoré musia byť uložené a použité v~neskomprimovanej forme a kvalite,
+\item values - obsahuje súbory vo formáte XML definujúce hodnoty textových reťazcov, farieb, štýlov alebo základných rozmerov,
+\item xml - obsahuje XML súbory, ktoré môžu byť načítané počas behu aplikácie.
 \end{itemize}
 
 \noindent V~spomenutých priečinkoch sú uložené základné zdroje aplikácie. Tieto zdrojové súbory určujú základný dizajn a obsah aplikácie. Rôzne typy Android zariadení môžu využívať rôzne zdrojové súbory. Alternatívne zdroje sa využívajú na prispôsobenie dizajnu a obsahu veľkosti a aktuálnej konfigurácií zariadenia. Sú umiestnené v~priečinku, ktorého názov pozostáva z~typu zdrojového súboru, ktorý korešponduje so základným názvom priečinku a názvu hodnoty konfiguračného atribútu pre ktorý je tento priečinok určený. Je možné kombinovať viacero konfiguračných atribútov~\cite{providingAltRes}.\\\\
 \textbf{Najčastejšie používané atribúty}
 \begin{itemize}
-\item Jazyk a región – jazyk je definovaný podľa kódovania \zv{ISO 639-1}~\cite{isoCodes} s~možnosťou rozšírenia pomocou \zv{ISO 3166-1-alpha-2} regionálneho kódu. Napríklad obrázky špecifické pre zariadenia s~francúzskym jazykom sa nachádzajú v~priečinku \cesta{res/drawable-fr}
-\item Veľkosť obrazovky –  v~závislosti na veľkosti a rozlíšení obrazovky rozlišuje štyri možné hodnoty -- \zv{small}, \zv{normal}, \zv{large}, \zv{xlarge}
-\item Orientácia obrazovky – umožňuje definovať rôzne zdrojové súbory v~závislosti na orientácii zariadenia. Hodnota \zv{port} špecifikuje súbory pre zariadenie orientované vertikálne, hodnota \zv{land} je určená pre horizontálnu orientáciu zariadenia	
-\item Hustota obrázkových bodov obrazovky -  hodnoty určujúce vhodnosť zdrojových súborov vzhľadom na hustotu obrázkových bodov obrazovky daného zariadenia
+\item Jazyk a región – jazyk je definovaný podľa kódovania \zv{ISO 639-1}~\cite{isoCodes} s~možnosťou rozšírenia pomocou \zv{ISO 3166-1-alpha-2} regionálneho kódu. Napríklad obrázky špecifické pre zariadenia s~francúzskym jazykom sa nachádzajú v~priečinku \cesta{res/drawable-fr}.
+\item Veľkosť obrazovky –  v~závislosti na veľkosti a rozlíšení obrazovky rozlišuje štyri možné hodnoty -- \zv{small}, \zv{normal}, \zv{large}, \zv{xlarge}.
+\item Orientácia obrazovky – umožňuje definovať rôzne zdrojové súbory v~závislosti na orientácii zariadenia. Hodnota \zv{port} špecifikuje súbory pre zariadenie orientované vertikálne, hodnota \zv{land} je určená pre horizontálnu orientáciu zariadenia.	
+\item Hustota obrázkových bodov obrazovky -  hodnoty určujúce vhodnosť zdrojových súborov vzhľadom na hustotu obrázkových bodov obrazovky daného zariadenia.
 \end{itemize}
 
 
@@ -127,13 +127,13 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 \zv{AndroidManifest.xml} obsahuje element \zv{manifest} ako koreňový prvok. Tento element je povinný a každý súbor \zv{AndroidManifest.xml} ho obsahuje práve jeden. \newline\newline
 \noindent Element \zv{manifest} definuje atribúty~\cite{elManifest}:\\
 \begin{itemize}
-\item \bod{xmlns:android} -- povinný atribút definujúci menný priestor
-\item \bod{package} -- nemenný názov balíku aplikácie, povinný atribút definujúci identitu aplikácie
-\item \bod{android:sharedUserId} -- identifikátor aplikácie zdieľaný s~ostatnými aplikáciami za účelom vzájomnej komunikácie
-\item \bod{android:sharedUserLabel} -- čitateľná podoba \zv{android:sharedUserId} identifikátoru
-\item \bod{android:versionCode} -- interná informácia o~verzii aplikácie. Tento atribút je využívaný len na rozoznanie novších verzií od starších. Novšie aplikácie obsahujú vyššiu hodnotu
-\item \bod{android:versionName} –- informácia o~verzii aplikácie prezentovaná užívateľom. Pre systém Android neposkytuje informáciu o~verzii, tú obsahuje atribút \zv{android:versionCode}.
-\item \bod{android:installLocation} – určuje predvolené umiestnenie inštalácie aplikácie. Pokiaľ je aplikáciu možné nainštalovať len do vnútornej pamäti zariadenia, obsahuje hodnotu \zv{internalOnly}. Takáto aplikácia nemôže byť presunutá na externé pamäťové médium (typicky SD karta). Táto hodnota sa použije v~prípade, že tento atribút nie je definovaný. V~prípade hodnoty \zv{auto} sú aplikácie inštalované do vnútornej pamäti, ale môžu byť presunuté do pamäti externej. Hodnota \zv{preferExternal} zabezpečí, že systém sa pokúsi o~inštaláciu na externé pamäťové médium. V~prípade neúspechu sa použije interná pamäť
+\item \bod{xmlns:android} -- povinný atribút definujúci menný priestor,
+\item \bod{package} -- nemenný názov balíku aplikácie, povinný atribút definujúci identitu aplikácie,
+\item \bod{android:sharedUserId} -- identifikátor aplikácie zdieľaný s~ostatnými aplikáciami za účelom vzájomnej komunikácie,
+\item \bod{android:sharedUserLabel} -- čitateľná podoba \zv{android:sharedUserId} identifikátoru,
+\item \bod{android:versionCode} -- interná informácia o~verzii aplikácie. Tento atribút je využívaný len na rozoznanie novších verzií od starších. Novšie aplikácie obsahujú vyššiu hodnotu,
+\item \bod{android:versionName} –- informácia o~verzii aplikácie prezentovaná užívateľom. Pre systém Android neposkytuje informáciu o~verzii, tú obsahuje atribút \zv{android:versionCode},
+\item \bod{android:installLocation} – určuje predvolené umiestnenie inštalácie aplikácie. Pokiaľ je aplikáciu možné nainštalovať len do vnútornej pamäti zariadenia, obsahuje hodnotu \zv{internalOnly}. Takáto aplikácia nemôže byť presunutá na externé pamäťové médium (typicky SD karta). Táto hodnota sa použije v~prípade, že tento atribút nie je definovaný. V~prípade hodnoty \zv{auto} sú aplikácie inštalované do vnútornej pamäti, ale môžu byť presunuté do pamäti externej. Hodnota \zv{preferExternal} zabezpečí, že systém sa pokúsi o~inštaláciu na externé pamäťové médium. V~prípade neúspechu sa použije interná pamäť.
 \end{itemize}
 
 \subsection{Element uses-permission}
@@ -146,8 +146,8 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 Prístup k~niektorým dátam alebo funkciám Andorid API je z~dôvodu ochrany limitovaný. Android využíva princíp povolení\footnote{angl. permissions}. Povolenia môžu byť definované samotnou aplikáciou, inou aplikáciou alebo systémom Android. Aplikácia, ktorá chce pristupovať k~chráneným dátam alebo používať chránené časti kódu, musí pomocou elementu \zv{uses-permissions} deklarovať vyžadovaný prístup k~chráneným častiam~\cite{appManifest}. Prístupové povolenia sú aplikácii schválené užívateľom. Vo verzii Android 5.1 a starších, systém počas inštalácie oboznámi užívateľa so všetkými povoleniami, ktoré aplikácia vyžaduje. V~prípade, že ich používateľ neschváli, aplikácia nebude nainštalovaná. Od verzie Android 6.0 užívateľ schvaľuje povolenia počas behu aplikácie.\\\\ 
 Element \zv{uses-permission} definuje atribúty~\cite{elUsesPerm}:\\
 \begin{itemize}
-\item \bod{android:name} -- názov povolenia
-\item \bod{android:maxSdkVersion} -- najvyšší level Android API, pre ktorý je dané povolenie potrebné
+\item \bod{android:name} -- názov povolenia,
+\item \bod{android:maxSdkVersion} -- najvyšší level Android API, pre ktorý je dané povolenie potrebné.
 \end{itemize}
 
 \subsection{Element permission}
@@ -164,8 +164,8 @@ Element \zv{uses-permission} definuje atribúty~\cite{elUsesPerm}:\\
 \end{lstlisting}
 Definuje bezpečnostné povolenie, ktoré môže byť použité na obmedzenie prístupu ku komponente aplikácie. Toto povolenie je následne používané aplikáciami, ktoré vyžadujú prístup k~chránenej časti poskytovanej danou aplikáciou.\\\\ Najdôležitejšie atribúty definované v~rámci elementu \zv{permission}~\cite{elPerm}:\\
 \begin{itemize}
-\item \bod{android:name} -- názov povolenia, aplikácie vyžadujúce dané povolenie uvádzajú túto hodnotu v~atribúte \zv{android:name} v~tagu \zv{uses-permission}. Názov musí byť unikátny a mal by dodržiavať menné konvencie jazyka Java.
-\item \bod{android:permissionGroup} -- priradí toto povolenie do skupiny povolení. Táto skupina povolení musí byť deklarovaná v~rámci elementu \zv{permission-group} v~niektorej z~nainštalovaných aplikácií. Slúži na logické zoskupenie významovo podobných oprávnení.
+\item \bod{android:name} -- názov povolenia, aplikácie vyžadujúce dané povolenie uvádzajú túto hodnotu v~atribúte, \zv{android:name} v~tagu \zv{uses-permission}. Názov musí byť unikátny a mal by dodržiavať menné konvencie jazyka Java,
+\item \bod{android:permissionGroup} -- priradí toto povolenie do skupiny povolení. Táto skupina povolení musí byť deklarovaná v~rámci elementu \zv{permission-group} v~niektorej z~nainštalovaných aplikácií. Slúži na logické zoskupenie významovo podobných oprávnení,
 \item \bod{android:protectionLevel} -- charakterizuje potenciálne riziko spojené s~použitím daného povolenia. Táto hodnota určuje postup operačného systému pri rozhodovaní o~udelení povolenia. 
 Základnou hodnotou je \zv{normal}, ktorý reprezentuje povolenia s~nízkou mierou rizika. Tieto povolenia sú aplikácii automaticky schválené systémom Android počas inštalácie. Pre povolenia so~zvýšenou mierou rizika je určená hodnota \zv{dangerous}. Tieto povolenia typicky udeľujú aplikácii prístup k~citlivým dátam alebo k~prvkom zariadenia, ktoré môžu negatívne ovplyvniť jeho používanie. Pretože tento typ povolení prináša potenciálne riziko, systém ho nemôže udeliť automaticky, ale až po explicitnom súhlase používateľa.
 V~prípade, že tento atribút obsahuje hodnotu \zv{signature}, povolenie je udelené automaticky a to len aplikáciám, ktorých certifikát je rovnaký ako certifikát aplikácie definujúcej dané povolenie.   
@@ -182,9 +182,9 @@ Hodnota \zv{signatureOrSystem} rozširuje hodnotu \zv{signature} a povolenia sú
 Element vyjadrujúci kompatibilitu aplikácie s~verziou Androidu pomocou čísla verzie Android API.\\\\
 Atribúty definované elementom \zv{uses-sdk}~\cite{elUsesSdk}:\\
 \begin{itemize}
-\item \bod{android:minSdkVersion} -- vyjadruje najnižší level API vyžadovaný aplikáciou. Pokiaľ je táto hodnota vyššia ako API úroveň zariadenia, systém zabráni inštalácii. Tento atribút by mala obsahovať každá aplikácia
-\item \bod{android:targetSdkVersion} -- informuje o~úrovni API na ktorej bola aplikácia testovaná a pre ktorú je primárne určená. V~prípade, že zariadenie podporuje vyššiu verziu Android API ako definuje spomínaný atribút, aplikácia môže byť spustená v~móde kompatibility s~touto verziou API 
-\item \bod{android:maxSdkVersion} -- najvyššia úroveň API kompatibilná s~aplikáciou. Z~dôvodu spätnej kompatibility nie je používanie tohto atribútu doporučené. Tento atribút bol využívaný len do verzie Android 2.0.1
+\item \bod{android:minSdkVersion} -- vyjadruje najnižší level API vyžadovaný aplikáciou. Pokiaľ je táto hodnota vyššia ako API úroveň zariadenia, systém zabráni inštalácii. Tento atribút by mala obsahovať každá aplikácia,
+\item \bod{android:targetSdkVersion} -- informuje o~úrovni API na ktorej bola aplikácia testovaná a pre ktorú je primárne určená. V~prípade, že zariadenie podporuje vyššiu verziu Android API ako definuje spomínaný atribút, aplikácia môže byť spustená v~móde kompatibility s~touto verziou API,
+\item \bod{android:maxSdkVersion} -- najvyššia úroveň API kompatibilná s~aplikáciou. Z~dôvodu spätnej kompatibility nie je používanie tohto atribútu doporučené. Tento atribút bol využívaný len do verzie Android 2.0.1.
 \end{itemize}
 
 \subsection{Element uses-feature}
@@ -197,10 +197,10 @@ Atribúty definované elementom \zv{uses-sdk}~\cite{elUsesSdk}:\\
 \end{lstlisting}
 Deklaruje hardvérovú alebo softvérovú vlastnosť \footnote{angl. feature} používanú aplikáciou. Tento element informuje externé entity o~funkciách, ktoré aplikácia vyžaduje. Deklarované vlastnosti majú informačný charakter. Systém Android nekontroluje, či zariadenie podporuje všetky vlastnosti deklarované aplikáciou. Tento element je využívaný službou \zv{Google Play} na  filtrovanie aplikácií vyhovujúcich danému zariadeniu, a preto by mala byť deklarovaná každá vyžadovaná vlastnosť.\\\\ Element obsahuje nasledujúce atribúty~\cite{elUsesFeature}:\\
 \begin{itemize}
-\item \bod{android:name} -- názov vyžadovanej vlastnosti
-\item \bod{android:required} -- určuje, či aplikácia vyžaduje danú vlastnosť pre korektné fungovanie. Pokiaľ obsahuje hodnotu \zv{true}, aplikácia nie je schopná korektne fungovať na zariadení nepodporujúcom danú vlastnosť
+\item \bod{android:name} -- názov vyžadovanej vlastnosti,
+\item \bod{android:required} -- určuje, či aplikácia vyžaduje danú vlastnosť pre korektné fungovanie. Pokiaľ obsahuje hodnotu \zv{true}, aplikácia nie je schopná korektne fungovať na zariadení nepodporujúcom danú vlastnosť.
 \end{itemize}
-\newpage
+
 \subsection{Element supports-screens}
 \lstset{language=XML}
 \begin{lstlisting}
@@ -216,8 +216,8 @@ Deklaruje hardvérovú alebo softvérovú vlastnosť \footnote{angl. feature} po
 \end{lstlisting}
 Špecifikuje podporované typy obrazoviek. V~prípade inštalácie na zariadení s~väčšou obrazovkou ako aplikácia podporuje, informuje systém o~potrebe využitia módu obrazovej kompatibility.\\\\ Väčšina atribútov deklaruje podporované veľkosti obrazoviek. Medzi ostatné atribúty definované elementom \zv{supports-screens} patria~\cite{elScreen}:\\
 \begin{itemize}
-\item \bod{android-resizeable} -- indikuje schopnosť aplikácie korektne sa prispôsobiť rôznym veľkostiam obrazoviek
-\item \bod{android:anyDensity} -- indikuje, že aplikácia obsahuje zdrojové súbory vhodné pre obrazovky s~rôznou hustotu obrazových bodov
+\item \bod{android-resizeable} -- indikuje schopnosť aplikácie korektne sa prispôsobiť rôznym veľkostiam obrazoviek,
+\item \bod{android:anyDensity} -- indikuje, že aplikácia obsahuje zdrojové súbory vhodné pre obrazovky s~rôznou hustotu obrazových bodov.
 \end{itemize}
 
 \subsection{Element activity}
@@ -243,6 +243,6 @@ Deklaruje komponentu aplikácie implementovanú ako podtriedu triedy \zv{android
 \end{lstlisting}
 Špecifikuje zdieľanú knižnicu vyžadovanú aplikáciou. Tento element informuje systém o~potrebe zahrnúť cestu k~zdrojovému kódu knižnice medzi cesty v~ktorých \zv{Dalvik Virtual Machine} hľadá zdrojové súbory. V~angličtine sú tieto cesty označované ako \zv{class path}. Balíky, ktoré sú v~Android aplikáciách najpoužívanejšie, napríklad \zv{android.app}, \zv{android.content} alebo \zv{android.view} sú obsiahnuté v~základnej knižnici, ktorá je automaticky pripojená ku každej aplikácií a nemusí byť deklarovaná týmto elementom. Balíčky, ktoré nie sú medzi základnými knižnicami, musia byť deklarované.  Tento element ovplyvňuje inštaláciu aplikácie na konkrétnom zariadení a taktiež dostupnosť aplikácie v~obchode \zv{Google Play}.\\\\ Definuje atribúty~\cite{elUsesLib}:\\
 \begin{itemize}
-\item \bod{android:name} -- názov knižnice, ktorý sa nachádza v~dokumentácii príslušného použitého balíčku
+\item \bod{android:name} -- názov knižnice, ktorý sa nachádza v~dokumentácii príslušného použitého balíčku,
 \item \bod{android:required} -- indikuje či aplikácia nevyhnutne vyžaduje knižnicu špecifikovanú atribútom \zv{android:name}. V~prípade hodnoty \zv{true} aplikácia nie je schopná fungovať bez danej knižnice. Systém zamietne inštaláciu takejto aplikácie, pokiaľ zariadenie neobsahuje danú knižnicu. Ak je tento atribút nastavený na hodnotu \zv{false}, aplikácia je schopná korektne fungovať aj bez danej knižnice.
 \end{itemize}
