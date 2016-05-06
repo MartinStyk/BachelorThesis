@@ -424,12 +424,12 @@ chart by using PGF/Tikz package.]
   yshift=(\value{pgfpie@sliceLength}*0.5+1)*0.5cm] (legendpos) at
   (current bounding box.east);
 
-  \begin{scope}[node distance=0.5cm]
+ \begin{scope}[node distance=0.5cm]
     \foreach \p/\t  [count=\i from 0] in {#2}
     {
-      \pgfpie@findColor{\i}
+     \pgfpie@findColor{\i}
       \node[draw, fill=\thecolor, \style, below of=legendpos, label=0:\t] (legendpos) {};
-    }
+   }
   \end{scope}
   \fi  
 }

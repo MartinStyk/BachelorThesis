@@ -37,7 +37,7 @@ Viac ako 90\,\% aplikácií bolo stiahnutých automatizovane prostredníctvom ap
 \end{itemize}
 
 V~prípade sťahovania aplikácií z~archívu projektu \zv{Playdrone}~\cite{Viennot2014} je potrebné špecifikovať súbor s~metainformáciami obsahujúci odkazy na APK súbory. Tento súbor sa nachádza v~archíve projektu \zv{Playdrone}~\cite{archiveOrg}. Žiadny zo spomínaných zdrojov neposkytuje verejné API na prístup a sťahovanie súborov. Pri ostatných podporovaných zdrojoch \zv{ApkDownlaoder} vyhľadá odkazy na APK súbory v~HTML kóde príslušnej stránky. Vyhľadávanie odkazov je priamo závislé na HTML kóde danej webovej stránky a jeho zmena môže mať efekt na korektné fungovanie aplikácie. Keďže je \zv{ApkDownloader} open source, môže byť jednoducho adaptovaný na zmenený HTML kód, ale aj rozšírený o~podporu sťahovania APK súborov z~nových lokalít. Za účelom rozšíriteľnosti a jednoduchej modifikovateľnosti poskytuje \zv{ApkDownlaoder} jednoduché verejné API. Použitie \zv{ApkDownlaoder} je zobrazené v~ukážke kódu 4.1, ktorá reprezentuje telo metódy \zv{main} danej aplikácie. \\
-\begin{lstlisting} [language=java, basicstyle=\small\color{black}, caption= {\zv{ApkDownloader} API a jeho použitie} \label{downlaoderCode}]
+\begin{lstlisting} [language=java, basicstyle=\small\color{black},frame=single,framesep=10pt, caption= {\zv{ApkDownloader} API a jeho použitie} \label{downlaoderCode}]
 ApkLinkFinder finder = arguments.getLinkFinder();
 finder.setMetadataFile(arguments.getMetadataFile());
 finder.setNumberOfApks(arguments.getNumberOfApks());

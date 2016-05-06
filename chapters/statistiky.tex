@@ -18,7 +18,7 @@ Android poskytuje aplikáciám možnosť špecifikácie preferovaného pamäťov
 \centering
 \begin{tikzpicture}[scale=0.8,align=center]
         \pie[text=label,rotate=240,
-             explode=0,
+             explode=0.2,
              color={blue!70,cyan!70,red!70,orange!50}]{49.03/internalOnly, 40.47/auto, 10.5/preferExternal}
     \end{tikzpicture}
 \caption{Hodnoty atribútu \zv{android:installLocation}}
@@ -94,14 +94,23 @@ Aplikácie deklarujú nízky počet využívaných vlastností (viď \ref{el_use
 \subsection{Podpis APK balíčka}
 Na podpisovanie APK balíčkov je najčastejšie využitý algoritmus \zv{SHA1withRSA}, ktorý využíva až 74,87\,\% aplikácií. 15,56\,\% aplikácií je podpísaných pomocou algoritmu \zv{SHA256withRSA}, podpis pomocou \zv{MD5withRSA} je využitý v~5,88\,\% prípadoch. Percentuálne rozdelenie algoritmov použitých na podpis APK súborov je znázornený na obrázku \ref{fig:signAlg}.
 
-
-\begin{figure}[htb]
+\begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.7,align=center]
-        \pie[text=label,rotate=240,
-             explode=0.2,
-             color={blue!70,cyan!70,red!70,orange!50}]{74.9/SHA1withRSA, 15.6/SHA256withRSA, 5.9/MD5withRSA, 3.6/SHA1withDSA}
-    \end{tikzpicture}
+\begin{bchart}[min=0,max=80,step=10,unit=\%]
+\bcbar[label=MD2withRSA]{0.01}
+\bcskip{6pt}
+\bcbar[label=SHA512withRSA]{0.06}
+\bcskip{6pt}
+\bcbar[label=SHA1withDSA]{3.60}
+\bcskip{6pt}
+\bcbar[label=MD5withRSA]{5.88}
+\bcskip{6pt}
+\bcbar[label=SHA256withRSA]{15.56}
+\bcskip{6pt}
+\bcbar[label=SHA1withRSA]{74.87}
+\bcskip{3pt}
+\end{bchart}
+
 \caption{Algoritmus podpisu APK balíčku}
 \label{fig:signAlg}
 \end{figure}
