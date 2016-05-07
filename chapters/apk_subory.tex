@@ -2,7 +2,6 @@
 \label{APKsubory}
 APK súbory sú balíčky používané operačným systémom Android. Celý názov ukrytý za skratkou APK je \zv{Android application package file}. Tieto súbory slúžia na distribúciu aplikácií v~operačnom systéme Android. Ich použitie a význam je analogický ako pri MSI balíčkoch používaných v~systéme Microsoft Windows, alebo DEB balíčkoch používaných v~niektorých linuxových distribúciách. APK súbory sú asociované s~príponou \zv{.apk} a s~príslušným MIME typom \zv{application/vnd.android.package-archive}~\cite{Freed2016}.
 
-Štruktúra APK balíčkov vychádza z~JAR (Java archive) balíčkov -- súborov používaných na distribúciu aplikácií alebo knižníc na platforme Java. Formát APK rozširuje všeobecnejší JAR formát o~súbory, ktoré sú špecifické pre cieľovú platformu, ktorou je operačný systém Android. Zároveň si však ponecháva vlastnosti JAR súborov. APK balíčky sú archívne súbory v~ZIP formáte. Keďže APK používajú ZIP formát, k~ich obsahu môžeme jednoducho pristúpiť rozbalením archívu štandardným spôsobom.  APK súbory vznikajú ako výstup kompletnej kompilácie a zabalenia aplikácií pre Android. APK súbor každej aplikácie obsahuje všetky potrebné súbory na jej inštaláciu a spustenie. Medzi týmito súbormi sa typicky nachádza súbor \zv{classes.dex} obsahujúci skompilovaný zdrojový kód, súbor \zv{resources.arsc} ktorý obsahuje skompilované zdroje aplikácie, súbor \zv{AndroidManifest.xml} a neskompilované súbory ako sú napríklad obrázky~\cite{buildingAndRunning}. Typická štruktúra APK balíčku je zobrazená na obrázku \ref{fig:strukturaApk}.
 \begin{figure}[htb]
   \begin{center}
     \includegraphics[width=60mm]{images/apkStructure.pdf}
@@ -10,6 +9,9 @@ APK súbory sú balíčky používané operačným systémom Android. Celý náz
   \caption{Typická štruktúra APK súboru}
   \label{fig:strukturaApk}
 \end{figure}
+
+Štruktúra APK balíčkov vychádza z~JAR (Java archive) balíčkov~-- súborov používaných na distribúciu aplikácií alebo knižníc na platforme Java. Formát APK rozširuje všeobecnejší JAR formát o~súbory, ktoré sú špecifické pre cieľovú platformu, ktorou je operačný systém Android. Zároveň si však ponecháva vlastnosti JAR súborov. APK balíčky sú archívne súbory v~ZIP formáte. Keďže APK používajú ZIP formát, k~ich obsahu môžeme jednoducho pristúpiť rozbalením archívu štandardným spôsobom.  APK súbory vznikajú ako výstup kompletnej kompilácie a zabalenia aplikácií pre Android. APK súbor každej aplikácie obsahuje všetky potrebné súbory na jej inštaláciu a spustenie. Medzi týmito súbormi sa typicky nachádza súbor \zv{classes.dex} obsahujúci skompilovaný zdrojový kód, súbor \zv{resources.arsc} ktorý obsahuje skompilované zdroje aplikácie, súbor \zv{AndroidManifest.xml} a neskompilované súbory ako sú napríklad obrázky~\cite{buildingAndRunning}. Typická štruktúra APK balíčku je zobrazená na obrázku \ref{fig:strukturaApk}.
+
 \section{Priečinok META-INF}
 \label{META-INF}
 Priečinok \zv{META-INF} obsahuje súbory, ktorých úlohou je zaručiť integritu ostatných súborov v~APK balíčku a s~ňou spojenú bezpečnosť celého systému. V~prípade detekcie pozmenených súborov a narušenia integrity operačný systém Android nedovolí inštaláciu APK balíčku. Po každej zmene je nutné balíček digitálne podpísať.
@@ -19,7 +21,7 @@ Priečinok \zv{META-INF} obsahuje súbory, ktorých úlohou je zaručiť integri
 Súbor \zv{CERT.RSA} obsahuje verejný kľúč vo forme \zv{X509} certifikátu, ktorý slúži na overenie digitálneho podpisu balíčka.
 \subsection*{MANIFEST.MF}
 \label{MANIFEST.MF}
-\zv{MANIFEST.MF} je súbor obsahujúci relatívne cesty a SHA-1 hashe \footnote{reťazce v~Base64 kódovaní} všetkých súborov v~APK balíčku. Tento súbor nie je špecifický len pre APK súbory, ale obsahuje ho každý JAR archív.\\\\
+\zv{MANIFEST.MF} je súbor obsahujúci relatívne cesty a SHA1 hashe \footnote{reťazce v~Base64 kódovaní} všetkých súborov v~APK balíčku. Tento súbor nie je špecifický len pre APK súbory, ale obsahuje ho každý JAR archív.\\\\
 Typický obsah súboru \zv{MANIFEST.MF} vyzerá nasledovne~\cite{Yang2015}: \\
 \begin{verbatim}
 Manifest-Version: 1.0
@@ -34,12 +36,12 @@ SHA1-Digest: 1coP1lt9Lmccc7SMZGHxNv4bbKs=
 \end{verbatim}
 \subsection*{CERT.SF}
 \label{CERT.SF}
-Súbor \zv{CERT.SF} je podobný ako \zv{MANIFEST.MF}, avšak namiesto SHA-1 hashov samotných súborov obsahuje SHA-1 hashe záznamov o~týchto súboroch z~\zv{MANIFEST.MF}. Okrem toho obsahuje aj hash celého súboru \zv{MANIFEST.MF}. \newline Záznam o~jednom súbore v~APK balíčku v~súbore \zv{CERT.SF} vyzerá nasledovne: \newline
+Súbor \zv{CERT.SF} je podobný ako \zv{MANIFEST.MF}, avšak namiesto SHA1 hashov samotných súborov obsahuje SHA1 hashe záznamov o~týchto súboroch z~\zv{MANIFEST.MF}. Okrem toho obsahuje aj hash celého súboru \zv{MANIFEST.MF}. \newline Záznam o~jednom súbore v~APK balíčku v~súbore \zv{CERT.SF} vyzerá nasledovne: \newline
 \begin{verbatim}
 Name: res/drawable-xhdpi-v4/libraries.png
 SHA1-Digest: Slg56lqothjvmaBikD/urdb7q6=
 \end{verbatim}\mbox{}\\
-Reťazec \zv{Slg56lqothjvmaBikD/urdb7q6=} reprezentuje SHA-1 hash nasledujúceho záznamu zo súboru \zv{MANIFEST.MF}:\mbox{}\\
+Reťazec \zv{Slg56lqothjvmaBikD/urdb7q6=} reprezentuje SHA1 hash nasledujúceho záznamu zo súboru \zv{MANIFEST.MF}:\mbox{}\\
 \begin{verbatim}
 “Name: res/drawable-xhdpi-v4/libraries.png
 SHA1-Digest: VvgaO1jpW3iS1nBBikD/urdbN58=
@@ -49,25 +51,25 @@ SHA1-Digest: VvgaO1jpW3iS1nBBikD/urdbN58=
 Priečinok \zv{res} obsahuje zdrojové súbory ako napríklad obrázky, zvuky alebo ikony. Okrem multimediálnych súborov obsahuje taktiež zdrojové XML súbory určujúce vzhľad obrazoviek, použité grafické štýly, alebo textové reťazce použité v~aplikácii. Niektoré z~týchto XML súborov môžu byť skompilované do binárneho formátu. V~zdrojovom kóde sú tieto zdroje odkazované pomocou unikátnych identifikátorov. Identifikátory sú generované počas kompilácie nástrojom \zv{aapt} a nachádzajú sa v~projektovej triede \zv{R}. Pre každý typ zdrojového súboru je generovaná podtrieda triedy \zv{R}~\cite{accessingRes}. Všetky zdroje aplikácie by mali byť externalizované a uložené v~špecifickom podpriečinku v~tomto adresári. \newpage
 \textbf{Podporované podpriečinky}~\cite{providingRes}
 \begin{itemize}
-\item animator - obsahuje XML súbory definujúce property animácie\footnote{Animácie definované pomocou zmeny atribútov vykreslovaných objektov},
-\item anim - obsahuje XML súbory definujúce tween animácie\footnote{Animácie definované pomocou štartového bodu, koncového bodu, rotáciou a inými transformáciami vykreslovaného objektu}, môže obsahovať aj property animácie,
-\item color - obsahuje XML súbory definujúce farby a ich zmeny na základe stavu objektov na ktoré sú aplikované,
-\item drawable - obsahuje obrázky vo formáte PNG, 9.PNG, JPG, GIF alebo XML súbory skompilované do formy vykresliteľných obrázkov,
-\item mipmap - obsahuje ikony aplikácie s~rôznou hustotou pixelov,
-\item layout - obsahuje súbory vo formáte XML definujúce vzhľad a rozmiestnenie prvkov na obrazovke,
-\item menu - obsahuje XML súbory definujúce menu aplikácie,
-\item raw - obsahuje súbory, ktoré musia byť uložené a použité v~neskomprimovanej forme a kvalite,
-\item values - obsahuje súbory vo formáte XML definujúce hodnoty textových reťazcov, farieb, štýlov alebo základných rozmerov,
-\item xml - obsahuje XML súbory, ktoré môžu byť načítané počas behu aplikácie.
+\item animator -- obsahuje XML súbory definujúce property animácie\footnote{Animácie definované pomocou zmeny atribútov vykreslovaných objektov},
+\item anim -- obsahuje XML súbory definujúce tween animácie\footnote{Animácie definované pomocou štartového bodu, koncového bodu, rotáciou a inými transformáciami vykreslovaného objektu}, môže obsahovať aj property animácie,
+\item color -- obsahuje XML súbory definujúce farby a ich zmeny na základe stavu objektov na ktoré sú aplikované,
+\item drawable -- obsahuje obrázky vo formáte PNG, 9.PNG, JPG, GIF alebo XML súbory skompilované do formy vykresliteľných obrázkov,
+\item mipmap -- obsahuje ikony aplikácie s~rôznou hustotou pixelov,
+\item layout -- obsahuje súbory vo formáte XML definujúce vzhľad a rozmiestnenie prvkov na obrazovke,
+\item menu -- obsahuje XML súbory definujúce menu aplikácie,
+\item raw -- obsahuje súbory, ktoré musia byť uložené a použité v~neskomprimovanej forme a kvalite,
+\item values -- obsahuje súbory vo formáte XML definujúce hodnoty textových reťazcov, farieb, štýlov alebo základných rozmerov,
+\item xml -- obsahuje XML súbory, ktoré môžu byť načítané počas behu aplikácie.
 \end{itemize}
 
 \noindent V~spomenutých priečinkoch sú uložené základné zdroje aplikácie. Tieto zdrojové súbory určujú základný dizajn a obsah aplikácie. Rôzne typy Android zariadení môžu využívať rôzne zdrojové súbory. Alternatívne zdroje sa využívajú na prispôsobenie dizajnu a obsahu veľkosti a aktuálnej konfigurácií zariadenia. Sú umiestnené v~priečinku, ktorého názov pozostáva z~typu zdrojového súboru, ktorý korešponduje so základným názvom priečinku a názvu hodnoty konfiguračného atribútu pre ktorý je tento priečinok určený. Je možné kombinovať viacero konfiguračných atribútov~\cite{providingAltRes}.\\\\
 \textbf{Najčastejšie používané atribúty}
 \begin{itemize}
-\item Jazyk a región – jazyk je definovaný podľa kódovania \zv{ISO 639-1}~\cite{isoCodes} s~možnosťou rozšírenia pomocou \zv{ISO 3166-1-alpha-2} regionálneho kódu. Napríklad obrázky špecifické pre zariadenia s~francúzskym jazykom sa nachádzajú v~priečinku \cesta{res/drawable-fr}.
-\item Veľkosť obrazovky –  v~závislosti na veľkosti a rozlíšení obrazovky rozlišuje štyri možné hodnoty -- \zv{small}, \zv{normal}, \zv{large}, \zv{xlarge}.
-\item Orientácia obrazovky – umožňuje definovať rôzne zdrojové súbory v~závislosti na orientácii zariadenia. Hodnota \zv{port} špecifikuje súbory pre zariadenie orientované vertikálne, hodnota \zv{land} je určená pre horizontálnu orientáciu zariadenia.	
-\item Hustota obrázkových bodov obrazovky -  hodnoty určujúce vhodnosť zdrojových súborov vzhľadom na hustotu obrázkových bodov obrazovky daného zariadenia.
+\item Jazyk a región -- jazyk je definovaný podľa kódovania \zv{ISO 639-1}~\cite{isoCodes} s~možnosťou rozšírenia pomocou \zv{ISO 3166-1-alpha-2} regionálneho kódu. Napríklad obrázky špecifické pre zariadenia s~francúzskym jazykom sa nachádzajú v~priečinku \cesta{res/drawable-fr}.
+\item Veľkosť obrazovky -- v~závislosti na veľkosti a rozlíšení obrazovky rozlišuje štyri možné hodnoty -- \zv{small}, \zv{normal}, \zv{large}, \zv{xlarge}.
+\item Orientácia obrazovky -- umožňuje definovať rôzne zdrojové súbory v~závislosti na orientácii zariadenia. Hodnota \zv{port} špecifikuje súbory pre zariadenie orientované vertikálne, hodnota \zv{land} je určená pre horizontálnu orientáciu zariadenia.	
+\item Hustota obrázkových bodov obrazovky -- hodnoty určujúce vhodnosť zdrojových súborov vzhľadom na hustotu obrázkových bodov obrazovky daného zariadenia.
 \end{itemize}
 
 
@@ -92,7 +94,8 @@ Súbor \zv{resources.arsc} obsahuje mapovanie medzi zdrojovými súbormi  z~prie
 \zv{AndroidManifest.xml} je súbor, ktorý musí obsahovať každá aplikácia. Tento súbor poskytuje informácie o~aplikácii operačnému systému Android. Neobsahuje žiadny výkonný kód. Definuje meno a verziu, ktoré slúžia ako unikátny identifikátor danej aplikácie. Popisuje všetky komponenty z~ktorých sa aplikácia skladá, cesty k~použitým knižniciam, minimálny vyžadovaný level Android API, oprávnenia vyžadované aplikáciou na prístup k~chráneným častiam Android API a taktiež oprávnenia, ktoré sú vyžadované od iných komponent pri pokuse komunikovať s~danou aplikáciou~\cite{appManifest}. Súbor \zv{AndroidManifest.xml}, ktorý nájdeme v~APK balíčku je vo formáte binárneho XML súboru. Je ho však možné previesť do klasického čitateľného XML formátu.
 
 Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta o~Android aplikácii a APK súbore, informácie získané z~tohto súboru tvoria veľkú časť štatistických dát zbieraných a vyhodnocovaných v~kapitole \ref{statistiky}. Preto sa detailnejšie pozrieme na jeho štruktúru a niektoré dôležité elementy, ktoré obsahuje.
-\begin{lstlisting} [language=XML, caption= {Základná štruktúra súboru /AndroidManifest.xml}]*<manifest>
+\begin{lstlisting} [language=XML, caption= {Základná štruktúra súboru AndroidManifest.xml}]*
+<manifest>
     <uses-permission />
     <permission />
     <uses-sdk />
@@ -132,8 +135,8 @@ Keďže \zv{AndroidManifest.xml} je základným súborom poskytujúcim metadáta
 \item \bod{android:sharedUserId} -- identifikátor aplikácie zdieľaný s~ostatnými aplikáciami za účelom vzájomnej komunikácie,
 \item \bod{android:sharedUserLabel} -- čitateľná podoba \zv{android:sharedUserId} identifikátoru,
 \item \bod{android:versionCode} -- interná informácia o~verzii aplikácie. Tento atribút je využívaný len na rozoznanie novších verzií od starších. Novšie aplikácie obsahujú vyššiu hodnotu,
-\item \bod{android:versionName} –- informácia o~verzii aplikácie prezentovaná užívateľom. Pre systém Android neposkytuje informáciu o~verzii, tú obsahuje atribút \zv{android:versionCode},
-\item \bod{android:installLocation} – určuje predvolené umiestnenie inštalácie aplikácie. Pokiaľ je aplikáciu možné nainštalovať len do vnútornej pamäti zariadenia, obsahuje hodnotu \zv{internalOnly}. Takáto aplikácia nemôže byť presunutá na externé pamäťové médium (typicky SD karta). Táto hodnota sa použije v~prípade, že tento atribút nie je definovaný. V~prípade hodnoty \zv{auto} sú aplikácie inštalované do vnútornej pamäti, ale môžu byť presunuté do pamäti externej. Hodnota \zv{preferExternal} zabezpečí, že systém sa pokúsi o~inštaláciu na externé pamäťové médium. V~prípade neúspechu sa použije interná pamäť.
+\item \bod{android:versionName} -- informácia o~verzii aplikácie prezentovaná užívateľom. Pre systém Android neposkytuje informáciu o~verzii, tú obsahuje atribút \zv{android:versionCode},
+\item \bod{android:installLocation} -- určuje predvolené umiestnenie inštalácie aplikácie. Pokiaľ je aplikáciu možné nainštalovať len do vnútornej pamäti zariadenia, obsahuje hodnotu \zv{internalOnly}. Takáto aplikácia nemôže byť presunutá na externé pamäťové médium (typicky SD karta). Táto hodnota sa použije v~prípade, že tento atribút nie je definovaný. V~prípade hodnoty \zv{auto} sú aplikácie inštalované do vnútornej pamäti, ale môžu byť presunuté do pamäti externej. Hodnota \zv{preferExternal} zabezpečí, že systém sa pokúsi o~inštaláciu na externé pamäťové médium. V~prípade neúspechu sa použije interná pamäť.
 \end{itemize}
 
 \subsection{Element uses-permission}

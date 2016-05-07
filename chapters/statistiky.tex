@@ -6,7 +6,7 @@ Vyvinutá aplikácia \zv{ApkAnalyzer} poskytuje možnosť výpočtu štatistík 
 
 \section{Získané dáta}
 \subsection{Veľkosť APK súborov}
-Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10,19\,MB. Keďže APK súbory využívajú ZIP formát, uvedené hodnoty reprezentujú veľkosť APK súboru ako skomprimovaného súboru. Po dekomprimácií je súčet veľkostí jednotlivých súborov spravidla väčší ako veľkosť APK súboru. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v~porovnaní s~mediánom takmer dvojnásobná, v~našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie a najbežnejšie veľkosti APK súborov.\\ Medián veľkosti súboru \zv{classes.dex} (viď. \ref{classes.dex}) je 2,16\,MB, aritmetický priemer je o~málo vyšší -- 2,86\,MB. Pri súbore \zv{resources.arsc} (viď \ref{resources.arsc}) bol zistený priemer veľkosti 690\,KB a medián 192\,KB. Uvedené hodnoty sú určené z~veľkosti súborov z~APK balíčku po ich dekompresii.
+Analýzou databázy APK súborov sa zistilo, že medián veľkosti APK súborov je 5,26\,MB, aritmetický priemer dosahuje hodnotu 10,19\,MB. Keďže APK súbory využívajú ZIP formát, uvedené hodnoty reprezentujú veľkosť APK súboru ako skomprimovaného archívu. Po dekomprimácií je súčet veľkostí jednotlivých súborov spravidla väčší ako veľkosť APK súboru. Aritmetický priemer je štatistický ukazovateľ, ktorý je citlivý na extrémne hodnoty. Keďže je jeho hodnota v~porovnaní s~mediánom takmer dvojnásobná, v~našej databáze sa nachádzajú aplikácie, ktorých veľkosť výrazne prevyšuje najčastajšie a najbežnejšie veľkosti APK súborov.\\ Medián veľkosti súboru \zv{classes.dex} (viď. \ref{classes.dex}) je 2,16\,MB, aritmetický priemer je o~málo vyšší -- 2,86\,MB. Pri súbore \zv{resources.arsc} (viď \ref{resources.arsc}) bol zistený priemer veľkosti 690\,KB a medián 192\,KB. Uvedené hodnoty sú určené z~veľkosti súborov z~APK balíčku po ich dekompresii.
 
 \subsection{Počet súborov v~APK balíku}
 Medián celkového počtu súborov v~APK balíčku je 397, aritmetický priemer má hodnotu približne 730 súborov.
@@ -148,7 +148,7 @@ Aplikácie sú okrem základného jazyka lokalizované najčastejšie v~17 inýc
 
 \subsection{Verzie Android SDK}
 
-Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v~novembri 2010. Nanižšie vyžadované verzie Android SDK v~našej databáze APK súborov sú zobrazené v~grafe \ref{tab:minSdk}  a graf na obrázku \ref{minSdkGraf}.
+Najčastejšou najnižšou vyžadovanou verziou Android SDK je verzia 9 s~21,3\% zastúpením. Táto verzia je asociovaná so systémom Android 2.3 až Android 2.3.2 \zv{Gingerbread} a bola vydaná v~novembri 2010. Najnižšie vyžadované verzie Android SDK v~našej databáze APK súborov sú zobrazené v~tabuľke \ref{tab:minSdk} a v grafe na obrázku \ref{minSdkGraf}.
 
 Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol vydaný koncom roka 2013 spolu s~verziou Android 4.4 \zv{KitKat}. Najčastejšie hodnoty primárnej verzie Android SDK obsahuje tabuľka \ref{tab:targetSdk} a graf na obrázku \ref{targetSdkGraf}.
 
@@ -176,7 +176,7 @@ Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol v
 \bcbar[label=SDK 9]{21.31}
 \end{bchart}
 
-\caption{Hodnoty najnižsej vyžadovanej verzie Android SDK}
+\caption{Hodnoty najnižšej vyžadovanej verzie Android SDK}
 \label{minSdkGraf}
 \end{figure}
 
@@ -197,7 +197,7 @@ Až 25,64\,\% aplikácií je primárne určených na SDK verziu 19. SDK 19 bol v
     11 & Android 3.0.x Honeycomb & Február 2011 & 2,1\\
     \hline
   \end{tabular}
-  \caption{Hodnoty najnižsej vyžadovanej verzie Android SDK}
+  \caption{Hodnoty najnižšej vyžadovanej verzie Android SDK}
   \label{tab:minSdk}
 \end{table}
 

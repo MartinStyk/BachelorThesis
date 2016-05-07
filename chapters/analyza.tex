@@ -1,6 +1,6 @@
 \chapter{Analýza APK súborov}
 \label{analyza}
-Hlavnou úlohou práce je získať informácie o~APK súboroch ich detailnou analýzou. APK súbory majú pevnú štruktúru a jednoduchý formát, vďaka čomu je možná ich analýza a reverzné inžinierstvo. Reverzné inžinierstvo je proces analýzy funkcionality a obsahu aplikácie. Keďže APK súbory využívajú ZIP formát, mnohé informácie je možné získať jednoduchým rozbalením. Základnou úlohou analýzy a reverzného inžinierstva APK súborov v~tejto práci je získanie metadát o~APK súbore, ktoré sú využívané v~kapitole \ref{statistiky} a \ref{Repackaged}.
+Hlavnou úlohou práce je získať informácie o~APK súboroch ich detailnou analýzou. APK súbory majú pevnú štruktúru a jednoduchý formát, vďaka čomu je možná ich analýza a reverzné inžinierstvo. Reverzné inžinierstvo je proces analýzy funkcionality a obsahu aplikácie~\cite{reverse}. Keďže APK súbory využívajú ZIP formát, mnohé informácie je možné získať jednoduchým rozbalením. Základnou úlohou analýzy a reverzného inžinierstva APK súborov v~tejto práci je získanie metadát o~APK súbore, ktoré sú využívané v~kapitole \ref{statistiky} a \ref{Repackaged}.
 
 \section{Nástroje reverzného inžinierstva}
 \label{nastroje_revezneho_inzinierstva}
@@ -13,7 +13,7 @@ Existuje viacero nástrojov poskytujúcich funkcionalitu pre reverzné inžinier
 
 \subsection{Dex2Jar}
 \label{Dex2Jar}
-Nástroj \zv{Dex2Jar} podporuje dekódovanie DEX súborov do formátu skompilovaných CLASS súborov .Výsledné CLASS súbory môžu byť prevedené do čitateľného kódu v~jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
+Nástroj \zv{Dex2Jar} podporuje dekódovanie DEX súborov do formátu skompilovaných \zv{class} súborov .Výsledné \zv{class} súbory môžu byť prevedené do čitateľného kódu v~jazyku Java pomocou dekompilátoru \zv{JD-GUI}. Pracuje výhradne so súborom \zv{classes.dex} a nepodporuje prevod binárnych XML do čitateľnej podoby.
 
 \subsection{AAPT}
 \label{AAPT}
@@ -37,12 +37,12 @@ Nástroj \zv{ApkAnalyzer} implementuje zbieranie informácií z~rôznych častí
 \item súbory obsiahnuté v~APK balíčku.
 \end{itemize}
 
-\noindent Kompletný zoznam zbieraných metadát sa nachádza v~prílohe \ref{tab:zbieraneData}.
+\noindent Kompletný zoznam zbieraných metadát obsahuje tabuľka \ref{tab:zbieraneData} v~prílohe \ref{zbieraneDataPriloha}.
 
 \subsection*{Základné informácie o~súbore} 
 V~tejto kategórii sa nachádzajú informácie ako je veľkosť APK súboru alebo veľkosti súborov \zv{classes.dex} a \zv{resources.arsc}. Pre získanie veľkosti súborov obsiahnutých v~APK balíčku je balíček rozbalený do dočasného adresára. Získaná veľkosť APK súboru reprezentuje veľkosť skomprimovaného archívu. Hodnoty veľkosti jednotlivých súborov predstavujú ich veľkosť po dekomprimácii. Táto kategória obsahuje aj samotný názov súboru. 
 \subsection*{Informácie zo súboru \zv{AndroidManifest.xml}} 
-\zv{AndroidManifest.xml} predstavuje hlavný zdroj meta informácií o~aplikácii pre systém Android (viď \ref{AndroidManifest.xml}). Dáta nachádzajúce sa v~tomto súbore tvoria významnú časť dát získaných našou analýzou. Na prevod z~binárneho XML formátu je primárne použitá knižnica \zv{AXML} (viď \ref{AXML}), v~prípade zlyhania konverzie sa použije  nástroj \zv{ApkTool} (viď \ref{ApkTool}). Dáta získané analýzou tohto súboru zahŕňajú napríklad verziu aplikácie, použité prístupové oprávnenia alebo komponenty z~ktorých sa aplikácia skladá.
+\zv{AndroidManifest.xml} predstavuje hlavný zdroj metadát o~aplikácii pre systém Android (viď \ref{AndroidManifest.xml}). Dáta nachádzajúce sa v~tomto súbore tvoria významnú časť dát získaných našou analýzou. Na prevod z~binárneho XML formátu je primárne použitá knižnica \zv{AXML} (viď \ref{AXML}), v~prípade zlyhania konverzie sa použije  nástroj \zv{ApkTool} (viď \ref{ApkTool}). Dáta získané analýzou tohto súboru zahŕňajú napríklad verziu aplikácie, použité prístupové oprávnenia alebo komponenty z~ktorých sa aplikácia skladá.
 \subsection*{Informácie o~certifikáte}
 Táto kategória obsahuje dáta získané zo súboru \zv{CERT.RSA} v~priečinku \zv{META-INF} (viď \ref{CERT.RSA}). Obsahujú napríklad použitý algoritmus podpisovania, názov vydavateľa alebo MD5 hash celého certifikátu. Pred prístupom k~súboru \zv{CERT.RSA}, ktorý obsahuje X509 certifikát je nutné APK balíček rozbaliť. Na analýzu certifikátu je použité API obsiahnuté v~štandardnom java balíčku \zv{java.security.cert}.
 \subsection*{Informácie o~zdrojových súboroch\footnote{angl. resources}} 

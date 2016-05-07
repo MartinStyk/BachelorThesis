@@ -1,11 +1,13 @@
+\chapter{Zoznam atribútov APK súborov získaných analýzou}
+\label{zbieraneDataPriloha}
 \begin{longtable}{|l|p{6.3cm}|}
  \hline
     \textbf{Atribút}& \textbf{Popis} \\\hline\hline
 fileName & Názov analyzovaného APK súboru\\
-sourceOfFile & Zdroj súboru\\
+sourceOfFile & Zdroj APK súboru\\
 fileSize & Veľkosť APK súboru v~bajtoch\\
-dexSize & Veľkosť súboru \zv{classes.dex} v~bajtoch \\
-arscSize & Veľkosť súboru \zv{arscSize.dex} v~bajtoch \\
+dexSize & Veľkosť súboru \zv{classes.dex} v~bajtoch, po dekomprimácii \\
+arscSize & Veľkosť súboru \zv{arscSize.dex} v~bajtoch, po dekomprimácii \\
 packageName & Hodnota atribútu \zv{package} v~elemente \zv{manifest}\\
 versionCode & Hodnota atribútu \zv{android:versionCode} v~elemente \zv{manifest}\\
 installLocation & Hodnota atribútu \zv{android:installLocation} v~elemente \zv{manifest}\\
@@ -46,7 +48,7 @@ locale & Lokalizácie súboru \zv{string.xml}\\
 numberOfStringResource & Počet záznamov v~súbore \zv{string.xml}\\
 pngDrawables & Počet PNG obrázkov\\
 ninePatchDrawables & Počet 9.PNG obrázkov\\
-jpgDrawables &Počet JPG obrázkov\\
+jpgDrawables & Počet JPG obrázkov\\
 gifDrawables & Počet GIF obrázkov\\
 xmlDrawablesr & Počet XML obrázkov\\
 ldpiDrawables & Počet obrázkov v~ldpi priečinku\\
@@ -64,9 +66,9 @@ differentLayouts & Počet rôznych súborov v~\cesta{res/layout*} priečinkoch\\
 menu & Počet súborov v~\cesta{res/menu} priečinku\\
 dexHash & Hash súboru \zv{classes.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
 arscHash & Hash súboru \zv{arscHash.dex} prevzatý zo súboru \zv{MANIFEST.MF}\\
-drawableHash & Hashe a cesty k~súborov z~prečinku \cesta{res/drawable} prevzaté zo súboru \zv{MANIFEST.MF}\\
-layoutHash & Hashe a cesty k~súborov z~prečinku \cesta{res/layout} prevzaté zo súboru \zv{MANIFEST.MF}\\
-otherHash & Hashe a cesty k~všetkým ostatným súborov v~APK balíčku prevzaté zo súboru \zv{MANIFEST.MF}\\\hline   
+drawableHash & Hashe a cesty k~súborom z~prečinku \cesta{res/drawable} prevzaté zo súboru \zv{MANIFEST.MF}\\
+layoutHash & Hashe a cesty k~súborom z~prečinku \cesta{res/layout} prevzaté zo súboru \zv{MANIFEST.MF}\\
+otherHash & Hashe a cesty k~všetkým ostatným súborom v~APK balíčku prevzaté zo súboru \zv{MANIFEST.MF}\\\hline   
   \caption{Zbierané metadáta o~APK súbore}
   \label{tab:zbieraneData}
 \end{longtable}
