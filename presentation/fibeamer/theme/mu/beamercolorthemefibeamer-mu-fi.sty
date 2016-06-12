@@ -1,0 +1,139 @@
+%%
+%% This is file `beamercolorthemefibeamer-mu-fi.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% fi.dtx 
+%% 
+%% Copyright 2015  Vít Novotný <witiko@mail.muni.cz>
+%% Faculty of Informatics, Masaryk University (Brno, Czech Republic)
+%% 
+%% This work is based on the (Unofficial) University of Manchester
+%% Beamer Theme by Andrew Mundy <andrew.mundy@cs.man.ac.uk>.
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version
+%% 1.3 of this license or (at your option) any later version.
+%% The latest version of this license is available at
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Vít Novotný (VN).
+%% Send bug reports, requests for additions and questions
+%% either to the fithesis discussion forum at
+%% 
+%%   http://is.muni.cz/auth/df/fithesis-sazba/
+%% 
+%% or to the e-mail address <witiko@mail.muni.cz>.
+%% 
+%% 
+%% MODIFICATION ADVICE:
+%% 
+%% If you want to customize this file, it is best to make a copy of
+%% the source file(s) from which it was produced.  Use a different
+%% name for your copy(ies) and modify the copy(ies); this will ensure
+%% that your modifications do not get overwritten when you install a
+%% new release of the standard system.  You should also ensure that
+%% your modified source file does not generate any modified file with
+%% the same name as a standard file.
+%% 
+%% You will also need to produce your own, suitably named, .ins file to
+%% control the generation of files from your source file; this file
+%% should contain your own preambles for the files it generates, not
+%% those in the standard .ins files.
+%% 
+%% The names of the source files used are shown above.
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fibeamer/theme/mu/%
+  beamercolorthemefibeamer-mu-fi}[2016/01/14]
+\mode<presentation>
+  \definecolor{fibeamer@gold}{HTML}{a47312}
+  \definecolor{fibeamer@yellow}{HTML}{FFEB9C}
+  \definecolor{fibeamer@darkYellow}{HTML}{FFB600}
+  \definecolor{fibeamer@orange}{HTML}{FF5500}
+  \definecolor{fibeamer@gray}{HTML}{999999}
+  \colorlet{fibeamer@blue}{blue!60!fibeamer@gray}
+  \colorlet{fibeamer@backgroundInner}{fibeamer@gold}
+  \colorlet{fibeamer@backgroundOuter}{fibeamer@gold!60!black}
+  \renewenvironment{darkframes}{%
+    \begingroup
+      \fibeamer@darktrue
+      %% Structures
+      \setbeamercolor*{frametitle}{fg=fibeamer@gold!30!white}
+      \setbeamercolor*{framesubtitle}{fg=white}
+      %% Text
+      \setbeamercolor*{normal text}{fg=white, bg=fibeamer@gold}
+      \setbeamercolor*{structure}{fg=white, bg=fibeamer@gold}
+      \setbeamercolor*{alerted text}{%
+        fg=fibeamer@gold!70!white!20!fibeamer@darkYellow}
+      %% Items
+      \setbeamercolor*{item}{fg=fibeamer@gold!30!white}
+      \setbeamercolor*{footnote mark}{fg=fibeamer@gold!30!white}
+      %% Blocks
+      \setbeamercolor*{block title}{%
+        fg=white, bg=fibeamer@gold!60!white}
+      \setbeamercolor*{block title example}{%
+        fg=white, bg=fibeamer@gold!60!white}
+      \setbeamercolor*{block title alerted}{%
+        fg=white, bg=fibeamer@gold!90!white}
+      \setbeamercolor*{block body}{%
+        fg=fibeamer@gold,
+        bg=fibeamer@gray!15!white}
+      \usebeamercolor*{normal text}
+      % Code listings
+      \lstset{%
+        commentstyle=\color{green!30!white},
+        keywordstyle=\color{blue!30!white},
+        stringstyle=\color{fibeamer@gold!30!white}}
+      }{%
+    \endgroup}
+  %% Structures
+  \setbeamercolor{frametitle}{fg=black!75!white}
+  \setbeamercolor{framesubtitle}{fg=black!50!white}
+  %% Text
+  \setbeamercolor{normal text}{fg=black!75!white, bg=white}
+  \setbeamercolor{structure}{fg=black!75!white, bg=white}
+  \setbeamercolor{alerted text}{fg=fibeamer@orange}
+  \addtobeamertemplate{block begin}{%
+    \iffibeamer@dark % alerted text in plain block at dark slides
+      \setbeamercolor{alerted text}{%
+        fg=fibeamer@gold!30!fibeamer@darkYellow}%
+    \fi}{}
+  %% Items
+  \setbeamercolor{item}{fg=fibeamer@darkYellow}
+  \setbeamercolor{footnote mark}{fg=fibeamer@darkYellow}
+  %% Blocks
+  \setbeamercolor{block title}{%
+    fg=black!75!white, bg=fibeamer@yellow}
+  \setbeamercolor{block title example}{%
+    fg=black!75!white, bg=fibeamer@yellow}
+  \setbeamercolor{block title alerted}{%
+    fg=white, bg=black!75!white}
+  \setbeamercolor{block body}{%
+    fg=fibeamer@yellow, bg=black!75!white}
+  %% Title
+  \setbeamercolor{title}{fg=white, bg=fibeamer@gold}
+  % Code listings
+  \lstset{%
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    commentstyle=\color{green!60!black},
+    extendedchars=true,
+    keywordstyle=\color{fibeamer@blue},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stringstyle=\color{violet}}
+\mode
+<all>
+\endinput
+%%
+%% End of file `beamercolorthemefibeamer-mu-fi.sty'.
