@@ -38,41 +38,40 @@
 \usepackage{pgf-pie}
 \usepackage{longtable}
 \usepackage{tabularx}
-\usepackage{bchart}  % Code listings
+\usepackage{bchart} 
+ % Code listings
 \frenchspacing
 \begin{document}
   \frame{\maketitle}
+%  \AtBeginSection[]{% Print an outline at the beginning of sections
+%    \begin{frame}<beamer>
+%      \frametitle{Outline for Section \uv{\insertsectionhead}}
+%      \tableofcontents[currentsection]
+%    \end{frame}}
 
-  \AtBeginSection[]{% Print an outline at the beginning of sections
-    \begin{frame}<beamer>
-      \frametitle{Outline for Section \thesection}
-      \tableofcontents[currentsection]
-    \end{frame}}
-
-\section{Úvod}
-  \subsection{Ciele práce}
+\section{Ciele práce}
   \begin{frame}[label=lists]{Ciele práce}
     \begin{itemize}
     \item Vytvoriť rozsiahlu databázu inštalačných súborov pre OS Android (APK súborov)
-\item Popísať štruktúru a formát inštalačných súborov
-\item Vytvoriť nástroj na analýzu a získavanie metadát o inštalačných súboroch
-\item Určiť štatistické informácie o aplikáciách vo vytvorenej databáze
-\item Implementovať mechanizmus detekcie potenciálne modifikovaných APK súborov
+	\item Popísať štruktúru a formát inštalačných súborov
+	\item Vytvoriť nástroj na analýzu a získavanie metadát o inštalačných súboroch
+	\item Určiť štatistické informácie o aplikáciách vo vytvorenej databáze
+	\item Implementovať mechanizmus detekcie potenciálne modifikovaných APK súborov
     \end{itemize}  
   \end{frame}
 
-\subsection{OS Android}
-  \begin{frame}[label=lists]{OS Android}
-    \begin{itemize}
-    \item 84,7\% podiel na trhu s mobilnými operačnými systémami \cite{marketshare}
-\item Obľúbenosť vďaka veľkému počtu aplikácií
-\item Riziko jednoduchej možnosti modifikácie inštalačných súborov
-    \end{itemize}  
-  \end{frame}  
+%\subsection{OS Android}
+%  \begin{frame}[label=lists]{OS Android}
+%    \begin{itemize}
+%    \item 84,7\% podiel na trhu s mobilnými operačnými systémami \cite{marketshare}
+%\item Obľúbenosť vďaka veľkému počtu aplikácií
+%\item Riziko jednoduchej možnosti modifikácie inštalačných súborov
+%    \end{itemize}  
+%  \end{frame}  
   
 \section{Databáza inštalačných súborov}
-  \subsection{Zdroje aplikácií}
-  \begin{frame}[label=lists]{Distribúcia inštalačných APK súborov}
+  \begin{frame}[label=lists]{Databáza inštalačných súborov}
+    \framesubtitle{Uvažované zdroje APK súborov}
     \begin{itemize}
     \item Oficiálne zdroje
     	\begin{itemize} 
@@ -99,20 +98,21 @@
     \end{itemize}  
   \end{frame}  
   
-   \begin{frame}[label=lists]{Získavanie aplikácií z Google Play}
-    \begin{itemize}
-  		\item Možné len do zaregistrovaného Android zariadenia
-  		\item Aplikácia Google Play Crawler \cite{crawler}
-  		\item Projekt Playdrone
-  			\begin{itemize}
-  			\item Databáza 1\,100\,000 APK súborov z Google Play
-			\item November 2014
-  			\item Apk súbory dostupne vo verejnom archíve
-  			\end{itemize}
-    \end{itemize}  
-  \end{frame}  
-  \subsection{Automatizácia hromadného preberania APK súborov}
-  \begin{frame}[label=lists]{Automatizácia hromadného preberania APK súborov}
+%   \begin{frame}[label=lists]{Získavanie aplikácií z Google Play}
+%    \begin{itemize}
+%  		\item Možné len do zaregistrovaného Android zariadenia
+%  		\item Aplikácia Google Play Crawler \cite{crawler}
+%  		\item Projekt Playdrone
+%  			\begin{itemize}
+%  			\item Databáza 1\,100\,000 APK súborov z Google Play
+%			\item November 2014
+%  			\item Apk súbory dostupne vo verejnom archíve
+%  			\end{itemize}
+%    \end{itemize}  
+%  \end{frame}  
+
+  \begin{frame}[label=lists]{Databáza inštalačných súborov}
+    \framesubtitle{Automatizácia hromadného preberania APK súborov}
     \begin{itemize}
   		\item Implementovaný nástroj ApkDownloader\cite{apkdownloader}
   		\item Založený na princípe analýzy HTML kódu
@@ -122,17 +122,17 @@
   		\end{itemize}
 		\item Implementovaný pre nasledujúce lokality
   		\begin{itemize}
-  		\item archív projektu Playdrone
-  		\item www.appsapk.com
-  		\item www.apkmaniafull.com
-  		\item ww.androidapksfree.com
+  			\item archív projektu Playdrone
+	  		\item www.appsapk.com
+  			\item www.apkmaniafull.com
+  			\item ww.androidapksfree.com
   		\end{itemize}
-  		\item Jendoducho rozšíritelný, open source
+  		\item Jednoducho rozšíritelný, open source
     \end{itemize}  
   \end{frame}  
   
-  \subsection{Získavanie aplikácií}
-   \begin{frame}[label=lists]{Zdroje prevzatých aplikácií}
+  \begin{frame}[label=lists]{Databáza inštalačných súborov}
+    \framesubtitle{Výsledná databáza APK súborov}
 	\begin{itemize}
 	\item Celkovo získaných 20\,060 APK súborov, z toho viac ako 90\,\% pomocou ApkDownloader
 		\item Celková veľkosť prebraných APK súborov 192\,GB
@@ -140,9 +140,9 @@
     
     \begin{table}[htb]
 \centering
-  \begin{tabular}{|l r r|}
-    \hline
-    \textbf{Zdroj} & \textbf{Počet aplikácií} & \textbf{\%} \\\hline\hline
+  \begin{tabular}{l r r}
+    
+    \textbf{Zdroj} & \textbf{Počet aplikácií} & \textbf{\%} \\\hline
     Playdrone & 8\,200 & 40,9\\
     www.appsapk.com & 6\,470 & 32,3\\
     www.apkmaniafull.com & 2\,870 & 14,3\\
@@ -152,7 +152,6 @@
     www.uloz.to & 190 & 0,9\\
     \hline
     Spolu & 20\,060 & \\
-    \hline
   \end{tabular}
  % \caption{Zdroje prevzatých APK súborov}
   \label{tab:stahovanie}
@@ -163,43 +162,31 @@
   %%%%%%%%%%%%%%%%%%%%%%Struktura APK /ANALYZA 
 
 \section{Analýza inštalačných APK súborov}
-\subsection{Štruktúra APK súborov}
-  \begin{frame}[label=lists]{APK súbory}
-	\begin{itemize}
-		\item Android application package file
+  \begin{frame}[label=lists]{Analýza inštalačných APK súborov}
+   \framesubtitle{Štruktúra a formát APK súborov}
+    \begin{columns}
+      \column{.55\textwidth}
+       \begin{itemize}
 		\item Slúžia na distribúciu aplikácií na platforme Android
+		\item Android application package file	
 		\item Štruktúra vychádza z formátu JAR
 		\item Archívne súbory vo formáte ZIP
 		\item Typicka štruktúra s povinnými súbormi v pevne stanovenom formáte
-		\item Skompilované súbory
-		\item Binárne XML
-
-	\end{itemize}	    
- 
+		\item Niektore súbory v nečitateľnej skompilovanej podobe
+	\end{itemize}	  
+      \column{.45\textwidth}
+        	 \begin{figure}[htb]
+    \includegraphics[width=45mm]{images/apkStructure.pdf}
+  \label{fig:strukturaApk}
+\end{figure}
+    \end{columns}
+    
    \end{frame} 
-   
-    \begin{frame}[label=lists]{Štruktúra APK súborov}
-	 \begin{itemize}
-		\item Priečinok META-INF
-		\begin{itemize}
-			\item CERT.RSA
-			\item MANIFEST.MF
-			\item CERT.SF
-		\end{itemize}
-		\item Priečinok RES
-		\item Priečinok LIB
-		\item Priečinok ASSETS
-		\item Súbor resources.arsv
-		\item Súbor classes.dex
-		\item Súbor AndroidManifest.xml
-	
-	\end{itemize}	 
-   \end{frame} 
- 
- \subsection{Analýza APK súborov}
+    
   \begin{frame}[label=lists]{Analýza APK súborov}
+  \framesubtitle{Implementácia analýzy}
 	\begin{itemize}
-		\item Získanie detailných metadát o rôznych aspektoch APK súborov
+		\item Cieľom získanie detailných metadát o rôznych aspektoch APK súborov
 		\item Automatizované pomocou vyvinutej aplikácie ApkAnalyzer\cite{apkanalyzer}
 		\item Využitie nástroja ApkTool na dekompiláciu \cite{apktool}
 		\item Použitá knižnica AXML na konverziu binárnych XML súborov do čitateľnej formy \cite{axml}
@@ -208,7 +195,8 @@
    \end{frame} 
    
    
-    \begin{frame}[label=lists]{Príklady zbieraných informácií}
+   \begin{frame}[label=lists]{Analýza APK súborov}
+  		\framesubtitle{Príklady zbieraných informácií}
 	 \begin{itemize}
 			\item Základné informácie
 			\begin{itemize}
@@ -234,12 +222,12 @@
    \end{frame} 
 
 \subsection{Štatistiky nad databázou APK súborov}
-  \begin{frame}[label=lists]{Najčastejšie prístupové oprávnenia}
+  \begin{frame}[label=lists]{Štatistiky nad databázou APK súborov}
+  \framesubtitle{Najčastejšie prístupové oprávnenia}
 	 \begin{table}[!htbp]
 \centering
-  \begin{tabular}{|l r|}
-    \hline
-    Názov & \% \\\hline\hline
+  \begin{tabular}{l r}
+    \textbf{Názov} & \textbf{\%} \\\hline
     android.permission.internet & 92,9 \\
     android.permission.access\_network\_state & 87,9 \\
     android.permission.write\_external\_storage & 75,2 \\
@@ -248,8 +236,7 @@
     android.permission.access\_wifi\_state & 44,7 \\
     android.permission.vibrate & 43,6 \\
     android.permission.get\_accounts & 31,3 \\
-    android.permission.receive\_boot\_completed & 30,5 \\
-    \hline
+    android.permission.receive\_boot\_completed & 30,5 \\\hline
   \end{tabular}
   %\caption{Najpoužívanejšie prístupové oprávnenia}
   \label{tab:permissions}
@@ -257,7 +244,8 @@
   \end{frame} 
   
   
-   \begin{frame}[label=lists]{Algoritmy podpisu APK balíčkov}
+  \begin{frame}[label=lists]{Štatistiky nad databázou APK súborov}
+  \framesubtitle{Algoritmus podpisu APK balíčka}
 \begin{figure}[H]
 \centering
 \begin{bchart}[min=0,max=80,step=10,unit=\%]
@@ -275,17 +263,16 @@
 \bcskip{3pt}
 \end{bchart}
 
-\caption{Algoritmus podpisu APK balíčku}
 \label{fig:signAlg}
 \end{figure}
   \end{frame} 
 
-   \begin{frame}[label=lists]{Lokalizácie APK balíčkov}
+     \begin{frame}[label=lists]{Štatistiky nad databázou APK súborov}
+  \framesubtitle{Lokalizácie aplikácií}
 \begin{table}[htb]
 \centering
-  \begin{tabular}{|l l r|}
-    \hline
-    \textbf{Kód} & \textbf{Jazyk} &  \textbf{\%} \\\hline\hline
+  \begin{tabular}{l l r}
+    \textbf{Kód} & \textbf{Jazyk} &  \textbf{\%} \\\hline
     es & španielsky & 61,7 \\
     de & nemecký & 59,6 \\
     fr & francúzsky & 59,4 \\
@@ -304,9 +291,9 @@
 \end{itemize}
 \end{frame}
 
-\section{Detekcia pozmenenych APK balíčkov}
-\subsection{Prebalené APK súbory}
-  \begin{frame}[label=lists]{Prebalené APK súbory}
+\section{Detekcia prebalených APK súborov}
+  \begin{frame}[label=lists]{Detekcia prebalených APK súborov}
+ 	 \framesubtitle{Možnosti a hrozby modifikácie APK súborov}
 	\begin{itemize}
 	 	\item Apk súbory je možné rozbaliť, modifikovať a zabaliť do pôvodnej podoby
 	 	\item Android obsahuje ochranný mechanizmus
@@ -321,14 +308,9 @@
 	\end{itemize}
   \end{frame} 
   
-  \subsection{Detekcia prebalených APK súborov}
   \begin{frame}[label=lists]{Detekcia prebalených APK súborov}
+ 	 \framesubtitle{Detekcia prebalených APK súborov}
 	\begin{itemize}
-		\item Existujúce riešenia
-			\begin{itemize}
-				\item analýza zdrojového kódu
-				\item analýza súborov v APK balíčku
-			\end{itemize}
 	 	\item Implementovaná metóda detekcie nadmieru podobných APK súborov pomocou podobnosti súborov a metadát o aplikáciách
 	 	\item Malvérové aplikácie zachovávajú look \& feel pôvodných
 	 	\item Funkcionalita obsiahnutá v aplikácií ApkAnalyzer
@@ -336,8 +318,9 @@
 	 	\item Párové porovnanie APK súborov
 	\end{itemize}
   \end{frame} 
-  
-  \begin{frame}[label=lists]{Navrhnutá metóda detekcie prebalených APK súborov}
+
+    \begin{frame}[label=lists]{Detekcia prebalených APK súborov}
+ 	 \framesubtitle{Navrhnutá metóda detekcie prebalených APK súborov}
 	\begin{figure}[htb]
   \begin{center}
     \includegraphics[height=6.5cm]{images/diagram.jpg}
@@ -345,8 +328,8 @@
 \end{figure}
   \end{frame} 
 
-   \subsection{Výstup detekcie prebalených APK súborov}
-  \begin{frame}[label=lists]{Výstup detekcie prebalených APK súborov}
+  \begin{frame}[label=lists]{Detekcia prebalených APK súborov}
+   \framesubtitle{Výstup}
 	\begin{itemize}
 	\item Výstup párového porovnania obsahuje detailné rozdiely medzi jednotlivými aplikáciami
 	\item Na základe zhody certifikátu a verzie aplikácie sú vyhodnotené potenciálne škodlivé aplikácie
@@ -373,5 +356,4 @@
     
     \end{thebibliography}
   \end{frame}
-
 \end{document}
