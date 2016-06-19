@@ -41,6 +41,8 @@
 \usepackage{bchart} 
  % Code listings
 \frenchspacing
+
+\usecolortheme{spruce}
 \begin{document}
   \frame{\maketitle}
 %  \AtBeginSection[]{% Print an outline at the beginning of sections
@@ -53,67 +55,22 @@
   \begin{frame}[label=lists]{Ciele práce}
     \begin{itemize}
     \item Vytvoriť rozsiahlu databázu inštalačných súborov pre OS Android (APK súborov)
-	\item Popísať štruktúru a formát inštalačných súborov
 	\item Vytvoriť nástroj na analýzu a získavanie metadát o inštalačných súboroch
-	\item Určiť štatistické informácie o aplikáciách vo vytvorenej databáze
+	\item Určiť agregované informácie o APK súboroch na základe analýzy vytvorenej databázy
 	\item Implementovať mechanizmus detekcie potenciálne modifikovaných APK súborov
     \end{itemize}  
   \end{frame}
-
-%\subsection{OS Android}
-%  \begin{frame}[label=lists]{OS Android}
-%    \begin{itemize}
-%    \item 84,7\% podiel na trhu s mobilnými operačnými systémami \cite{marketshare}
-%\item Obľúbenosť vďaka veľkému počtu aplikácií
-%\item Riziko jednoduchej možnosti modifikácie inštalačných súborov
-%    \end{itemize}  
-%  \end{frame}  
   
 \section{Databáza inštalačných súborov}
   \begin{frame}[label=lists]{Databáza inštalačných súborov}
-    \framesubtitle{Uvažované zdroje APK súborov}
-    \begin{itemize}
-    \item Oficiálne zdroje
-    	\begin{itemize} 
-    	\item Obchod s aplikáciami Google Play Store 
-    	\end{itemize}
-    \item Neoficiálne zdroje
-    	\begin{itemize}
-    	\item Neoficiálne obchody s aplikáciami
-    		\begin{itemize}
-    		\item SlideMe
-    		\item Amazon Appstore 
-			\end{itemize}    	 
-    	\end{itemize}
-    	\begin{itemize}
-    	\item Stránky na zdieľanie obsahu
-    		\begin{itemize}
-    		\item ZippyShare
-    		\item UlozTo 
-			\end{itemize}    	 
-    	\end{itemize}
-    	\begin{itemize}
-    	\item Torrenty
-    	\end{itemize}
-    \end{itemize}  
-  \end{frame}  
-  
-%   \begin{frame}[label=lists]{Získavanie aplikácií z Google Play}
-%    \begin{itemize}
-%  		\item Možné len do zaregistrovaného Android zariadenia
-%  		\item Aplikácia Google Play Crawler \cite{crawler}
-%  		\item Projekt Playdrone
-%  			\begin{itemize}
-%  			\item Databáza 1\,100\,000 APK súborov z Google Play
-%			\item November 2014
-%  			\item Apk súbory dostupne vo verejnom archíve
-%  			\end{itemize}
-%    \end{itemize}  
-%  \end{frame}  
-
-  \begin{frame}[label=lists]{Databáza inštalačných súborov}
     \framesubtitle{Automatizácia hromadného preberania APK súborov}
+    
     \begin{itemize}
+    \item Zdroje 
+    \begin{itemize}
+    	\item Oficiálne zdroje - Google Play Store
+	    \item Neoficiálne zdroje - obchody tretích strán, torrenty
+    	\end{itemize}  
   		\item Implementovaný nástroj ApkDownloader\cite{apkdownloader}
   		\item Založený na princípe analýzy HTML kódu
   		\begin{itemize}
@@ -167,7 +124,6 @@
     \begin{columns}
       \column{.55\textwidth}
        \begin{itemize}
-		\item Slúžia na distribúciu aplikácií na platforme Android
 		\item Android application package file	
 		\item Štruktúra vychádza z formátu JAR
 		\item Archívne súbory vo formáte ZIP
@@ -186,10 +142,10 @@
   \begin{frame}[label=lists]{Analýza APK súborov}
   \framesubtitle{Implementácia analýzy}
 	\begin{itemize}
-		\item Cieľom získanie detailných metadát o rôznych aspektoch APK súborov
 		\item Automatizované pomocou vyvinutej aplikácie ApkAnalyzer\cite{apkanalyzer}
 		\item Využitie nástroja ApkTool na dekompiláciu \cite{apktool}
 		\item Použitá knižnica AXML na konverziu binárnych XML súborov do čitateľnej formy 
+		\item Cieľom získanie detailných metadát o rôznych aspektoch APK súborov
 		\item Celkovo získaných 63 atribútov každého APK súboru
 	\end{itemize}	    
    \end{frame} 
@@ -341,10 +297,6 @@
   \begin{frame}[label=bibliography]{Bibliografia}
     \framesubtitle{Analýza inštalačných APK súborov pre OS Android}
     \begin{thebibliography}{9}
-      \bibitem{marketshare}
-         WESTENBERG, Jimmy. Gartner: Android and iOS dominate smartphone
-market with 98 percent marketshare [online]. 2015 [cit. 2016-03-23]. Dostupný
-z: http://\-www.\-andro\-idautho\-ri\-ty.\-com/android-ios-hold-98-percent-marketshare-656624/.
       \bibitem{apkdownloader}
       MartinStyk/ApkDownloader [online]. 2012 [cit. 2016-04-26]. Dostupný z: http://github.com/MartinStyk/ApkDownloader.
           
